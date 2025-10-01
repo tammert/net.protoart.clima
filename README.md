@@ -1,2 +1,1 @@
-# nl.tammert.climacontrol
-Homey App for ClimaControl by ProtoArt
+Homey App for ClimaControl by ProtoART

@@ -1,0 +1,28 @@
+{
+  "id": "nl.tammert.climacontrol",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "ClimaControl"
+  },
+  "description": {
+    "en": "Control ClimaControl modules"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Sebastiaan Tammer",
+    "email": "sebastiaantammer@gmail.com"
+  }
+}

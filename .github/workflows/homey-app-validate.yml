@@ -1,0 +1,18 @@
+name: Validate Homey App
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  main:
+    name: Validate Homey App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Homey App Validate
+        uses: athombv/github-action-homey-app-validate@master
+        with:
+          level: verified
