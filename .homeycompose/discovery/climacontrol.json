@@ -1,0 +1,19 @@
+{
+  "type": "mdns-sd",
+  "mdns-sd": {
+    "name": "http",
+    "protocol": "tcp"
+  },
+  "id": "{{host}}",
+  "conditions": [
+    [
+      {
+        "field": "name",
+        "match": {
+          "type": "regex",
+          "value": "ClimaControl Web-UI"
+        }
+      }
+    ]
+  ]
+}
