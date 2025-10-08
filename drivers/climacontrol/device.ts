@@ -82,6 +82,8 @@ module.exports = class ClimaControlDevice extends Homey.Device {
             await this.setCapabilityValue('thermostat_mode', status.heatpump.mode);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
             await this.setCapabilityValue('measure_temperature', status.heatpump.actual_temperature);
+            await this.setCapabilityValue('measure_power', status.heatpump.pinp);
+            await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
         } catch (error) {
             this.error('Failed to update status:', error);
         }

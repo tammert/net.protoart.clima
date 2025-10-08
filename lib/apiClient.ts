@@ -9,16 +9,16 @@ export interface HeatpumpStatus {
     mode: 'heat' | 'cool' | 'auto' | 'fan' | 'dry';
     set_temperature: number;
     actual_temperature: number;
-    tinp: string;
-    oper: boolean;
-    isee: boolean;
-    optime: number;
-    tout: number;
-    pinp: number;
+    tinp: string; // temperature input
+    oper: boolean; // operation
+    isee: boolean; // 3D i-see sensor
+    optime: number; // operation time
+    tout: number; // temperature outside
+    pinp: number; // power input
     fan: string;
     vane: string;
     widevane: string;
-    tpcns: number;
+    tpcns: number; // total power consumption
 }
 
 export interface StatusResponse {
@@ -33,31 +33,31 @@ class ApiClient {
     }
 
     async getStatus(): Promise<any> {
-      try {
-        const response = await fetch(`${this.baseUrl}/control`);
-        const data = await response.json() as StatusResponse;
-        return data;
-      } catch (error) {
-        throw new Error(`Failed to get status: ${error}`);
-      }
+        try {
+            const response = await fetch(`${this.baseUrl}/control`);
+            const data = await response.json() as StatusResponse;
+            return data;
+        } catch (error) {
+            throw new Error(`Failed to get status: ${error}`);
+        }
     }
 
     async setPower(powerOn: boolean): Promise<boolean> {
-      try {
-        const powerValue = powerOn ? 'on' : 'off';
-        const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&power=${powerValue}`, {
-          method: 'GET',
-        });
+        try {
+            const powerValue = powerOn ? 'on' : 'off';
+            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&power=${powerValue}`, {
+                method: 'GET',
+            });
 
-        // Check if the request was successful
-        if (response.ok) {
-          return true;
+            // Check if the request was successful
+            if (response.ok) {
+                return true;
+            }
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+        } catch (error) {
+            throw new Error(`Failed to set power: ${error}`);
         }
-        throw new Error(`HTTP error! status: ${response.status}`);
-
-      } catch (error) {
-        throw new Error(`Failed to set power: ${error}`);
-      }
     }
 
     async setMode(mode: 'heat' | 'cool' | 'auto' | 'fan' | 'dry'): Promise<boolean> {

@@ -38,7 +38,9 @@
         "onoff",
         "measure_temperature",
         "target_temperature",
-        "thermostat_mode"
+        "thermostat_mode",
+        "measure_power",
+        "meter_power"
       ],
       "platforms": [
         "local"
