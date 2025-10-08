@@ -74,16 +74,20 @@ module.exports = class ClimaControlDevice extends Homey.Device {
     async updateStatus() {
         try {
             const status = await this.apiClient.getStatus();
-            this.log('Status received', status.heatpump);
+            if (Homey.env.NODE_ENV === 'development') {
+                this.log('Status received', status);
+            }
 
             // Update capabilities
             const isPowerOn = status.heatpump.power === 'on';
             await this.setCapabilityValue('onoff', isPowerOn);
             await this.setCapabilityValue('thermostat_mode', status.heatpump.mode);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
-            await this.setCapabilityValue('measure_temperature', status.heatpump.actual_temperature);
+            await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
             await this.setCapabilityValue('measure_power', status.heatpump.pinp);
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
+            await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
+            await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
         } catch (error) {
             this.error('Failed to update status:', error);
         }
