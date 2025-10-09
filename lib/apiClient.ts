@@ -6,7 +6,7 @@ export interface HeatpumpStatus {
     coolmin: number;
     coolmax: number;
     power: 'on' | 'off';
-    mode: 'heat' | 'cool' | 'auto' | 'fan' | 'dry';
+    mode: 'cool' | 'heat' | 'auto' | 'fan' | 'dry';
     set_temperature: number;
     actual_temperature: number;
     tinp: string; // temperature input
@@ -15,7 +15,7 @@ export interface HeatpumpStatus {
     optime: number; // operation time
     tout: number; // temperature outside
     pinp: number; // power input
-    fan: string;
+    fan: 'silent' | 'low' | 'med' | 'high' | 'superhigh' | 'auto';
     vane: string;
     widevane: string;
     tpcns: number; // total power consumption
@@ -105,6 +105,22 @@ class ApiClient {
         } catch (error) {
             throw new Error(`Failed to set temperature: ${error}`);
         }
+    }
+
+    async setFanMode(fan_mode: 'silent' | 'low' | 'med' | 'high' | 'superhigh' | 'auto'): Promise<boolean> {
+        try {
+            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&fan=${fan_mode}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                return true;
+            }
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+            } catch (error) {
+                throw new Error(`Failed to set fan mode: ${error}`);
+            }
     }
 }
 

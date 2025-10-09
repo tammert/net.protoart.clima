@@ -1,4 +1,4 @@
-import Homey from 'homey';
+import Homey, {Device} from 'homey';
 import ApiClient from "../../lib/apiClient";
 
 module.exports = class ClimaControlDevice extends Homey.Device {
@@ -10,7 +10,6 @@ module.exports = class ClimaControlDevice extends Homey.Device {
      */
     async onInit() {
         this.log('ClimaControlDevice has been initialized');
-
         // Get the device's IP address from store
         const address = this.getStoreValue('address');
         const port = this.getStoreValue('port');
@@ -20,7 +19,10 @@ module.exports = class ClimaControlDevice extends Homey.Device {
         // Initialize API client
         this.apiClient = new ApiClient(address, port);
 
-        // Register capability listener for onoff
+        // onoff
+        if (!this.hasCapability('onoff')) {
+            await this.addCapability('onoff');
+        }
         this.registerCapabilityListener('onoff', async (value: boolean) => {
             this.log('onoff capability changed to:', value);
 
@@ -34,7 +36,10 @@ module.exports = class ClimaControlDevice extends Homey.Device {
             }
         });
 
-        // Register capability listener for thermostat_mode
+        // thermostat_mode
+        if (!this.hasCapability('thermostat_mode')) {
+            await this.addCapability('thermostat_mode');
+        }
         this.registerCapabilityListener('thermostat_mode', async (value: string) => {
             this.log('thermostat_mode capability changed to:', value);
 
@@ -48,7 +53,10 @@ module.exports = class ClimaControlDevice extends Homey.Device {
             }
         });
 
-        // Register capability listener for target_temperature
+        // target_temperature
+        if (!this.hasCapability('target_temperature')) {
+            await this.addCapability('target_temperature');
+        }
         this.registerCapabilityListener('target_temperature', async (value: number) => {
             this.log('target_temperature capability changed to:', value);
 
@@ -62,13 +70,30 @@ module.exports = class ClimaControlDevice extends Homey.Device {
             }
         });
 
+        // fan_mode
+        if (!this.hasCapability('fan_mode')) {
+            await this.addCapability('fan_mode');
+        }
+        this.registerCapabilityListener('fan_mode', async (value: string) => {
+            this.log('fan_mode capability changed to:', value);
+
+            try {
+                await this.apiClient.setFanMode(value as 'silent' | 'low' | 'med' | 'high' | 'superhigh' | 'auto');
+                this.log('Fan mode set successfully to:', value);
+                await this.updateStatus();
+            } catch (error) {
+                this.error('Failed to set fan mode:', error);
+                throw new Error(`Failed to set fan mode to ${value}: ${error}`);
+            }
+        });
+
         // Get initial status
         await this.updateStatus();
 
-        // Poll for status every 60 seconds
+        // Poll for status every 300 seconds
         this.pollInterval = this.homey.setInterval(async () => {
             await this.updateStatus();
-        }, 60000);
+        }, 300000);
     }
 
     async updateStatus() {
@@ -88,6 +113,7 @@ module.exports = class ClimaControlDevice extends Homey.Device {
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
             await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
             await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
+            await this.setCapabilityValue('fan_mode', status.heatpump.fan);
         } catch (error) {
             this.error('Failed to update status:', error);
         }
