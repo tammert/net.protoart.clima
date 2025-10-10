@@ -25,5 +25,9 @@
     "name": "Sebastiaan Tammer",
     "email": "sebastiaantammer@gmail.com"
   },
-  "brandColor": "#2C6B78"
+  "brandColor": "#2C6B78",
+  "source": "https://github.com/tammert/net.protoart.clima",
+  "bugs": {
+    "url": "https://github.com/tammert/net.protoart.clima/issues"
+  }
 }
