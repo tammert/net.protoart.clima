@@ -1,8 +1,8 @@
 {
   "name": {
-    "en": "ClimaControl"
+    "en": "ClimateControl"
   },
-  "discovery": "climacontrol",
+  "discovery": "climatecontrol",
   "class": "airconditioning",
   "capabilities": [
     "onoff",

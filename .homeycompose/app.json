@@ -1,16 +1,16 @@
 {
-  "id": "nl.tammert.climacontrol",
-  "version": "1.0.0",
+  "id": "net.protoart.clima",
+  "version": "0.1.0",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
     "local"
   ],
   "name": {
-    "en": "ClimaControl"
+    "en": "ClimateControl"
   },
   "description": {
-    "en": "Control ClimaControl modules"
+    "en": "Upgrade your HVAC experience"
   },
   "category": [
     "climate"
@@ -25,5 +25,5 @@
     "name": "Sebastiaan Tammer",
     "email": "sebastiaantammer@gmail.com"
   },
-  "brandColor": "#00A8E1"
+  "brandColor": "#2C6B78"
 }

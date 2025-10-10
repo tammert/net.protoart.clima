@@ -1,17 +1,17 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
-  "id": "nl.tammert.climacontrol",
-  "version": "1.0.0",
+  "id": "net.protoart.clima",
+  "version": "0.1.0",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
     "local"
   ],
   "name": {
-    "en": "ClimaControl"
+    "en": "ClimateControl"
   },
   "description": {
-    "en": "Control ClimaControl modules"
+    "en": "Upgrade your HVAC experience"
   },
   "category": [
     "climate"
@@ -26,13 +26,13 @@
     "name": "Sebastiaan Tammer",
     "email": "sebastiaantammer@gmail.com"
   },
-  "brandColor": "#00A8E1",
+  "brandColor": "#2C6B78",
   "drivers": [
     {
       "name": {
-        "en": "ClimaControl"
+        "en": "ClimateControl"
       },
-      "discovery": "climacontrol",
+      "discovery": "climatecontrol",
       "class": "airconditioning",
       "capabilities": [
         "onoff",
@@ -52,9 +52,9 @@
         "lan"
       ],
       "images": {
-        "small": "/drivers/climacontrol/assets/images/small.png",
-        "large": "/drivers/climacontrol/assets/images/large.png",
-        "xlarge": "/drivers/climacontrol/assets/images/xlarge.png"
+        "small": "/drivers/climatecontrol/assets/images/small.png",
+        "large": "/drivers/climatecontrol/assets/images/large.png",
+        "xlarge": "/drivers/climatecontrol/assets/images/xlarge.png"
       },
       "pair": [
         {
@@ -152,11 +152,11 @@
           ]
         }
       },
-      "id": "climacontrol"
+      "id": "climatecontrol"
     }
   ],
   "discovery": {
-    "climacontrol": {
+    "climatecontrol": {
       "type": "mdns-sd",
       "mdns-sd": {
         "name": "http",
