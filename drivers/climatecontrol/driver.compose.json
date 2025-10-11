@@ -10,6 +10,7 @@
     "target_temperature",
     "fan_mode",
     "swing_mode",
+    "wide_vane_mode",
     "meter_power",
     "measure_power",
     "measure_temperature",
@@ -123,7 +124,7 @@
       ]
     },
     "swing_mode": {
-      "title": "Swing mode",
+      "title": "Vane mode",
       "values": [
         {
           "id": "auto",

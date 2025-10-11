@@ -138,6 +138,22 @@ class ApiClient {
             throw new Error(`Failed to set swing mode: ${error}`);
         }
     }
+
+    async setWideVane(wide_vane: 'auto' | 'swing' |'maxleft' | 'left' | 'middle' | 'right' | 'maxright'): Promise<boolean> {
+        try {
+            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&widevane=${wide_vane}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                return true;
+            }
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+        } catch (error) {
+            throw new Error(`Failed to set swing mode: ${error}`);
+        }
+    }
 }
 
 export default ApiClient;

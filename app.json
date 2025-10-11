@@ -44,6 +44,7 @@
         "target_temperature",
         "fan_mode",
         "swing_mode",
+        "wide_vane_mode",
         "meter_power",
         "measure_power",
         "measure_temperature",
@@ -157,7 +158,7 @@
           ]
         },
         "swing_mode": {
-          "title": "Swing mode",
+          "title": "Vane mode",
           "values": [
             {
               "id": "auto",
@@ -207,6 +208,61 @@
       "id": "climatecontrol"
     }
   ],
+  "capabilities": {
+    "wide_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Wide vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "maxleft",
+          "title": {
+            "en": "Left"
+          }
+        },
+        {
+          "id": "left",
+          "title": {
+            "en": "Middle-left"
+          }
+        },
+        {
+          "id": "middle",
+          "title": {
+            "en": "Middle"
+          }
+        },
+        {
+          "id": "right",
+          "title": {
+            "en": "Middle-right"
+          }
+        },
+        {
+          "id": "maxright",
+          "title": {
+            "en": "Right"
+          }
+        }
+      ]
+    }
+  },
   "discovery": {
     "climatecontrol": {
       "type": "mdns-sd",

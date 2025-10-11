@@ -1,4 +1,4 @@
-import Homey, {Device} from 'homey';
+import Homey from 'homey';
 import ApiClient from "../../lib/apiClient";
 
 module.exports = class ClimateControlDevice extends Homey.Device {
@@ -104,6 +104,23 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             }
         });
 
+        // wide_vane_mode
+        if (!this.hasCapability('wide_vane_mode')) {
+            await this.addCapability('wide_vane_mode');
+        }
+        this.registerCapabilityListener('wide_vane_mode', async (value: string) => {
+            this.log('wide_vane_mode capability changed to:', value);
+
+            try {
+                await this.apiClient.setWideVane(value as 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright');
+                this.log('wide vane set successfully to:', value);
+                await this.updateStatus();
+            } catch (error) {
+                this.error('failed to set wide vane:', error);
+                throw new Error(`failed to set wide vane to ${value}: ${error}`);
+            }
+        });
+
         // Get initial status
         await this.updateStatus();
 
@@ -122,12 +139,12 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             }
 
             // Update capabilities
-            const isPowerOn = status.heatpump.power === 'on';
-            await this.setCapabilityValue('onoff', isPowerOn);
+            await this.setCapabilityValue('onoff', status.heatpump.power === 'on');
             await this.setCapabilityValue('thermostat_mode', status.heatpump.mode);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
             await this.setCapabilityValue('fan_mode', status.heatpump.fan);
             await this.setCapabilityValue('swing_mode', status.heatpump.vane);
+            await this.setCapabilityValue('wide_vane_mode', status.heatpump.widevane);
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
             await this.setCapabilityValue('measure_power', status.heatpump.pinp);
             await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
