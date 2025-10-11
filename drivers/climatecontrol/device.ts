@@ -1,5 +1,5 @@
 import Homey from 'homey';
-import ApiClient from "../../lib/apiClient";
+import ApiClient, {ModeEnum, FanSpeedEnum, VaneEnum, WideVaneEnum} from "../../lib/apiClient";
 
 module.exports = class ClimateControlDevice extends Homey.Device {
     private apiClient!: ApiClient
@@ -44,7 +44,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             this.log('thermostat_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setMode(value as 'auto' | 'cool' | 'heat' | 'dry' | 'fan');
+                await this.apiClient.setMode(value as ModeEnum);
                 this.log('mode set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
@@ -78,7 +78,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             this.log('fan_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setFanSpeed(value as 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh');
+                await this.apiClient.setFanSpeed(value as FanSpeedEnum);
                 this.log('fan speed set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
@@ -95,7 +95,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             this.log('swing_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setSwingMode(value as 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5');
+                await this.apiClient.setSwingMode(value as VaneEnum);
                 this.log('swing mode set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
@@ -112,7 +112,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             this.log('wide_vane_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setWideVane(value as 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright');
+                await this.apiClient.setWideVane(value as WideVaneEnum);
                 this.log('wide vane set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {

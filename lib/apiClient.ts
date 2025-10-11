@@ -1,12 +1,17 @@
 import fetch from 'node-fetch';
 
+export type ModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type FanSpeedEnum = 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'
+export type VaneEnum = 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5'
+export type WideVaneEnum = 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright'
+
 export interface HeatpumpStatus {
     heatmin: number;
     heatmax: number;
     coolmin: number;
     coolmax: number;
     power: 'on' | 'off';
-    mode: 'cool' | 'heat' | 'auto' | 'fan' | 'dry';
+    mode: ModeEnum;
     set_temperature: number;
     actual_temperature: number;
     tinp: string; // temperature input
@@ -15,9 +20,9 @@ export interface HeatpumpStatus {
     optime: number; // operation time
     tout: number; // temperature outside
     pinp: number; // power input
-    fan: 'silent' | 'low' | 'med' | 'high' | 'superhigh' | 'auto';
-    vane: '1' | '2' | '3' | '4' | '5' | 'swing' | 'auto';
-    widevane: string;
+    fan: FanSpeedEnum;
+    vane: VaneEnum;
+    widevane: WideVaneEnum;
     tpcns: number; // total power consumption
 }
 
@@ -75,7 +80,7 @@ class ApiClient {
         }
     }
 
-    async setMode(mode: 'auto' | 'cool' | 'heat' | 'dry' | 'fan'): Promise<boolean> {
+    async setMode(mode: ModeEnum): Promise<boolean> {
         try {
             const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&mode=${mode}`, {
                 method: 'GET',
@@ -107,7 +112,7 @@ class ApiClient {
         }
     }
 
-    async setFanSpeed(fan_speed: 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'): Promise<boolean> {
+    async setFanSpeed(fan_speed: FanSpeedEnum): Promise<boolean> {
         try {
             const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&fan=${fan_speed}`, {
                 method: 'GET',
@@ -123,7 +128,7 @@ class ApiClient {
         }
     }
 
-    async setSwingMode(swing_mode: '1' | '2' | '3' | '4' | '5' | 'swing' | 'auto'): Promise<boolean> {
+    async setSwingMode(swing_mode: VaneEnum): Promise<boolean> {
         try {
             const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&vane=${swing_mode}`, {
                 method: 'GET',
@@ -139,7 +144,7 @@ class ApiClient {
         }
     }
 
-    async setWideVane(wide_vane: 'auto' | 'swing' |'maxleft' | 'left' | 'middle' | 'right' | 'maxright'): Promise<boolean> {
+    async setWideVane(wide_vane: WideVaneEnum): Promise<boolean> {
         try {
             const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&widevane=${wide_vane}`, {
                 method: 'GET',
