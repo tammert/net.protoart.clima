@@ -14,7 +14,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         const address = this.getStoreValue('address');
         const port = this.getStoreValue('port');
 
-        this.log('Device address:', `${address}:${port}`);
+        this.log('device address:', `${address}:${port}`);
 
         // Initialize API client
         this.apiClient = new ApiClient(address, port);
@@ -28,11 +28,11 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setPower(value);
-                this.log('Power set successfully to:', value);
+                this.log('power set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
-                this.error('Failed to set power:', error);
-                throw new Error(`Failed to turn ${value ? 'on' : 'off'}: ${error}`);
+                this.error('failed to set power:', error);
+                throw new Error(`failed to turn ${value ? 'on' : 'off'}: ${error}`);
             }
         });
 
@@ -44,12 +44,12 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             this.log('thermostat_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setMode(value as 'heat' | 'cool' | 'auto' | 'fan' | 'dry');
-                this.log('Mode set successfully to:', value);
+                await this.apiClient.setMode(value as 'auto' | 'cool' | 'heat' | 'dry' | 'fan');
+                this.log('mode set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
-                this.error('Failed to set mode:', error);
-                throw new Error(`Failed to set mode to ${value}: ${error}`);
+                this.error('failed to set mode:', error);
+                throw new Error(`failed to set mode to ${value}: ${error}`);
             }
         });
 
@@ -62,11 +62,11 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setTemperature(value);
-                this.log('Temperature set successfully to:', value);
+                this.log('temperature set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
-                this.error('Failed to set temperature:', error);
-                throw new Error(`Failed to set temperature to ${value}: ${error}`);
+                this.error('failed to set temperature:', error);
+                throw new Error(`failed to set temperature to ${value}: ${error}`);
             }
         });
 
@@ -78,12 +78,29 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             this.log('fan_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setFanMode(value as 'silent' | 'low' | 'med' | 'high' | 'superhigh' | 'auto');
-                this.log('Fan mode set successfully to:', value);
+                await this.apiClient.setFanSpeed(value as 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh');
+                this.log('fan speed set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
-                this.error('Failed to set fan mode:', error);
-                throw new Error(`Failed to set fan mode to ${value}: ${error}`);
+                this.error('failed to set fan speed:', error);
+                throw new Error(`failed to set fan speed to ${value}: ${error}`);
+            }
+        });
+
+        // swing_mode
+        if (!this.hasCapability('swing_mode')) {
+            await this.addCapability('swing_mode');
+        }
+        this.registerCapabilityListener('swing_mode', async (value: string) => {
+            this.log('swing_mode capability changed to:', value);
+
+            try {
+                await this.apiClient.setSwingMode(value as 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5');
+                this.log('swing mode set successfully to:', value);
+                await this.updateStatus();
+            } catch (error) {
+                this.error('failed to set swing mode:', error);
+                throw new Error(`failed to set swing mode to ${value}: ${error}`);
             }
         });
 
@@ -101,7 +118,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         try {
             const status = await this.apiClient.getStatus();
             if (Homey.env.NODE_ENV === 'development') {
-                this.log('Status received', status);
+                this.log('status received', status);
             }
 
             // Update capabilities
@@ -109,14 +126,15 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             await this.setCapabilityValue('onoff', isPowerOn);
             await this.setCapabilityValue('thermostat_mode', status.heatpump.mode);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
-            await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
-            await this.setCapabilityValue('measure_power', status.heatpump.pinp);
+            await this.setCapabilityValue('fan_mode', status.heatpump.fan);
+            await this.setCapabilityValue('swing_mode', status.heatpump.vane);
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
+            await this.setCapabilityValue('measure_power', status.heatpump.pinp);
+            await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
             await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
             await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
-            await this.setCapabilityValue('fan_mode', status.heatpump.fan);
         } catch (error) {
-            this.error('Failed to update status:', error);
+            this.error('failed to update status:', error);
         }
     }
 

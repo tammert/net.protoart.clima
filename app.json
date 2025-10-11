@@ -43,6 +43,7 @@
         "thermostat_mode",
         "target_temperature",
         "fan_mode",
+        "swing_mode",
         "meter_power",
         "measure_power",
         "measure_temperature",
@@ -83,6 +84,12 @@
           "title": "Mode",
           "values": [
             {
+              "id": "auto",
+              "title": {
+                "en": "Auto"
+              }
+            },
+            {
               "id": "cool",
               "title": {
                 "en": "Cool"
@@ -95,9 +102,9 @@
               }
             },
             {
-              "id": "auto",
+              "id": "dry",
               "title": {
-                "en": "Auto"
+                "en": "Dry"
               }
             },
             {
@@ -105,18 +112,18 @@
               "title": {
                 "en": "Fan"
               }
-            },
-            {
-              "id": "dry",
-              "title": {
-                "en": "Dry"
-              }
             }
           ]
         },
         "fan_mode": {
           "title": "Fan speed",
           "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto"
+              }
+            },
             {
               "id": "silent",
               "title": {
@@ -146,11 +153,52 @@
               "title": {
                 "en": "Max (5)"
               }
-            },
+            }
+          ]
+        },
+        "swing_mode": {
+          "title": "Swing mode",
+          "values": [
             {
               "id": "auto",
               "title": {
                 "en": "Auto"
+              }
+            },
+            {
+              "id": "swing",
+              "title": {
+                "en": "Swing"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Up"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Middle-up"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "Middle"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "Middle-down"
+              }
+            },
+            {
+              "id": "5",
+              "title": {
+                "en": "Down"
               }
             }
           ]

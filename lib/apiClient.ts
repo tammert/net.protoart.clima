@@ -16,7 +16,7 @@ export interface HeatpumpStatus {
     tout: number; // temperature outside
     pinp: number; // power input
     fan: 'silent' | 'low' | 'med' | 'high' | 'superhigh' | 'auto';
-    vane: string;
+    vane: '1' | '2' | '3' | '4' | '5' | 'swing' | 'auto';
     widevane: string;
     tpcns: number; // total power consumption
 }
@@ -75,7 +75,7 @@ class ApiClient {
         }
     }
 
-    async setMode(mode: 'heat' | 'cool' | 'auto' | 'fan' | 'dry'): Promise<boolean> {
+    async setMode(mode: 'auto' | 'cool' | 'heat' | 'dry' | 'fan'): Promise<boolean> {
         try {
             const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&mode=${mode}`, {
                 method: 'GET',
@@ -107,9 +107,9 @@ class ApiClient {
         }
     }
 
-    async setFanMode(fan_mode: 'silent' | 'low' | 'med' | 'high' | 'superhigh' | 'auto'): Promise<boolean> {
+    async setFanSpeed(fan_speed: 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&fan=${fan_mode}`, {
+            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&fan=${fan_speed}`, {
                 method: 'GET',
             });
 
@@ -118,9 +118,25 @@ class ApiClient {
             }
             throw new Error(`HTTP error! status: ${response.status}`);
 
-            } catch (error) {
-                throw new Error(`Failed to set fan mode: ${error}`);
+        } catch (error) {
+            throw new Error(`Failed to set fan mode: ${error}`);
+        }
+    }
+
+    async setSwingMode(swing_mode: '1' | '2' | '3' | '4' | '5' | 'swing' | 'auto'): Promise<boolean> {
+        try {
+            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&vane=${swing_mode}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                return true;
             }
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+        } catch (error) {
+            throw new Error(`Failed to set swing mode: ${error}`);
+        }
     }
 }
 
