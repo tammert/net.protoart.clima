@@ -1,9 +1,8 @@
 import Homey from 'homey';
-import ApiClient, {ModeEnum, FanSpeedEnum, VaneEnum, WideVaneEnum} from "../../lib/apiClient";
+import ApiClient, {OperatingModeEnum, FanSpeedEnum, VaneModeEnum, WideVaneModeEnum} from "../../lib/apiClient";
 
 module.exports = class ClimateControlDevice extends Homey.Device {
     private apiClient!: ApiClient
-    private pollInterval?: NodeJS.Timeout;
 
     /**
      * onInit is called when the device is initialized.
@@ -18,6 +17,9 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
         // Initialize API client
         this.apiClient = new ApiClient(address, port);
+
+        // Get initial status
+        await this.updateStatus();
 
         // onoff
         if (!this.hasCapability('onoff')) {
@@ -36,20 +38,20 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             }
         });
 
-        // thermostat_mode
-        if (!this.hasCapability('thermostat_mode')) {
-            await this.addCapability('thermostat_mode');
+        // operating_mode
+        if (!this.hasCapability('operating_mode')) {
+            await this.addCapability('operating_mode');
         }
-        this.registerCapabilityListener('thermostat_mode', async (value: string) => {
-            this.log('thermostat_mode capability changed to:', value);
+        this.registerCapabilityListener('operating_mode', async (value: string) => {
+            this.log('operating_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setMode(value as ModeEnum);
-                this.log('mode set successfully to:', value);
+                await this.apiClient.setOperatingMode(value as OperatingModeEnum);
+                this.log('operating mode set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
-                this.error('failed to set mode:', error);
-                throw new Error(`failed to set mode to ${value}: ${error}`);
+                this.error('failed to set operating mode:', error);
+                throw new Error(`failed to set operating mode to ${value}: ${error}`);
             }
         });
 
@@ -70,12 +72,12 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             }
         });
 
-        // fan_mode
-        if (!this.hasCapability('fan_mode')) {
-            await this.addCapability('fan_mode');
+        // fan_speed
+        if (!this.hasCapability('fan_speed')) {
+            await this.addCapability('fan_speed');
         }
-        this.registerCapabilityListener('fan_mode', async (value: string) => {
-            this.log('fan_mode capability changed to:', value);
+        this.registerCapabilityListener('fan_speed', async (value: string) => {
+            this.log('fan_speed capability changed to:', value);
 
             try {
                 await this.apiClient.setFanSpeed(value as FanSpeedEnum);
@@ -87,20 +89,20 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             }
         });
 
-        // swing_mode
-        if (!this.hasCapability('swing_mode')) {
-            await this.addCapability('swing_mode');
+        // vane_mode
+        if (!this.hasCapability('vane_mode')) {
+            await this.addCapability('vane_mode');
         }
-        this.registerCapabilityListener('swing_mode', async (value: string) => {
-            this.log('swing_mode capability changed to:', value);
+        this.registerCapabilityListener('vane_mode', async (value: string) => {
+            this.log('vane_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setSwingMode(value as VaneEnum);
-                this.log('swing mode set successfully to:', value);
+                await this.apiClient.setVaneMode(value as VaneModeEnum);
+                this.log('vane mode set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
-                this.error('failed to set swing mode:', error);
-                throw new Error(`failed to set swing mode to ${value}: ${error}`);
+                this.error('failed to set vane mode:', error);
+                throw new Error(`failed to set vane mode to ${value}: ${error}`);
             }
         });
 
@@ -112,7 +114,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             this.log('wide_vane_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setWideVane(value as WideVaneEnum);
+                await this.apiClient.setWideVaneMode(value as WideVaneModeEnum);
                 this.log('wide vane set successfully to:', value);
                 await this.updateStatus();
             } catch (error) {
@@ -121,29 +123,25 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             }
         });
 
-        // Get initial status
-        await this.updateStatus();
-
         // Poll for status every 60 seconds
-        const pollingInterval = this.homey.settings.get('pollingInterval') || 60000;
-        this.pollInterval = this.homey.setInterval(async () => {
+        this.homey.setInterval(async () => {
             await this.updateStatus();
-        }, pollingInterval);
+        }, 60000);
     }
 
     async updateStatus() {
         try {
             const status = await this.apiClient.getStatus();
             if (Homey.env.NODE_ENV === 'development') {
-                this.log('status received', status);
+                this.log('status received:\n', status);
             }
 
             // Update capabilities
             await this.setCapabilityValue('onoff', status.heatpump.power === 'on');
-            await this.setCapabilityValue('thermostat_mode', status.heatpump.mode);
+            await this.setCapabilityValue('operating_mode', status.heatpump.mode);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
-            await this.setCapabilityValue('fan_mode', status.heatpump.fan);
-            await this.setCapabilityValue('swing_mode', status.heatpump.vane);
+            await this.setCapabilityValue('fan_speed', status.heatpump.fan);
+            await this.setCapabilityValue('vane_mode', status.heatpump.vane);
             await this.setCapabilityValue('wide_vane_mode', status.heatpump.widevane);
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
             await this.setCapabilityValue('measure_power', status.heatpump.pinp);

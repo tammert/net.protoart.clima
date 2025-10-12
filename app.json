@@ -27,6 +27,7 @@
     "email": "sebastiaantammer@gmail.com"
   },
   "brandColor": "#2C6B78",
+  "homepage": "https://clima.protoart.net",
   "source": "https://github.com/tammert/net.protoart.clima",
   "bugs": {
     "url": "https://github.com/tammert/net.protoart.clima/issues"
@@ -40,11 +41,11 @@
       "class": "airconditioning",
       "capabilities": [
         "onoff",
-        "thermostat_mode",
-        "target_temperature",
-        "fan_mode",
-        "swing_mode",
+        "operating_mode",
+        "fan_speed",
+        "vane_mode",
         "wide_vane_mode",
+        "target_temperature",
         "meter_power",
         "measure_power",
         "measure_temperature",
@@ -80,135 +81,153 @@
           "min": 16,
           "max": 31,
           "step": 0.5
-        },
-        "thermostat_mode": {
-          "title": "Mode",
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "cool",
-              "title": {
-                "en": "Cool"
-              }
-            },
-            {
-              "id": "heat",
-              "title": {
-                "en": "Heat"
-              }
-            },
-            {
-              "id": "dry",
-              "title": {
-                "en": "Dry"
-              }
-            },
-            {
-              "id": "fan",
-              "title": {
-                "en": "Fan"
-              }
-            }
-          ]
-        },
-        "fan_mode": {
-          "title": "Fan speed",
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "silent",
-              "title": {
-                "en": "Silent (1)"
-              }
-            },
-            {
-              "id": "low",
-              "title": {
-                "en": "Low (2)"
-              }
-            },
-            {
-              "id": "med",
-              "title": {
-                "en": "Medium (3)"
-              }
-            },
-            {
-              "id": "high",
-              "title": {
-                "en": "High (4)"
-              }
-            },
-            {
-              "id": "superhigh",
-              "title": {
-                "en": "Max (5)"
-              }
-            }
-          ]
-        },
-        "swing_mode": {
-          "title": "Vane mode",
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "swing",
-              "title": {
-                "en": "Swing"
-              }
-            },
-            {
-              "id": "1",
-              "title": {
-                "en": "Up"
-              }
-            },
-            {
-              "id": "2",
-              "title": {
-                "en": "Middle-up"
-              }
-            },
-            {
-              "id": "3",
-              "title": {
-                "en": "Middle"
-              }
-            },
-            {
-              "id": "4",
-              "title": {
-                "en": "Middle-down"
-              }
-            },
-            {
-              "id": "5",
-              "title": {
-                "en": "Down"
-              }
-            }
-          ]
         }
       },
       "id": "climatecontrol"
     }
   ],
   "capabilities": {
+    "fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "silent",
+          "title": {
+            "en": "Silent (1)"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low (2)"
+          }
+        },
+        {
+          "id": "med",
+          "title": {
+            "en": "Medium (3)"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High (4)"
+          }
+        },
+        {
+          "id": "superhigh",
+          "title": {
+            "en": "Max (5)"
+          }
+        }
+      ]
+    },
+    "operating_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry"
+          }
+        },
+        {
+          "id": "fan",
+          "title": {
+            "en": "Fan"
+          }
+        }
+      ]
+    },
+    "vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Up"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Middle-up"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Middle"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Middle-down"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "Down"
+          }
+        }
+      ]
+    },
     "wide_vane_mode": {
       "type": "enum",
       "title": {

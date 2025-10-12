@@ -1,9 +1,9 @@
 import fetch from 'node-fetch';
 
-export type ModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type OperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
 export type FanSpeedEnum = 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'
-export type VaneEnum = 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5'
-export type WideVaneEnum = 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright'
+export type VaneModeEnum = 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5'
+export type WideVaneModeEnum = 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright'
 
 export interface HeatpumpStatus {
     heatmin: number;
@@ -11,7 +11,7 @@ export interface HeatpumpStatus {
     coolmin: number;
     coolmax: number;
     power: 'on' | 'off';
-    mode: ModeEnum;
+    mode: OperatingModeEnum;
     set_temperature: number;
     actual_temperature: number;
     tinp: string; // temperature input
@@ -21,8 +21,8 @@ export interface HeatpumpStatus {
     tout: number; // temperature outside
     pinp: number; // power input
     fan: FanSpeedEnum;
-    vane: VaneEnum;
-    widevane: WideVaneEnum;
+    vane: VaneModeEnum;
+    widevane: WideVaneModeEnum;
     tpcns: number; // total power consumption
 }
 
@@ -80,7 +80,7 @@ class ApiClient {
         }
     }
 
-    async setMode(mode: ModeEnum): Promise<boolean> {
+    async setOperatingMode(mode: OperatingModeEnum): Promise<boolean> {
         try {
             const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&mode=${mode}`, {
                 method: 'GET',
@@ -128,9 +128,9 @@ class ApiClient {
         }
     }
 
-    async setSwingMode(swing_mode: VaneEnum): Promise<boolean> {
+    async setVaneMode(vane_mode: VaneModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&vane=${swing_mode}`, {
+            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&vane=${vane_mode}`, {
                 method: 'GET',
             });
 
@@ -144,9 +144,9 @@ class ApiClient {
         }
     }
 
-    async setWideVane(wide_vane: WideVaneEnum): Promise<boolean> {
+    async setWideVaneMode(wide_vane_mode: WideVaneModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&widevane=${wide_vane}`, {
+            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&widevane=${wide_vane_mode}`, {
                 method: 'GET',
             });
 
