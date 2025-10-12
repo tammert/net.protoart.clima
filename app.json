@@ -32,6 +32,236 @@
   "bugs": {
     "url": "https://github.com/tammert/net.protoart.clima/issues"
   },
+  "flow": {
+    "actions": [
+      {
+        "id": "set_fan_speed",
+        "title": {
+          "en": "Set fan speed"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent (1)"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low (2)"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium (3)"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High (4)"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max (5)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_operating_mode",
+        "title": {
+          "en": "Set operating mode"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_vane_mode",
+        "title": {
+          "en": "Set vane mode"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Up"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Middle-up"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Middle-down"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "Down"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_wide_vane_mode",
+        "title": {
+          "en": "Set wide vane mode"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Middle-left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Middle-right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Right"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "drivers": [
     {
       "name": {
