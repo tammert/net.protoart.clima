@@ -33,6 +33,460 @@
     "url": "https://github.com/tammert/net.protoart.clima/issues"
   },
   "flow": {
+    "conditions": [
+      {
+        "id": "fan_speed_is",
+        "title": {
+          "en": "Fan speed is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent (1)"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low (2)"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium (3)"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High (4)"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max (5)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fan_speed_is_not",
+        "title": {
+          "en": "Fan speed is not"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent (1)"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low (2)"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium (3)"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High (4)"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max (5)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operating_mode_is",
+        "title": {
+          "en": "Operating mode is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operating_mode_is_not",
+        "title": {
+          "en": "Operating mode is not"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vane_mode_is",
+        "title": {
+          "en": "Vane mode is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Up"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Middle-up"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Middle-down"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "Down"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vane_mode_is_not",
+        "title": {
+          "en": "Vane mode is not"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Up"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Middle-up"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Middle-down"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "Down"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wide_vane_mode_is",
+        "title": {
+          "en": "Wide vane mode is"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Middle-left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Middle-right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Right"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wide_vane_mode_is_not",
+        "title": {
+          "en": "Wide vane mode is not"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          },
+          {
+            "name": "wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Middle-left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Middle-right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Right"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "set_fan_speed",

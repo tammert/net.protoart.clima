@@ -2,7 +2,33 @@ import Homey from 'homey';
 
 class ClimateControlDriver extends Homey.Driver {
     async onInit() {
-        // set Flow card listeners
+        // Condition ("And...") flow card listeners
+        this.homey.flow.getConditionCard("fan_speed_is").registerRunListener(async (args, state) => {
+            return args.fan_speed === args.device.getCapabilityValue("fan_speed");
+        });
+        this.homey.flow.getConditionCard("fan_speed_is_not").registerRunListener(async (args, state) => {
+            return args.fan_speed !== args.device.getCapabilityValue("fan_speed");
+        });
+        this.homey.flow.getConditionCard("operating_mode_is").registerRunListener(async (args, state) => {
+            return args.operating_mode === args.device.getCapabilityValue("operating_mode");
+        });
+        this.homey.flow.getConditionCard("operating_mode_is_not").registerRunListener(async (args, state) => {
+            return args.operating_mode !== args.device.getCapabilityValue("operating_mode");
+        });
+        this.homey.flow.getConditionCard("vane_mode_is").registerRunListener(async (args, state) => {
+            return args.vane_mode === args.device.getCapabilityValue("vane_mode");
+        });
+        this.homey.flow.getConditionCard("vane_mode_is_not").registerRunListener(async (args, state) => {
+            return args.vane_mode !== args.device.getCapabilityValue("vane_mode");
+        });
+        this.homey.flow.getConditionCard("wide_vane_mode_is").registerRunListener(async (args, state) => {
+            return args.wide_vane_mode === args.device.getCapabilityValue("wide_vane_mode");
+        });
+        this.homey.flow.getConditionCard("wide_vane_mode_is_not").registerRunListener(async (args, state) => {
+            return args.wide_vane_mode !== args.device.getCapabilityValue("wide_vane_mode");
+        });
+
+        // Action ("Then...") flow card listeners
         this.homey.flow.getActionCard('set_fan_speed').registerRunListener(async (args, state) => {
             this.log("set_fan_speed triggered")
             await args.device.triggerCapabilityListener('fan_speed', args.fan_speed);
