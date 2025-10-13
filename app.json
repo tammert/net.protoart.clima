@@ -39,6 +39,9 @@
         "title": {
           "en": "Fan speed is"
         },
+        "titleFormatted": {
+          "en": "Fan speed is [[fan_speed]]"
+        },
         "args": [
           {
             "type": "device",
@@ -93,6 +96,9 @@
         "id": "fan_speed_is_not",
         "title": {
           "en": "Fan speed is not"
+        },
+        "titleFormatted": {
+          "en": "Fan speed is not [[fan_speed]]"
         },
         "args": [
           {
@@ -149,6 +155,9 @@
         "title": {
           "en": "Operating mode is"
         },
+        "titleFormatted": {
+          "en": "Operating mode is [[operating_mode]]"
+        },
         "args": [
           {
             "type": "device",
@@ -198,6 +207,9 @@
         "title": {
           "en": "Operating mode is not"
         },
+        "titleFormatted": {
+          "en": "Operating mode is not [[operating_mode]]"
+        },
         "args": [
           {
             "type": "device",
@@ -246,6 +258,9 @@
         "id": "vane_mode_is",
         "title": {
           "en": "Vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Vane mode is [[vane_mode]]"
         },
         "args": [
           {
@@ -308,6 +323,9 @@
         "title": {
           "en": "Vane mode is not"
         },
+        "titleFormatted": {
+          "en": "Vane mode is not [[vane_mode]]"
+        },
         "args": [
           {
             "type": "device",
@@ -368,6 +386,9 @@
         "id": "wide_vane_mode_is",
         "title": {
           "en": "Wide vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode is [[wide_vane_mode]]"
         },
         "args": [
           {
@@ -430,6 +451,9 @@
         "title": {
           "en": "Wide vane mode is not"
         },
+        "titleFormatted": {
+          "en": "Wide vane mode is not [[wide_vane_mode]]"
+        },
         "args": [
           {
             "type": "device",
@@ -491,7 +515,10 @@
       {
         "id": "set_fan_speed",
         "title": {
-          "en": "Set fan speed"
+          "en": "Set fan speed to"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[fan_speed]]"
         },
         "args": [
           {
@@ -546,7 +573,10 @@
       {
         "id": "set_operating_mode",
         "title": {
-          "en": "Set operating mode"
+          "en": "Set operating mode to"
+        },
+        "titleFormatted": {
+          "en": "Set operating mode to [[operating_mode]]"
         },
         "args": [
           {
@@ -595,7 +625,10 @@
       {
         "id": "set_vane_mode",
         "title": {
-          "en": "Set vane mode"
+          "en": "Set vane mode to"
+        },
+        "titleFormatted": {
+          "en": "Set vane mode to [[vane_mode]]"
         },
         "args": [
           {
@@ -656,7 +689,10 @@
       {
         "id": "set_wide_vane_mode",
         "title": {
-          "en": "Set wide vane mode"
+          "en": "Set wide vane mode to"
+        },
+        "titleFormatted": {
+          "en": "Set wide vane mode to [[wide_vane_mode]]"
         },
         "args": [
           {
