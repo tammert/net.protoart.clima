@@ -30,8 +30,8 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setPower(value);
+                await this.setCapabilityValue('onoff', value);
                 this.log('power set successfully to:', value);
-                await this.updateStatus();
             } catch (error) {
                 this.error('failed to set power:', error);
                 throw new Error(`failed to turn ${value ? 'on' : 'off'}: ${error}`);
@@ -47,8 +47,8 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setOperatingMode(value as OperatingModeEnum);
+                await this.setCapabilityValue('operating_mode', value);
                 this.log('operating mode set successfully to:', value);
-                await this.updateStatus();
             } catch (error) {
                 this.error('failed to set operating mode:', error);
                 throw new Error(`failed to set operating mode to ${value}: ${error}`);
@@ -64,8 +64,8 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setTemperature(value);
+                await this.setCapabilityValue('target_temperature', value);
                 this.log('temperature set successfully to:', value);
-                await this.updateStatus();
             } catch (error) {
                 this.error('failed to set temperature:', error);
                 throw new Error(`failed to set temperature to ${value}: ${error}`);
@@ -81,8 +81,8 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setFanSpeed(value as FanSpeedEnum);
+                await this.setCapabilityValue('fan_speed', value);
                 this.log('fan speed set successfully to:', value);
-                await this.updateStatus();
             } catch (error) {
                 this.error('failed to set fan speed:', error);
                 throw new Error(`failed to set fan speed to ${value}: ${error}`);
@@ -98,8 +98,8 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setVaneMode(value as VaneModeEnum);
+                await this.setCapabilityValue('vane_mode', value);
                 this.log('vane mode set successfully to:', value);
-                await this.updateStatus();
             } catch (error) {
                 this.error('failed to set vane mode:', error);
                 throw new Error(`failed to set vane mode to ${value}: ${error}`);
@@ -115,8 +115,8 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setWideVaneMode(value as WideVaneModeEnum);
+                await this.setCapabilityValue('wide_vane_mode', value);
                 this.log('wide vane set successfully to:', value);
-                await this.updateStatus();
             } catch (error) {
                 this.error('failed to set wide vane:', error);
                 throw new Error(`failed to set wide vane to ${value}: ${error}`);
@@ -146,6 +146,10 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
             await this.setCapabilityValue('measure_power', status.heatpump.pinp);
             await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
+            if (status.heatpump.tout != 0) {
+                // 0 is used for "absent" value, so we can't use it as the real 0°C
+                await this.setCapabilityValue('measure_temperature.outside', status.heatpump.tout);
+            }
             await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
             await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
         } catch (error) {

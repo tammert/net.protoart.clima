@@ -27,13 +27,13 @@ export interface HeatpumpStatus {
 }
 
 export interface Thermometer {
-    "mac": string,
-    "name": string,
-    "batt": number, // battery percentage
-    "hact": number, // humidity actual
-    "rssi": number, // signal strength
-    "tact": number, // temperature actual
-    "last": number // last seen seconds ago
+    mac: string,
+    name: string,
+    batt: number, // battery percentage
+    hact: number, // humidity actual
+    rssi: number, // signal strength
+    tact: number, // temperature actual
+    last: number // last seen seconds ago
 }
 
 export interface Sensor {

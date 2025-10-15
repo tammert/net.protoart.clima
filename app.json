@@ -769,6 +769,7 @@
         "meter_power",
         "measure_power",
         "measure_temperature",
+        "measure_temperature.outside",
         "measure_battery",
         "measure_humidity"
       ],
@@ -801,6 +802,17 @@
           "min": 16,
           "max": 31,
           "step": 0.5
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Temperature inside"
+          }
+        },
+        "measure_temperature.outside": {
+          "title": {
+            "en": "Temperature outside"
+          },
+          "step": 1
         }
       },
       "id": "climatecontrol"
