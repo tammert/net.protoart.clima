@@ -2054,7 +2054,7 @@
             "field": "txt.model",
             "match": {
               "type": "regex",
-              "value": "^ME_.+"
+              "value": "^ME_"
             }
           }
         ]
@@ -2080,7 +2080,7 @@
             "field": "txt.model",
             "match": {
               "type": "regex",
-              "value": "^MHI_.+"
+              "value": "^MHI_"
             }
           }
         ]
