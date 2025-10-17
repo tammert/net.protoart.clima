@@ -56,5 +56,8 @@
       "title": {"en": "Temperature outside"},
       "step": 1
     }
+  },
+  "energy": {
+    "batteries": [ "CR2032"]
   }
 }
