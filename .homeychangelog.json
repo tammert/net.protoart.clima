@@ -1,5 +1,8 @@
 {
   "0.1.0": {
     "en": "First version!"
+  },
+  "0.1.1": {
+    "en": "Improved modularity, with the goal of supporting multiple HVAC brands"
   }
 }
