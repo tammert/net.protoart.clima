@@ -4,5 +4,8 @@
   },
   "0.1.1": {
     "en": "Improved modularity, with the goal of supporting multiple HVAC brands"
+  },
+  "0.2.0": {
+    "en": "Added Mitsubishi Heavy Industries devices"
   }
 }
