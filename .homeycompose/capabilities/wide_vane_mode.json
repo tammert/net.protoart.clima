@@ -4,13 +4,5 @@
   "uiComponent": "picker",
   "getable": true,
   "setable": true,
-  "values": [
-    {"id": "auto", "title": {"en": "Auto"}},
-    {"id": "swing", "title": {"en": "Swing"}},
-    {"id": "maxleft", "title": {"en": "Left"}},
-    {"id": "left", "title": {"en": "Middle-left"}},
-    {"id": "middle", "title": {"en": "Middle"}},
-    {"id": "right", "title": {"en": "Middle-right"}},
-    {"id": "maxright", "title": {"en": "Right"}}
-  ]
+  "values": []
 }

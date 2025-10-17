@@ -11,7 +11,14 @@
         "field": "txt.name",
         "match": {
           "type": "regex",
-          "value": "HVAC_"
+          "value": "^HVAC_"
+        }
+      },
+      {
+        "field": "txt.model",
+        "match": {
+          "type": "regex",
+          "value": "^MHI_"
         }
       }
     ]

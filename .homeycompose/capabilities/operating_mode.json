@@ -4,11 +4,5 @@
   "uiComponent": "picker",
   "getable": true,
   "setable": true,
-  "values": [
-    {"id": "auto", "title": {"en": "Auto"}},
-    {"id": "cool", "title": {"en": "Cool"}},
-    {"id": "heat", "title": {"en": "Heat"}},
-    {"id": "dry", "title": {"en": "Dry"}},
-    {"id": "fan", "title": {"en": "Fan"}}
-  ]
+  "values": []
 }

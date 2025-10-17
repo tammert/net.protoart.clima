@@ -1,17 +1,27 @@
 import fetch from 'node-fetch';
 
-export type OperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
-export type FanSpeedEnum = 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'
-export type VaneModeEnum = 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5'
-export type WideVaneModeEnum = 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright'
+// Generic
+export type PowerEnum = 'on' | 'off';
 
-export interface HeatpumpStatus {
+// Mitsubishi Electric
+export type MitsubishiElectricOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type MitsubishiElectricFanSpeedEnum = 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'
+export type MitsubishiElectricVaneModeEnum = 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5'
+export type MitsubishiElectricWideVaneModeEnum = 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright'
+
+// Mitsubishi Heavy Industries
+export type MitsubishiHeavyIndustriesOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type MitsubishiHeavyIndustriesFanSpeedEnum = 'auto' | '1' | '2' | '3' | '4'
+export type MitsubishiHeavyIndustriesVaneModeEnum = 'swing' | '1' | '2' | '3' | '4'
+export type MitsubishiHeavyIndustriesWideVaneModeEnum = 'swing' | '1' | '2' | '3' | '4' | '5' | '6' | '7'
+
+export interface MitsubishiElectricHeatpump {
     heatmin: number;
     heatmax: number;
     coolmin: number;
     coolmax: number;
-    power: 'on' | 'off';
-    mode: OperatingModeEnum;
+    power: PowerEnum;
+    mode: MitsubishiElectricOperatingModeEnum;
     set_temperature: number;
     tinp: string; // temperature input
     oper: boolean; // operation
@@ -24,43 +34,100 @@ export interface HeatpumpStatus {
     tout: number; // temperature outside
     pinp: number; // power input
     fault_code: string;
-    fan: FanSpeedEnum;
-    vane: VaneModeEnum;
-    widevane: WideVaneModeEnum;
+    fan: MitsubishiElectricFanSpeedEnum;
+    vane: MitsubishiElectricVaneModeEnum;
+    widevane: MitsubishiElectricWideVaneModeEnum;
     tpcns: number; // total power consumption
     actual_temperature: number;
 }
 
-export interface Thermometer {
-    mac: string,
-    name: string,
-    batt: number, // battery percentage
-    hact: number, // humidity actual
-    rssi: number, // signal strength
-    tact: number, // temperature actual
-    last: number // last seen seconds ago
+export interface MitsubishiHeavyIndustriesHeatpump {
+    heatmin: number;
+    heatmax: number;
+    coolmin: number;
+    coolmax: number;
+    set_temperature: number;
+    tinp: string; // temperature input
+    power: PowerEnum;
+    mode: MitsubishiHeavyIndustriesOperatingModeEnum;
+    fan: MitsubishiHeavyIndustriesFanSpeedEnum;
+    vane: MitsubishiHeavyIndustriesVaneModeEnum;
+    vanelr: MitsubishiHeavyIndustriesWideVaneModeEnum;
+    auto3d: boolean; // 3D auto
+    peak_cut: number;
+    silent_mode: boolean;
+    op: {
+        iu_capacity: number;
+        ou_eev1: number;
+        td: number;
+        defrost: boolean; // defrost active
+        ou_fan: number;
+        protection: string;
+        tdsh: number;
+        compr_run_time: number;
+        iu_run_time: number;
+        iu_fan: number;
+        set_temperature: number;
+        mode: number;
+        consumption: number; // power use in kW?
+        return_air: number;
+        current: number;
+        outdoor: number; // outdoor temperature
+        thi_r1: number;
+        thi_r3: number;
+        thi_r2: number;
+        compr_freq: number;
+        tho_r1: number;
+    };
+    oper: boolean; // operation
+    error_code: number;
+    actual_temperature: number;
 }
 
 export interface Sensor {
-    thermometer: Thermometer;
+    thermometer: {
+        mac: string,
+        name: string,
+        batt: number, // battery percentage
+        hact: number, // humidity actual
+        rssi: number, // signal strength
+        tact: number, // temperature actual
+        last: number // last seen seconds ago
+    };
 }
 
-export interface StatusResponse {
-    heatpump: HeatpumpStatus;
+export interface MitsubishiElectricStatus {
+    heatpump: MitsubishiElectricHeatpump;
     sensor: Sensor;
+}
+
+export interface MitsubishiHeavyIndustriesStatus {
+    heatpump: MitsubishiHeavyIndustriesHeatpump;
+    sensor: Sensor;
+}
+
+export interface ApiEndpoints {
+    power: string;
+    fan_speed: string;
+    set_temperature: string;
+    operating_mode: string;
+    vane_mode: string;
+    wide_vane_mode: string;
 }
 
 class ApiClient {
     private readonly apiUrl: string;
+    private readonly apiEndpoints: ApiEndpoints;
 
-    constructor(private readonly address: string, private readonly port: number, private readonly path: string) {
+    constructor(private readonly address: string, private readonly port: number, private readonly path: string, private readonly endpoints: ApiEndpoints) {
         this.apiUrl = `http://${address}:${port}${path}`;
+        this.apiEndpoints = endpoints;
     }
 
     async getStatus(): Promise<any> {
         try {
             const response = await fetch(`${this.apiUrl}`);
-            const data = await response.json() as StatusResponse;
+            const data = await response.json() as MitsubishiElectricStatus;
             return data;
         } catch (error) {
             throw new Error(`Failed to get status: ${error}`);
@@ -70,7 +137,7 @@ class ApiClient {
     async setPower(powerOn: boolean): Promise<boolean> {
         try {
             const powerValue = powerOn ? 'on' : 'off';
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&power=${powerValue}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.power}=${powerValue}`, {
                 method: 'GET',
             });
 
@@ -85,9 +152,9 @@ class ApiClient {
         }
     }
 
-    async setOperatingMode(mode: OperatingModeEnum): Promise<boolean> {
+    async setOperatingMode(mode: MitsubishiElectricOperatingModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&mode=${mode}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.operating_mode}=${mode}`, {
                 method: 'GET',
             });
 
@@ -103,7 +170,7 @@ class ApiClient {
 
     async setTemperature(temperature: number): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&set_temperature=${temperature}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.set_temperature}=${temperature}`, {
                 method: 'GET',
             });
 
@@ -117,9 +184,9 @@ class ApiClient {
         }
     }
 
-    async setFanSpeed(fan_speed: FanSpeedEnum): Promise<boolean> {
+    async setFanSpeed(fan_speed: MitsubishiElectricFanSpeedEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&fan=${fan_speed}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.fan_speed}=${fan_speed}`, {
                 method: 'GET',
             });
 
@@ -133,9 +200,9 @@ class ApiClient {
         }
     }
 
-    async setVaneMode(vane_mode: VaneModeEnum): Promise<boolean> {
+    async setVaneMode(vane_mode: MitsubishiElectricVaneModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&vane=${vane_mode}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.vane_mode}=${vane_mode}`, {
                 method: 'GET',
             });
 
@@ -149,9 +216,9 @@ class ApiClient {
         }
     }
 
-    async setWideVaneMode(wide_vane_mode: WideVaneModeEnum): Promise<boolean> {
+    async setWideVaneMode(wide_vane_mode: MitsubishiElectricWideVaneModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&widevane=${wide_vane_mode}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.wide_vane_mode}=${wide_vane_mode}`, {
                 method: 'GET',
             });
 

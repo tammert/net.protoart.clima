@@ -18,9 +18,9 @@
   ],
   "permissions": [],
   "images": {
-    "small": "/assets/images/small.png",
-    "large": "/assets/images/large.png",
-    "xlarge": "/assets/images/xlarge.png"
+    "small": "/assets/images/app/small.png",
+    "large": "/assets/images/app/large.png",
+    "xlarge": "/assets/images/app/xlarge.png"
   },
   "author": {
     "name": "Sebastiaan Tammer",
@@ -789,9 +789,9 @@
   "drivers": [
     {
       "name": {
-        "en": "ClimateControl"
+        "en": "Mitsubishi Electric module"
       },
-      "discovery": "climatecontrol",
+      "discovery": "me_climatecontrol",
       "class": "airconditioning",
       "capabilities": [
         "onoff",
@@ -815,9 +815,8 @@
         "lan"
       ],
       "images": {
-        "small": "/drivers/climatecontrol/assets/images/small.png",
-        "large": "/drivers/climatecontrol/assets/images/large.png",
-        "xlarge": "/drivers/climatecontrol/assets/images/xlarge.png"
+        "small": "/assets/images/drivers/small.png",
+        "large": "/assets/images/drivers/large.png"
       },
       "pair": [
         {
@@ -848,6 +847,172 @@
             "en": "Temperature outside"
           },
           "step": 1
+        },
+        "fan_speed": {
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto"
+              }
+            },
+            {
+              "id": "silent",
+              "title": {
+                "en": "Silent (1)"
+              }
+            },
+            {
+              "id": "low",
+              "title": {
+                "en": "Low (2)"
+              }
+            },
+            {
+              "id": "med",
+              "title": {
+                "en": "Medium (3)"
+              }
+            },
+            {
+              "id": "high",
+              "title": {
+                "en": "High (4)"
+              }
+            },
+            {
+              "id": "superhigh",
+              "title": {
+                "en": "Max (5)"
+              }
+            }
+          ]
+        },
+        "operating_mode": {
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto"
+              }
+            },
+            {
+              "id": "cool",
+              "title": {
+                "en": "Cool"
+              }
+            },
+            {
+              "id": "heat",
+              "title": {
+                "en": "Heat"
+              }
+            },
+            {
+              "id": "dry",
+              "title": {
+                "en": "Dry"
+              }
+            },
+            {
+              "id": "fan",
+              "title": {
+                "en": "Fan"
+              }
+            }
+          ]
+        },
+        "vane_mode": {
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto"
+              }
+            },
+            {
+              "id": "swing",
+              "title": {
+                "en": "Swing"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Up"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Middle-up"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "Middle"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "Middle-down"
+              }
+            },
+            {
+              "id": "5",
+              "title": {
+                "en": "Down"
+              }
+            }
+          ]
+        },
+        "wide_vane_mode": {
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto"
+              }
+            },
+            {
+              "id": "swing",
+              "title": {
+                "en": "Swing"
+              }
+            },
+            {
+              "id": "maxleft",
+              "title": {
+                "en": "Left"
+              }
+            },
+            {
+              "id": "left",
+              "title": {
+                "en": "Middle-left"
+              }
+            },
+            {
+              "id": "middle",
+              "title": {
+                "en": "Middle"
+              }
+            },
+            {
+              "id": "right",
+              "title": {
+                "en": "Middle-right"
+              }
+            },
+            {
+              "id": "maxright",
+              "title": {
+                "en": "Right"
+              }
+            }
+          ]
         }
       },
       "energy": {
@@ -877,44 +1042,7 @@
       "uiComponent": "picker",
       "getable": true,
       "setable": true,
-      "values": [
-        {
-          "id": "auto",
-          "title": {
-            "en": "Auto"
-          }
-        },
-        {
-          "id": "silent",
-          "title": {
-            "en": "Silent (1)"
-          }
-        },
-        {
-          "id": "low",
-          "title": {
-            "en": "Low (2)"
-          }
-        },
-        {
-          "id": "med",
-          "title": {
-            "en": "Medium (3)"
-          }
-        },
-        {
-          "id": "high",
-          "title": {
-            "en": "High (4)"
-          }
-        },
-        {
-          "id": "superhigh",
-          "title": {
-            "en": "Max (5)"
-          }
-        }
-      ]
+      "values": []
     },
     "operating_mode": {
       "type": "enum",
@@ -924,38 +1052,7 @@
       "uiComponent": "picker",
       "getable": true,
       "setable": true,
-      "values": [
-        {
-          "id": "auto",
-          "title": {
-            "en": "Auto"
-          }
-        },
-        {
-          "id": "cool",
-          "title": {
-            "en": "Cool"
-          }
-        },
-        {
-          "id": "heat",
-          "title": {
-            "en": "Heat"
-          }
-        },
-        {
-          "id": "dry",
-          "title": {
-            "en": "Dry"
-          }
-        },
-        {
-          "id": "fan",
-          "title": {
-            "en": "Fan"
-          }
-        }
-      ]
+      "values": []
     },
     "vane_mode": {
       "type": "enum",
@@ -965,50 +1062,7 @@
       "uiComponent": "picker",
       "getable": true,
       "setable": true,
-      "values": [
-        {
-          "id": "auto",
-          "title": {
-            "en": "Auto"
-          }
-        },
-        {
-          "id": "swing",
-          "title": {
-            "en": "Swing"
-          }
-        },
-        {
-          "id": "1",
-          "title": {
-            "en": "Up"
-          }
-        },
-        {
-          "id": "2",
-          "title": {
-            "en": "Middle-up"
-          }
-        },
-        {
-          "id": "3",
-          "title": {
-            "en": "Middle"
-          }
-        },
-        {
-          "id": "4",
-          "title": {
-            "en": "Middle-down"
-          }
-        },
-        {
-          "id": "5",
-          "title": {
-            "en": "Down"
-          }
-        }
-      ]
+      "values": []
     },
     "wide_vane_mode": {
       "type": "enum",
@@ -1018,54 +1072,11 @@
       "uiComponent": "picker",
       "getable": true,
       "setable": true,
-      "values": [
-        {
-          "id": "auto",
-          "title": {
-            "en": "Auto"
-          }
-        },
-        {
-          "id": "swing",
-          "title": {
-            "en": "Swing"
-          }
-        },
-        {
-          "id": "maxleft",
-          "title": {
-            "en": "Left"
-          }
-        },
-        {
-          "id": "left",
-          "title": {
-            "en": "Middle-left"
-          }
-        },
-        {
-          "id": "middle",
-          "title": {
-            "en": "Middle"
-          }
-        },
-        {
-          "id": "right",
-          "title": {
-            "en": "Middle-right"
-          }
-        },
-        {
-          "id": "maxright",
-          "title": {
-            "en": "Right"
-          }
-        }
-      ]
+      "values": []
     }
   },
   "discovery": {
-    "climatecontrol": {
+    "lg_climatecontrol": {
       "type": "mdns-sd",
       "mdns-sd": {
         "name": "http",
@@ -1078,7 +1089,85 @@
             "field": "txt.name",
             "match": {
               "type": "regex",
-              "value": "HVAC_"
+              "value": "^HVAC_"
+            }
+          },
+          {
+            "field": "txt.model",
+            "match": {
+              "type": "regex",
+              "value": "^LG_"
+            }
+          }
+        ]
+      ]
+    },
+    "me_climatecontrol": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "http",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.id}}",
+      "conditions": [
+        [
+          {
+            "field": "txt.name",
+            "match": {
+              "type": "regex",
+              "value": "^HVAC_"
+            }
+          }
+        ]
+      ]
+    },
+    "mhi_climatecontrol": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "http",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.id}}",
+      "conditions": [
+        [
+          {
+            "field": "txt.name",
+            "match": {
+              "type": "regex",
+              "value": "^HVAC_"
+            }
+          },
+          {
+            "field": "txt.model",
+            "match": {
+              "type": "regex",
+              "value": "^MHI_"
+            }
+          }
+        ]
+      ]
+    },
+    "pana_climatecontrol": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "http",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.id}}",
+      "conditions": [
+        [
+          {
+            "field": "txt.name",
+            "match": {
+              "type": "regex",
+              "value": "^HVAC_"
+            }
+          },
+          {
+            "field": "txt.model",
+            "match": {
+              "type": "regex",
+              "value": "^PANA_"
             }
           }
         ]

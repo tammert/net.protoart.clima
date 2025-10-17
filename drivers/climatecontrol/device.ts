@@ -1,14 +1,23 @@
 import Homey from 'homey';
-import ApiClient, {FanSpeedEnum, OperatingModeEnum, VaneModeEnum, WideVaneModeEnum} from "../../lib/apiClient";
+import ApiClient, {ApiEndpoints, MitsubishiElectricFanSpeedEnum, MitsubishiElectricOperatingModeEnum, MitsubishiElectricVaneModeEnum, MitsubishiElectricWideVaneModeEnum} from "../../lib/apiClient";
 
-module.exports = class ClimateControlDevice extends Homey.Device {
+const endpoints: ApiEndpoints = {
+    power: 'power',
+    set_temperature: 'set_temperature',
+    fan_speed: 'fan',
+    operating_mode: 'mode',
+    vane_mode: 'vane',
+    wide_vane_mode: 'widevane'
+};
+
+module.exports = class MitsubishiElectricDevice extends Homey.Device {
     private apiClient!: ApiClient
 
     /**
      * onInit is called when the device is initialized.
      */
     async onInit() {
-        this.log('ClimateControlDevice has been initialized');
+        this.log('MitsubishiElectricDevice has been initialized');
 
         // Get the device's IP address from store
         const address = this.getStoreValue('address');
@@ -18,15 +27,12 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         this.log('device address:', `${address}:${port}${path}`);
 
         // Initialize API client
-        this.apiClient = new ApiClient(address, port, path);
+        this.apiClient = new ApiClient(address, port, path, endpoints);
 
         // Get initial status
         await this.updateStatus();
 
         // onoff
-        if (!this.hasCapability('onoff')) {
-            await this.addCapability('onoff');
-        }
         this.registerCapabilityListener('onoff', async (value: boolean) => {
             this.log('onoff capability changed to:', value);
 
@@ -41,14 +47,11 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         });
 
         // operating_mode
-        if (!this.hasCapability('operating_mode')) {
-            await this.addCapability('operating_mode');
-        }
         this.registerCapabilityListener('operating_mode', async (value: string) => {
             this.log('operating_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setOperatingMode(value as OperatingModeEnum);
+                await this.apiClient.setOperatingMode(value as MitsubishiElectricOperatingModeEnum);
                 await this.setCapabilityValue('operating_mode', value);
                 this.log('operating mode set successfully to:', value);
             } catch (error) {
@@ -58,9 +61,6 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         });
 
         // target_temperature
-        if (!this.hasCapability('target_temperature')) {
-            await this.addCapability('target_temperature');
-        }
         this.registerCapabilityListener('target_temperature', async (value: number) => {
             this.log('target_temperature capability changed to:', value);
 
@@ -75,14 +75,11 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         });
 
         // fan_speed
-        if (!this.hasCapability('fan_speed')) {
-            await this.addCapability('fan_speed');
-        }
         this.registerCapabilityListener('fan_speed', async (value: string) => {
             this.log('fan_speed capability changed to:', value);
 
             try {
-                await this.apiClient.setFanSpeed(value as FanSpeedEnum);
+                await this.apiClient.setFanSpeed(value as MitsubishiElectricFanSpeedEnum);
                 await this.setCapabilityValue('fan_speed', value);
                 this.log('fan speed set successfully to:', value);
             } catch (error) {
@@ -92,14 +89,11 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         });
 
         // vane_mode
-        if (!this.hasCapability('vane_mode')) {
-            await this.addCapability('vane_mode');
-        }
         this.registerCapabilityListener('vane_mode', async (value: string) => {
             this.log('vane_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setVaneMode(value as VaneModeEnum);
+                await this.apiClient.setVaneMode(value as MitsubishiElectricVaneModeEnum);
                 await this.setCapabilityValue('vane_mode', value);
                 this.log('vane mode set successfully to:', value);
             } catch (error) {
@@ -109,14 +103,11 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         });
 
         // wide_vane_mode
-        if (!this.hasCapability('wide_vane_mode')) {
-            await this.addCapability('wide_vane_mode');
-        }
         this.registerCapabilityListener('wide_vane_mode', async (value: string) => {
             this.log('wide_vane_mode capability changed to:', value);
 
             try {
-                await this.apiClient.setWideVaneMode(value as WideVaneModeEnum);
+                await this.apiClient.setWideVaneMode(value as MitsubishiElectricWideVaneModeEnum);
                 await this.setCapabilityValue('wide_vane_mode', value);
                 this.log('wide vane set successfully to:', value);
             } catch (error) {
@@ -164,7 +155,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
      * onAdded is called when the user adds the device, called just after pairing.
      */
     async onAdded() {
-        this.log('ClimateControlDevice has been added');
+        this.log('MitsubishiElectricDevice has been added');
     }
 
     /**
@@ -173,14 +164,14 @@ module.exports = class ClimateControlDevice extends Homey.Device {
      * @param {string} name The new name
      */
     async onRenamed(name: string) {
-        this.log('ClimateControlDevice was renamed');
+        this.log('MitsubishiElectricDevice was renamed');
     }
 
     /**
      * onDeleted is called when the user deleted the device.
      */
     async onDeleted() {
-        this.log('ClimateControlDevice has been deleted');
+        this.log('MitsubishiElectricDevice has been deleted');
     }
 
     // when the IP address changes, persists the new value in the store
@@ -191,7 +182,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
 
         const address: string = discoveryResult.address
         this.setStoreValue('address', address).then(r => {return true})
-        this.apiClient = new ApiClient(address, discoveryResult.port, discoveryResult.txt.path);
+        this.apiClient = new ApiClient(address, discoveryResult.port, discoveryResult.txt.path, endpoints);
         this.log(`updated ${this.getName()} IP address to ${address}`)
     }
 };

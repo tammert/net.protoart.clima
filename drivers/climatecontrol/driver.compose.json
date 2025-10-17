@@ -1,8 +1,8 @@
 {
   "name": {
-    "en": "ClimateControl"
+    "en": "Mitsubishi Electric module"
   },
-  "discovery": "climatecontrol",
+  "discovery": "me_climatecontrol",
   "class": "airconditioning",
   "capabilities": [
     "onoff",
@@ -26,9 +26,8 @@
     "lan"
   ],
   "images": {
-    "small": "{{driverAssetsPath}}/images/small.png",
-    "large": "{{driverAssetsPath}}/images/large.png",
-    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+    "small": "/assets/images/drivers/small.png",
+    "large": "/assets/images/drivers/large.png"
   },
   "pair": [
     {
@@ -55,9 +54,50 @@
     "measure_temperature.outside": {
       "title": {"en": "Temperature outside"},
       "step": 1
+    },
+    "fan_speed": {
+      "values": [
+        {"id": "auto", "title": {"en": "Auto"}},
+        {"id": "silent", "title": {"en": "Silent (1)"}},
+        {"id": "low", "title": {"en": "Low (2)"}},
+        {"id": "med", "title": {"en": "Medium (3)"}},
+        {"id": "high", "title": {"en": "High (4)"}},
+        {"id": "superhigh", "title": {"en": "Max (5)"}}
+      ]
+    },
+    "operating_mode": {
+      "values": [
+        {"id": "auto", "title": {"en": "Auto"}},
+        {"id": "cool", "title": {"en": "Cool"}},
+        {"id": "heat", "title": {"en": "Heat"}},
+        {"id": "dry", "title": {"en": "Dry"}},
+        {"id": "fan", "title": {"en": "Fan"}}
+      ]
+    },
+    "vane_mode": {
+      "values": [
+        {"id": "auto", "title": {"en": "Auto"}},
+        {"id": "swing", "title": {"en": "Swing"}},
+        {"id": "1", "title": {"en": "Up"}},
+        {"id": "2", "title": {"en": "Middle-up"}},
+        {"id": "3", "title": {"en": "Middle"}},
+        {"id": "4", "title": {"en": "Middle-down"}},
+        {"id": "5", "title": {"en": "Down"}}
+      ]
+    },
+    "wide_vane_mode": {
+      "values": [
+        {"id": "auto", "title": {"en": "Auto"}},
+        {"id": "swing", "title": {"en": "Swing"}},
+        {"id": "maxleft", "title": {"en": "Left"}},
+        {"id": "left", "title": {"en": "Middle-left"}},
+        {"id": "middle", "title": {"en": "Middle"}},
+        {"id": "right", "title": {"en": "Middle-right"}},
+        {"id": "maxright", "title": {"en": "Right"}}
+      ]
     }
   },
   "energy": {
-    "batteries": [ "CR2032"]
+    "batteries": ["CR2032"]
   }
 }
