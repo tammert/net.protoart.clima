@@ -55,13 +55,14 @@ class ClimateControlDriver extends Homey.Driver {
 
         const devices = Object.values(discoveryResults).map((discoveryResult: any) => {
             return {
-                name: discoveryResult.host,
+                name: discoveryResult.txt.friendly_name,
                 data: {
                     id: discoveryResult.id,
                 },
                 store: {
                     address: discoveryResult.address,
                     port: discoveryResult.port,
+                    path: discoveryResult.txt.path,
                 }
             };
         });

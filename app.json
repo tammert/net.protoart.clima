@@ -1021,14 +1021,14 @@
         "name": "http",
         "protocol": "tcp"
       },
-      "id": "{{host}}",
+      "id": "{{txt.id}}",
       "conditions": [
         [
           {
-            "field": "name",
+            "field": "txt.name",
             "match": {
               "type": "regex",
-              "value": "ClimaControl Web-UI"
+              "value": "HVAC_"
             }
           }
         ]

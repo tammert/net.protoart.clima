@@ -1,5 +1,5 @@
 import Homey from 'homey';
-import ApiClient, {OperatingModeEnum, FanSpeedEnum, VaneModeEnum, WideVaneModeEnum} from "../../lib/apiClient";
+import ApiClient, {FanSpeedEnum, OperatingModeEnum, VaneModeEnum, WideVaneModeEnum} from "../../lib/apiClient";
 
 module.exports = class ClimateControlDevice extends Homey.Device {
     private apiClient!: ApiClient
@@ -9,14 +9,16 @@ module.exports = class ClimateControlDevice extends Homey.Device {
      */
     async onInit() {
         this.log('ClimateControlDevice has been initialized');
+
         // Get the device's IP address from store
         const address = this.getStoreValue('address');
         const port = this.getStoreValue('port');
+        const path = this.getStoreValue('path');
 
-        this.log('device address:', `${address}:${port}`);
+        this.log('device address:', `${address}:${port}${path}`);
 
         // Initialize API client
-        this.apiClient = new ApiClient(address, port);
+        this.apiClient = new ApiClient(address, port, path);
 
         // Get initial status
         await this.updateStatus();
@@ -180,4 +182,15 @@ module.exports = class ClimateControlDevice extends Homey.Device {
         this.log('ClimateControlDevice has been deleted');
     }
 
+    // when the IP address changes, persists the new value in the store
+    onDiscoveryAddressChanged(discoveryResult: any) {
+        if (Homey.env.NODE_ENV === 'development') {
+            this.log('onDiscoveryAddressChanged:\n', discoveryResult);
+        }
+
+        const address: string = discoveryResult.address
+        this.setStoreValue('address', address).then(r => {return true})
+        this.apiClient = new ApiClient(address, discoveryResult.port, discoveryResult.txt.path);
+        this.log(`updated ${this.getName()} IP address to ${address}`)
+    }
 };

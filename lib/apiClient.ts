@@ -13,17 +13,22 @@ export interface HeatpumpStatus {
     power: 'on' | 'off';
     mode: OperatingModeEnum;
     set_temperature: number;
-    actual_temperature: number;
     tinp: string; // temperature input
     oper: boolean; // operation
     isee: boolean; // 3D i-see sensor
     optime: number; // operation time
+    filter: boolean, // filter need replacement
+    defrost: boolean, // defrost active
+    hotadjust: boolean, // hot adjust (preheat)
+    standby: boolean, // standby
     tout: number; // temperature outside
     pinp: number; // power input
+    fault_code: string;
     fan: FanSpeedEnum;
     vane: VaneModeEnum;
     widevane: WideVaneModeEnum;
     tpcns: number; // total power consumption
+    actual_temperature: number;
 }
 
 export interface Thermometer {
@@ -46,15 +51,15 @@ export interface StatusResponse {
 }
 
 class ApiClient {
-    private readonly baseUrl: string;
+    private readonly apiUrl: string;
 
-    constructor(private readonly address: string, private readonly port: number) {
-        this.baseUrl = `http://${address}:${port}`;
+    constructor(private readonly address: string, private readonly port: number, private readonly path: string) {
+        this.apiUrl = `http://${address}:${port}${path}`;
     }
 
     async getStatus(): Promise<any> {
         try {
-            const response = await fetch(`${this.baseUrl}/control`);
+            const response = await fetch(`${this.apiUrl}`);
             const data = await response.json() as StatusResponse;
             return data;
         } catch (error) {
@@ -65,7 +70,7 @@ class ApiClient {
     async setPower(powerOn: boolean): Promise<boolean> {
         try {
             const powerValue = powerOn ? 'on' : 'off';
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&power=${powerValue}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&power=${powerValue}`, {
                 method: 'GET',
             });
 
@@ -82,7 +87,7 @@ class ApiClient {
 
     async setOperatingMode(mode: OperatingModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&mode=${mode}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&mode=${mode}`, {
                 method: 'GET',
             });
 
@@ -98,7 +103,7 @@ class ApiClient {
 
     async setTemperature(temperature: number): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&set_temperature=${temperature}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&set_temperature=${temperature}`, {
                 method: 'GET',
             });
 
@@ -114,7 +119,7 @@ class ApiClient {
 
     async setFanSpeed(fan_speed: FanSpeedEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&fan=${fan_speed}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&fan=${fan_speed}`, {
                 method: 'GET',
             });
 
@@ -130,7 +135,7 @@ class ApiClient {
 
     async setVaneMode(vane_mode: VaneModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&vane=${vane_mode}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&vane=${vane_mode}`, {
                 method: 'GET',
             });
 
@@ -146,7 +151,7 @@ class ApiClient {
 
     async setWideVaneMode(wide_vane_mode: WideVaneModeEnum): Promise<boolean> {
         try {
-            const response = await fetch(`${this.baseUrl}/control?cmd=heatpump&widevane=${wide_vane_mode}`, {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&widevane=${wide_vane_mode}`, {
                 method: 'GET',
             });
 
