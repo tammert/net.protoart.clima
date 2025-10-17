@@ -1,0 +1,100 @@
+{
+  "name": {
+    "en": "Mitsubishi Heavy Industries module"
+  },
+  "discovery": "mhi_climatecontrol",
+  "class": "airconditioning",
+  "capabilities": [
+    "onoff",
+    "operating_mode",
+    "fan_speed",
+    "vane_mode",
+    "wide_vane_mode",
+    "target_temperature",
+    "measure_power",
+    "measure_temperature",
+    "measure_temperature.outside",
+    "measure_battery",
+    "measure_humidity",
+    "defrost_active"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "/assets/images/drivers/small.png",
+    "large": "/assets/images/drivers/large.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 16,
+      "max": 31,
+      "step": 0.5
+    },
+    "measure_temperature": {
+      "title": {"en": "Temperature inside"}
+    },
+    "measure_temperature.outside": {
+      "title": {"en": "Temperature outside"},
+      "step": 1
+    },
+    "fan_speed": {
+      "values": [
+        {"id": "auto", "title": {"en": "Auto"}},
+        {"id": "1", "title": {"en": "1"}},
+        {"id": "2", "title": {"en": "2"}},
+        {"id": "3", "title": {"en": "3"}},
+        {"id": "4", "title": {"en": "4"}}
+      ]
+    },
+    "operating_mode": {
+      "values": [
+        {"id": "auto", "title": {"en": "Auto"}},
+        {"id": "cool", "title": {"en": "Cool"}},
+        {"id": "heat", "title": {"en": "Heat"}},
+        {"id": "dry", "title": {"en": "Dry"}},
+        {"id": "fan", "title": {"en": "Fan"}}
+      ]
+    },
+    "vane_mode": {
+      "values": [
+        {"id": "swing", "title": {"en": "Swing"}},
+        {"id": "1", "title": {"en": "1"}},
+        {"id": "2", "title": {"en": "2"}},
+        {"id": "3", "title": {"en": "3"}},
+        {"id": "4", "title": {"en": "4"}}
+      ]
+    },
+    "wide_vane_mode": {
+      "values": [
+        {"id": "swing", "title": {"en": "Swing"}},
+        {"id": "1", "title": {"en": "1"}},
+        {"id": "2", "title": {"en": "2"}},
+        {"id": "3", "title": {"en": "3"}},
+        {"id": "4", "title": {"en": "4"}},
+        {"id": "5", "title": {"en": "5"}},
+        {"id": "6", "title": {"en": "6"}},
+        {"id": "7", "title": {"en": "7"}}
+      ]
+    }
+  },
+  "energy": {
+    "batteries": ["CR2032"]
+  }
+}

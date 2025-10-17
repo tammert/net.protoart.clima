@@ -13,6 +13,13 @@
           "type": "regex",
           "value": "^HVAC_"
         }
+      },
+      {
+        "field": "txt.model",
+        "match": {
+          "type": "regex",
+          "value": "^ME_"
+        }
       }
     ]
   ]

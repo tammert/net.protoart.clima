@@ -1,19 +1,19 @@
 {
   "triggers": [
     {
-      "id": "me_defrost_active_true",
+      "id": "mhi_defrost_active_true",
       "title": {"en": "Defrost is active"},
       "titleFormatted": {"en": "Defrost is active"}
     },
     {
-      "id": "me_defrost_active_false",
+      "id": "mhi_defrost_active_false",
       "title": {"en": "Defrost is not active"},
       "titleFormatted": {"en": "Defrost is not active"}
     }
   ],
   "conditions": [
     {
-      "id": "me_fan_speed_is",
+      "id": "mhi_fan_speed_is",
       "title": {"en": "Fan speed is"},
       "titleFormatted": {"en": "Fan speed is [[fan_speed]]"},
       "args": [
@@ -22,17 +22,16 @@
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "silent", "title": {"en": "Silent (1)"}},
-            {"id": "low", "title": {"en": "Low (2)"}},
-            {"id": "med", "title": {"en": "Medium (3)"}},
-            {"id": "high", "title": {"en": "High (4)"}},
-            {"id": "superhigh", "title": {"en": "Max (5)"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
           ]
         }
       ]
     },
     {
-      "id": "me_fan_speed_is_not",
+      "id": "mhi_fan_speed_is_not",
       "title": {"en": "Fan speed is not"},
       "titleFormatted": {"en": "Fan speed is not [[fan_speed]]"},
       "args": [
@@ -41,17 +40,16 @@
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "silent", "title": {"en": "Silent (1)"}},
-            {"id": "low", "title": {"en": "Low (2)"}},
-            {"id": "med", "title": {"en": "Medium (3)"}},
-            {"id": "high", "title": {"en": "High (4)"}},
-            {"id": "superhigh", "title": {"en": "Max (5)"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
           ]
         }
       ]
     },
     {
-      "id": "me_operating_mode_is",
+      "id": "mhi_operating_mode_is",
       "title": {"en": "Operating mode is"},
       "titleFormatted": {"en": "Operating mode is [[operating_mode]]"},
       "args": [
@@ -69,7 +67,7 @@
       ]
     },
     {
-      "id": "me_operating_mode_is_not",
+      "id": "mhi_operating_mode_is_not",
       "title": {"en": "Operating mode is not"},
       "titleFormatted": {"en": "Operating mode is not [[operating_mode]]"},
       "args": [
@@ -87,7 +85,7 @@
       ]
     },
     {
-      "id": "me_vane_mode_is",
+      "id": "mhi_vane_mode_is",
       "title": {"en": "Vane mode is"},
       "titleFormatted": {"en": "Vane mode is [[vane_mode]]"},
       "args": [
@@ -95,19 +93,17 @@
           "name": "vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
             {"id": "swing", "title": {"en": "Swing"}},
-            {"id": "1", "title": {"en": "Up"}},
-            {"id": "2", "title": {"en": "Middle-up"}},
-            {"id": "3", "title": {"en": "Middle"}},
-            {"id": "4", "title": {"en": "Middle-down"}},
-            {"id": "5", "title": {"en": "Down"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
           ]
         }
       ]
     },
     {
-      "id": "me_vane_mode_is_not",
+      "id": "mhi_vane_mode_is_not",
       "title": {"en": "Vane mode is not"},
       "titleFormatted": {"en": "Vane mode is not [[vane_mode]]"},
       "args": [
@@ -115,19 +111,17 @@
           "name": "vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
             {"id": "swing", "title": {"en": "Swing"}},
-            {"id": "1", "title": {"en": "Up"}},
-            {"id": "2", "title": {"en": "Middle-up"}},
-            {"id": "3", "title": {"en": "Middle"}},
-            {"id": "4", "title": {"en": "Middle-down"}},
-            {"id": "5", "title": {"en": "Down"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
           ]
         }
       ]
     },
     {
-      "id": "me_wide_vane_mode_is",
+      "id": "mhi_wide_vane_mode_is",
       "title": {"en": "Wide vane mode is"},
       "titleFormatted": {"en": "Wide vane mode is [[wide_vane_mode]]"},
       "args": [
@@ -135,19 +129,20 @@
           "name": "wide_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
             {"id": "swing", "title": {"en": "Swing"}},
-            {"id": "maxleft", "title": {"en": "Left"}},
-            {"id": "left", "title": {"en": "Middle-left"}},
-            {"id": "middle", "title": {"en": "Middle"}},
-            {"id": "right", "title": {"en": "Middle-right"}},
-            {"id": "maxright", "title": {"en": "Right"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5"}},
+            {"id": "6", "title": {"en": "6"}},
+            {"id": "7", "title": {"en": "7"}}
           ]
         }
       ]
     },
     {
-      "id": "me_wide_vane_mode_is_not",
+      "id": "mhi_wide_vane_mode_is_not",
       "title": {"en": "Wide vane mode is not"},
       "titleFormatted": {"en": "Wide vane mode is not [[wide_vane_mode]]"},
       "args": [
@@ -155,13 +150,14 @@
           "name": "wide_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
             {"id": "swing", "title": {"en": "Swing"}},
-            {"id": "maxleft", "title": {"en": "Left"}},
-            {"id": "left", "title": {"en": "Middle-left"}},
-            {"id": "middle", "title": {"en": "Middle"}},
-            {"id": "right", "title": {"en": "Middle-right"}},
-            {"id": "maxright", "title": {"en": "Right"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5"}},
+            {"id": "6", "title": {"en": "6"}},
+            {"id": "7", "title": {"en": "7"}}
           ]
         }
       ]
@@ -169,7 +165,7 @@
   ],
   "actions": [
     {
-      "id": "me_set_fan_speed",
+      "id": "mhi_set_fan_speed",
       "title": {"en": "Set fan speed to"},
       "titleFormatted": {"en": "Set fan speed to [[fan_speed]]"},
       "args": [
@@ -178,17 +174,16 @@
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "silent", "title": {"en": "Silent (1)"}},
-            {"id": "low", "title": {"en": "Low (2)"}},
-            {"id": "med", "title": {"en": "Medium (3)"}},
-            {"id": "high", "title": {"en": "High (4)"}},
-            {"id": "superhigh", "title": {"en": "Max (5)"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
           ]
         }
       ]
     },
     {
-      "id": "me_set_operating_mode",
+      "id": "mhi_set_operating_mode",
       "title": {"en": "Set operating mode to"},
       "titleFormatted": {"en": "Set operating mode to [[operating_mode]]"},
       "args": [
@@ -206,7 +201,7 @@
       ]
     },
     {
-      "id": "me_set_vane_mode",
+      "id": "mhi_set_vane_mode",
       "title": {"en": "Set vane mode to"},
       "titleFormatted": {"en": "Set vane mode to [[vane_mode]]"},
       "args": [
@@ -214,19 +209,17 @@
           "name": "vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
             {"id": "swing", "title": {"en": "Swing"}},
-            {"id": "1", "title": {"en": "Up"}},
-            {"id": "2", "title": {"en": "Middle-up"}},
-            {"id": "3", "title": {"en": "Middle"}},
-            {"id": "4", "title": {"en": "Middle-down"}},
-            {"id": "5", "title": {"en": "Down"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
           ]
         }
       ]
     },
     {
-      "id": "me_set_wide_vane_mode",
+      "id": "mhi_set_wide_vane_mode",
       "title": {"en": "Set wide vane mode to"},
       "titleFormatted": {"en": "Set wide vane mode to [[wide_vane_mode]]"},
       "args": [
@@ -234,13 +227,14 @@
           "name": "wide_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
             {"id": "swing", "title": {"en": "Swing"}},
-            {"id": "maxleft", "title": {"en": "Left"}},
-            {"id": "left", "title": {"en": "Middle-left"}},
-            {"id": "middle", "title": {"en": "Middle"}},
-            {"id": "right", "title": {"en": "Middle-right"}},
-            {"id": "maxright", "title": {"en": "Right"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5"}},
+            {"id": "6", "title": {"en": "6"}},
+            {"id": "7", "title": {"en": "7"}}
           ]
         }
       ]

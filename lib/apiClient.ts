@@ -124,11 +124,10 @@ class ApiClient {
         this.apiEndpoints = endpoints;
     }
 
-    async getMitsubishiElectricStatus(): Promise<any> {
+    async getStatus<T>(): Promise<T> {
         try {
             const response = await fetch(`${this.apiUrl}`);
-            const data = await response.json() as MitsubishiElectricStatus;
-            return data;
+            return await response.json() as T;
         } catch (error) {
             throw new Error(`Failed to get status: ${error}`);
         }
