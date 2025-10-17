@@ -124,7 +124,7 @@ class ApiClient {
         this.apiEndpoints = endpoints;
     }
 
-    async getStatus(): Promise<any> {
+    async getMitsubishiElectricStatus(): Promise<any> {
         try {
             const response = await fetch(`${this.apiUrl}`);
             const data = await response.json() as MitsubishiElectricStatus;
@@ -152,7 +152,7 @@ class ApiClient {
         }
     }
 
-    async setOperatingMode(mode: MitsubishiElectricOperatingModeEnum): Promise<boolean> {
+    async setOperatingMode(mode: any): Promise<boolean> {
         try {
             const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.operating_mode}=${mode}`, {
                 method: 'GET',
@@ -184,7 +184,7 @@ class ApiClient {
         }
     }
 
-    async setFanSpeed(fan_speed: MitsubishiElectricFanSpeedEnum): Promise<boolean> {
+    async setFanSpeed(fan_speed: any): Promise<boolean> {
         try {
             const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.fan_speed}=${fan_speed}`, {
                 method: 'GET',
@@ -200,7 +200,7 @@ class ApiClient {
         }
     }
 
-    async setVaneMode(vane_mode: MitsubishiElectricVaneModeEnum): Promise<boolean> {
+    async setVaneMode(vane_mode: any): Promise<boolean> {
         try {
             const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.vane_mode}=${vane_mode}`, {
                 method: 'GET',
@@ -216,7 +216,7 @@ class ApiClient {
         }
     }
 
-    async setWideVaneMode(wide_vane_mode: MitsubishiElectricWideVaneModeEnum): Promise<boolean> {
+    async setWideVaneMode(wide_vane_mode: any): Promise<boolean> {
         try {
             const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.wide_vane_mode}=${wide_vane_mode}`, {
                 method: 'GET',

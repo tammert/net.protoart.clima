@@ -1,4 +1,4 @@
-import ClimateControlDriver from '../../lib/basedriver';
+import ClimateControlDriver from '../../lib/baseDriver';
 
 module.exports = class MitsubishiElectricDriver extends ClimateControlDriver {
     async onInit() {
