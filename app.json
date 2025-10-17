@@ -46,7 +46,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           }
         ]
       },
@@ -62,7 +62,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           }
         ]
       }
@@ -80,7 +80,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "fan_speed",
@@ -138,7 +138,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "fan_speed",
@@ -196,7 +196,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "operating_mode",
@@ -248,7 +248,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "operating_mode",
@@ -300,7 +300,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "vane_mode",
@@ -364,7 +364,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "vane_mode",
@@ -428,7 +428,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "wide_vane_mode",
@@ -492,7 +492,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "wide_vane_mode",
@@ -558,7 +558,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "fan_speed",
@@ -616,7 +616,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "operating_mode",
@@ -668,7 +668,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "vane_mode",
@@ -732,7 +732,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=climatecontrol"
+            "filter": "driver_id=mitsubishi_electric"
           },
           {
             "name": "wide_vane_mode",
@@ -1020,7 +1020,7 @@
           "CR2032"
         ]
       },
-      "id": "climatecontrol"
+      "id": "mitsubishi_electric"
     }
   ],
   "capabilities": {
