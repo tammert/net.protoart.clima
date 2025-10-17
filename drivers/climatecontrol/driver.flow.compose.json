@@ -1,5 +1,16 @@
 {
-  "triggers": [],
+  "triggers": [
+    {
+      "id": "defrost_active_true",
+      "title": {"en": "Defrost is active"},
+      "titleFormatted": {"en": "Defrost is active"}
+    },
+    {
+      "id": "defrost_active_false",
+      "title": {"en": "Defrost is not active"},
+      "titleFormatted": {"en": "Defrost is not active"}
+    }
+  ],
   "conditions": [
     {
       "id": "fan_speed_is",

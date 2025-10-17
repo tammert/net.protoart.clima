@@ -33,6 +33,40 @@
     "url": "https://github.com/tammert/net.protoart.clima/issues"
   },
   "flow": {
+    "triggers": [
+      {
+        "id": "defrost_active_true",
+        "title": {
+          "en": "Defrost is active"
+        },
+        "titleFormatted": {
+          "en": "Defrost is active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          }
+        ]
+      },
+      {
+        "id": "defrost_active_false",
+        "title": {
+          "en": "Defrost is not active"
+        },
+        "titleFormatted": {
+          "en": "Defrost is not active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climatecontrol"
+          }
+        ]
+      }
+    ],
     "conditions": [
       {
         "id": "fan_speed_is",
@@ -771,7 +805,8 @@
         "measure_temperature",
         "measure_temperature.outside",
         "measure_battery",
-        "measure_humidity"
+        "measure_humidity",
+        "defrost_active"
       ],
       "platforms": [
         "local"
@@ -819,6 +854,16 @@
     }
   ],
   "capabilities": {
+    "defrost_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Defrost active"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/defrost_active.svg"
+    },
     "fan_speed": {
       "type": "enum",
       "title": {

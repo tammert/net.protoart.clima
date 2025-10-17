@@ -16,7 +16,8 @@
     "measure_temperature",
     "measure_temperature.outside",
     "measure_battery",
-    "measure_humidity"
+    "measure_humidity",
+    "defrost_active"
   ],
   "platforms": [
     "local"

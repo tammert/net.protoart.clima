@@ -1,53 +1,16 @@
 {
   "type": "enum",
-  "title": {
-    "en": "Wide vane mode"
-  },
+  "title": {"en": "Wide vane mode"},
   "uiComponent": "picker",
   "getable": true,
   "setable": true,
   "values": [
-    {
-      "id": "auto",
-      "title": {
-        "en": "Auto"
-      }
-    },
-    {
-      "id": "swing",
-      "title": {
-        "en": "Swing"
-      }
-    },
-    {
-      "id": "maxleft",
-      "title": {
-        "en": "Left"
-      }
-    },
-    {
-      "id": "left",
-      "title": {
-        "en": "Middle-left"
-      }
-    },
-    {
-      "id": "middle",
-      "title": {
-        "en": "Middle"
-      }
-    },
-    {
-      "id": "right",
-      "title": {
-        "en": "Middle-right"
-      }
-    },
-    {
-      "id": "maxright",
-      "title": {
-        "en": "Right"
-      }
-    }
+    {"id": "auto", "title": {"en": "Auto"}},
+    {"id": "swing", "title": {"en": "Swing"}},
+    {"id": "maxleft", "title": {"en": "Left"}},
+    {"id": "left", "title": {"en": "Middle-left"}},
+    {"id": "middle", "title": {"en": "Middle"}},
+    {"id": "right", "title": {"en": "Middle-right"}},
+    {"id": "maxright", "title": {"en": "Right"}}
   ]
 }

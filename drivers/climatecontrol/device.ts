@@ -154,6 +154,7 @@ module.exports = class ClimateControlDevice extends Homey.Device {
             }
             await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
             await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
+            await this.setCapabilityValue('defrost_active', status.heatpump.defrost);
         } catch (error) {
             this.error('failed to update status:', error);
         }
