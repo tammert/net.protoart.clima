@@ -40,7 +40,7 @@
           "en": "Operating mode has changed"
         },
         "titleFormatted": {
-          "en": "Operating mode has changed to [[operating_mode]]"
+          "en": "Operating mode has changed to [[me_operating_mode]]"
         },
         "args": [
           {
@@ -49,7 +49,7 @@
             "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "operating_mode",
+            "name": "me_operating_mode",
             "type": "dropdown",
             "values": [
               {
@@ -92,7 +92,7 @@
           "en": "Fan speed has changed"
         },
         "titleFormatted": {
-          "en": "Fan speed has changed to [[fan_speed]]"
+          "en": "Fan speed has changed to [[me_fan_speed]]"
         },
         "args": [
           {
@@ -101,7 +101,7 @@
             "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "fan_speed",
+            "name": "me_fan_speed",
             "type": "dropdown",
             "values": [
               {
@@ -150,7 +150,7 @@
           "en": "Vane mode has changed"
         },
         "titleFormatted": {
-          "en": "Vane mode has changed to [[vane_mode]]"
+          "en": "Vane mode has changed to [[me_vane_mode]]"
         },
         "args": [
           {
@@ -159,7 +159,7 @@
             "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "vane_mode",
+            "name": "me_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -214,7 +214,7 @@
           "en": "Wide vane mode has changed"
         },
         "titleFormatted": {
-          "en": "Wide vane mode has changed to [[wide_vane_mode]]"
+          "en": "Wide vane mode has changed to [[me_wide_vane_mode]]"
         },
         "args": [
           {
@@ -223,7 +223,7 @@
             "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "wide_vane_mode",
+            "name": "me_wide_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -310,7 +310,7 @@
           "en": "Operating mode has changed"
         },
         "titleFormatted": {
-          "en": "Operating mode has changed to [[operating_mode]]"
+          "en": "Operating mode has changed to [[mhi_operating_mode]]"
         },
         "args": [
           {
@@ -319,7 +319,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "operating_mode",
+            "name": "mhi_operating_mode",
             "type": "dropdown",
             "values": [
               {
@@ -362,7 +362,7 @@
           "en": "Fan speed has changed"
         },
         "titleFormatted": {
-          "en": "Fan speed has changed to [[fan_speed]]"
+          "en": "Fan speed has changed to [[mhi_fan_speed]]"
         },
         "args": [
           {
@@ -371,7 +371,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "fan_speed",
+            "name": "mhi_fan_speed",
             "type": "dropdown",
             "values": [
               {
@@ -414,7 +414,7 @@
           "en": "Vane mode has changed"
         },
         "titleFormatted": {
-          "en": "Vane mode has changed to [[vane_mode]]"
+          "en": "Vane mode has changed to [[mhi_vane_mode]]"
         },
         "args": [
           {
@@ -423,7 +423,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "vane_mode",
+            "name": "mhi_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -466,7 +466,7 @@
           "en": "Wide vane mode has changed"
         },
         "titleFormatted": {
-          "en": "Wide vane mode has changed to [[wide_vane_mode]]"
+          "en": "Wide vane mode has changed to [[mhi_wide_vane_mode]]"
         },
         "args": [
           {
@@ -475,7 +475,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "wide_vane_mode",
+            "name": "mhi_wide_vane_mode",
             "type": "dropdown",
             "values": [
               {
