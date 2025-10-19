@@ -120,7 +120,7 @@ class ApiClient {
     private readonly apiEndpoints: ApiEndpoints;
 
     constructor(private readonly address: string, private readonly port: number, private readonly path: string, private readonly endpoints: ApiEndpoints) {
-        this.apiUrl = `http://${address}:${port}${path}`;
+        this.apiUrl = `http://${address}:${port || 80}${path || '/control'}`;
         this.apiEndpoints = endpoints;
     }
 
