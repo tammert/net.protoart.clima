@@ -4,8 +4,6 @@ import {MitsubishiHeavyIndustriesStatus} from "../../lib/apiClient";
 
 module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDevice {
     async onInit() {
-        this.log('MitsubishiHeavyIndustriesDevice has been initialized');
-
         this.apiEndpoints = {
             power: 'power',
             set_temperature: 'set_temperature',
@@ -15,6 +13,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             wide_vane_mode: 'vanelr'
         };
 
+        this.brand = "mhi"
         await super.onInit();
 
         // Get initial status
@@ -24,6 +23,8 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
         this.homey.setInterval(async () => {
             await this.updateStatus();
         }, 60000);
+
+        this.log('MitsubishiHeavyIndustriesDevice has been initialized');
     }
 
     async updateStatus() {
@@ -34,11 +35,12 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             }
 
             await this.setCapabilityValue('onoff', status.heatpump.power === 'on');
-            await this.setCapabilityValue('operating_mode', status.heatpump.mode);
+            await this.setCapabilityValue(`${this.brand}_operating_mode`, status.heatpump.mode);
+            await this.setCapabilityValue(`${this.brand}_fan_speed`, status.heatpump.fan);
+            await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
+            await this.setCapabilityValue(`${this.brand}_wide_vane_mode`, status.heatpump.vanelr);
+            await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.op.defrost);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
-            await this.setCapabilityValue('fan_speed', status.heatpump.fan);
-            await this.setCapabilityValue('vane_mode', status.heatpump.vane);
-            await this.setCapabilityValue('wide_vane_mode', status.heatpump.vanelr);
             await this.setCapabilityValue('measure_power', status.heatpump.op.consumption * 1000); // reported in kW, measured in W
             await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
             if (status.heatpump.op.outdoor != 0) {
@@ -47,7 +49,6 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             }
             await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
             await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
-            await this.setCapabilityValue('defrost_active', status.heatpump.op.defrost);
         } catch (error) {
             this.error('failed to update status:', error);
         }
