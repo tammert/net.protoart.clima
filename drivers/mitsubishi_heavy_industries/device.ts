@@ -41,7 +41,8 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             await this.setCapabilityValue(`${this.brand}_wide_vane_mode`, status.heatpump.vanelr);
             await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.op.defrost);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
-            await this.setCapabilityValue('measure_power', status.heatpump.op.consumption * 1000); // reported in kW, measured in W
+            await this.setCapabilityValue('meter_power', status.heatpump.op.consumption);
+            await this.setCapabilityValue('measure_power', status.heatpump.op.current * 230); // current in Amps, approximate W by using 230V
             await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
             if (status.heatpump.op.outdoor != 0) {
                 // 0 is used for "absent" value, so we can't use it as the real 0°C

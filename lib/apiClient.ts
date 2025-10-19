@@ -69,9 +69,9 @@ export interface MitsubishiHeavyIndustriesHeatpump {
         iu_fan: number;
         set_temperature: number;
         mode: number;
-        consumption: number; // power use in kW?
+        consumption: number; // kWh since... something
         return_air: number;
-        current: number;
+        current: number; // current in Amps?
         outdoor: number; // outdoor temperature
         thi_r1: number;
         thi_r3: number;

@@ -126,6 +126,9 @@ class ClimateControlDevice extends Homey.Device {
         });
 
         // capabilities added later might need to be added to older devices
+        if (this.hasCapability('alarm_cold')) {
+            await this.removeCapability('alarm_cold');
+        }
         if (this.hasCapability('defrost_active')) {
             await this.removeCapability('defrost_active');
         }

@@ -12,6 +12,7 @@
     "mhi_wide_vane_mode",
     "mhi_defrost_active",
     "target_temperature",
+    "meter_power",
     "measure_power",
     "measure_temperature",
     "measure_temperature.outside",

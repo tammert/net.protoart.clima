@@ -570,7 +570,7 @@
           "en": "Operating mode is"
         },
         "titleFormatted": {
-          "en": "Operating mode is [[operating_mode]]"
+          "en": "Operating mode !{{is|is not}} [[operating_mode]]"
         },
         "args": [
           {
@@ -622,7 +622,7 @@
           "en": "Fan speed is"
         },
         "titleFormatted": {
-          "en": "Fan speed is [[fan_speed]]"
+          "en": "Fan speed !{{is|is not}} [[fan_speed]]"
         },
         "args": [
           {
@@ -680,7 +680,7 @@
           "en": "Vane mode is"
         },
         "titleFormatted": {
-          "en": "Vane mode is [[vane_mode]]"
+          "en": "Vane mode !{{is|is not}} [[vane_mode]]"
         },
         "args": [
           {
@@ -744,7 +744,7 @@
           "en": "Wide vane mode is"
         },
         "titleFormatted": {
-          "en": "Wide vane mode is [[wide_vane_mode]]"
+          "en": "Wide vane mode !{{is|is not}} [[wide_vane_mode]]"
         },
         "args": [
           {
@@ -808,7 +808,7 @@
           "en": "Operating mode is"
         },
         "titleFormatted": {
-          "en": "Operating mode is [[operating_mode]]"
+          "en": "Operating mode !{{is|is not}} [[operating_mode]]"
         },
         "args": [
           {
@@ -860,7 +860,7 @@
           "en": "Fan speed is"
         },
         "titleFormatted": {
-          "en": "Fan speed is [[fan_speed]]"
+          "en": "Fan speed !{{is|is not}} [[fan_speed]]"
         },
         "args": [
           {
@@ -912,7 +912,7 @@
           "en": "Vane mode is"
         },
         "titleFormatted": {
-          "en": "Vane mode is [[vane_mode]]"
+          "en": "Vane mode !{{is|is not}} [[vane_mode]]"
         },
         "args": [
           {
@@ -964,7 +964,7 @@
           "en": "Wide vane mode is"
         },
         "titleFormatted": {
-          "en": "Wide vane mode is [[wide_vane_mode]]"
+          "en": "Wide vane mode !{{is|is not}} [[wide_vane_mode]]"
         },
         "args": [
           {
@@ -1580,6 +1580,7 @@
         "mhi_wide_vane_mode",
         "mhi_defrost_active",
         "target_temperature",
+        "meter_power",
         "measure_power",
         "measure_temperature",
         "measure_temperature.outside",
