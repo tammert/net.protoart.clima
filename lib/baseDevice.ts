@@ -5,6 +5,7 @@ class ClimateControlDevice extends Homey.Device {
     protected apiClient!: ApiClient
     protected apiEndpoints!: ApiEndpoints
     protected brand!: string
+    protected pollingInterval!: NodeJS.Timeout;
 
     async onInit() {
         // Get the device's IP address from store
@@ -147,6 +148,14 @@ class ClimateControlDevice extends Homey.Device {
         await this.setStoreValue('address', address)
         this.apiClient = new ApiClient(address, discoveryResult.port, discoveryResult.txt.path, this.apiEndpoints);
         this.log(`updated ${this.getName()} IP address to ${address}`)
+    }
+
+    async onDeleted() {
+        if (this.pollingInterval) {
+            this.homey.clearInterval(this.pollingInterval);
+        }
+
+        this.log('ClimateControlDevice has been deleted');
     }
 }
 

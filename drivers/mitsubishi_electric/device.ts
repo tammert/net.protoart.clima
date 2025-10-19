@@ -20,7 +20,7 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
         await this.updateStatus();
 
         // Poll for status every 60 seconds
-        this.homey.setInterval(async () => {
+        this.pollingInterval = this.homey.setInterval(async () => {
             await this.updateStatus();
         }, 60000);
 
@@ -69,12 +69,5 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
      */
     async onRenamed(name: string) {
         this.log('MitsubishiElectricDevice was renamed');
-    }
-
-    /**
-     * onDeleted is called when the user deleted the device.
-     */
-    async onDeleted() {
-        this.log('MitsubishiElectricDevice has been deleted');
     }
 };
