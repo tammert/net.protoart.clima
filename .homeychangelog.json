@@ -7,5 +7,8 @@
   },
   "0.2.0": {
     "en": "Added Mitsubishi Heavy Industries devices"
+  },
+  "0.2.1": {
+    "en": "Fix for mDNS entries with missing attributes"
   }
 }
