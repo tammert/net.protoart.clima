@@ -5,5 +5,6 @@ TODO:
 * add settings page
   * configuration of min-max temperatures
   * configuration of step size (0.5 or 1.0?)
+  * configuration of polling interval
 * low on battery! warnings: maybe missed update?
-* if no battery/humidity: remove capability dynamically?
+* outside_temp 0 degrees -> how to differentiate between zero value

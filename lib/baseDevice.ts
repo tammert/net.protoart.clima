@@ -138,6 +138,51 @@ class ClimateControlDevice extends Homey.Device {
         }
     }
 
+    async updateStatus(status: any) {
+        if (Homey.env.NODE_ENV === 'development') {
+            this.log('status received:\n', status);
+        }
+
+        try {
+            // check if a wireless temperature sensor is connected - set capabilities accordingly
+            const capabilities = this.getCapabilities()
+            if (status.sensor && status.sensor.thermometer) {
+                if (!capabilities.includes('measure_battery')) {
+                    this.log('adding capability for measure_battery');
+                    await this.addCapability('measure_battery');
+                }
+                if (!capabilities.includes('measure_humidity')) {
+                    this.log('adding capability for measure_humidity');
+                    await this.addCapability('measure_humidity');
+                }
+            } else {
+                if (capabilities.includes('measure_battery')) {
+                    this.log('removing capability for measure_battery');
+                    await this.removeCapability('measure_battery')
+                }
+                if (capabilities.includes('measure_humidity')) {
+                    this.log('removing capability for measure_humidity');
+                    await this.removeCapability('measure_humidity')
+                }
+            }
+
+            // generic capabilities
+            await this.setCapabilityValue('onoff', status.heatpump.power === 'on');
+            await this.setCapabilityValue(`${this.brand}_operating_mode`, status.heatpump.mode);
+            await this.setCapabilityValue(`${this.brand}_fan_speed`, status.heatpump.fan);
+            await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
+            await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
+            await this.setCapabilityValue('measure_temperature', this.apiClient.getTemperatureFromStatus(status));
+
+            if (status.sensor && status.sensor.thermometer) {
+                await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact);
+                await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt);
+            }
+        } catch (error) {
+            this.error('failed to update status:', error);
+        }
+    }
+
     // when the IP address changes, persists the new value in the store
     async onDiscoveryAddressChanged(discoveryResult: any) {
         if (Homey.env.NODE_ENV === 'development') {
