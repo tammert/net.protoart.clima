@@ -10,5 +10,8 @@
   },
   "0.2.1": {
     "en": "Fix for mDNS entries with missing attributes"
+  },
+  "0.3.0": {
+    "en": "Capability reworks, code optimizations, MHI energy/power fixes, misc fixes"
   }
 }
