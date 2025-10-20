@@ -1627,7 +1627,7 @@
           "title": {
             "en": "Temperature outside"
           },
-          "step": 1
+          "step": 0.1
         }
       },
       "energy": {

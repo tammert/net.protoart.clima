@@ -43,13 +43,13 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
             await this.setCapabilityValue('measure_power', status.heatpump.pinp);
-            await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
+            await this.setCapabilityValue('measure_temperature', this.apiClient.getTemperatureFromStatus(status));
             if (status.heatpump.tout != 0) {
                 // 0 is used for "absent" value, so we can't use it as the real 0°C
                 await this.setCapabilityValue('measure_temperature.outside', status.heatpump.tout);
             }
             await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
-            await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
+            await this.setCapabilityValue('measure_humidity', this.apiClient.getHumidityFromStatus(status));
         } catch (error) {
             this.error('failed to update status:', error);
         }

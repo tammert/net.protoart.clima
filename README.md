@@ -4,3 +4,4 @@ TODO:
 * add fault code for ME
 * add stub settings page
 * low on battery! warnings: maybe missed update?
+* if no battery/humidity: remove capability dynamically?

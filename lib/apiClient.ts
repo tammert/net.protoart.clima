@@ -94,6 +94,10 @@ export interface Sensor {
         tact: number, // temperature actual
         last: number // last seen seconds ago
     };
+    external: {
+        temperature: number,
+        humidity: number,
+    }
 }
 
 export interface MitsubishiElectricStatus {
@@ -229,6 +233,26 @@ class ApiClient {
         } catch (error) {
             throw new Error(`Failed to set swing mode: ${error}`);
         }
+    }
+
+    getTemperatureFromStatus(status: any): number {
+        if (status.sensor.thermometer && status.sensor.thermometer.tact) {
+            return status.sensor.thermometer.tact
+        }
+        if (status.sensor.external && status.sensor.external.temperature) {
+            return status.sensor.external.temperature
+        }
+        return status.heatpump.actual_temperature;
+    }
+
+    getHumidityFromStatus(status: any): number {
+        if (status.sensor.thermometer && status.sensor.thermometer.hact) {
+            return status.sensor.thermometer.hact
+        }
+        if (status.sensor.external && status.sensor.external.humidity) {
+            return status.sensor.external.humidity
+        }
+        return 0
     }
 }
 

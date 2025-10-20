@@ -43,13 +43,13 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
             await this.setCapabilityValue('meter_power', status.heatpump.op.consumption);
             await this.setCapabilityValue('measure_power', status.heatpump.op.current * 230); // current in Amps, approximate W by using 230V
-            await this.setCapabilityValue('measure_temperature', status.sensor.thermometer.tact ? status.sensor.thermometer.tact : status.heatpump.actual_temperature);
+            await this.setCapabilityValue('measure_temperature', this.apiClient.getTemperatureFromStatus(status));
             if (status.heatpump.op.outdoor != 0) {
                 // 0 is used for "absent" value, so we can't use it as the real 0°C
                 await this.setCapabilityValue('measure_temperature.outside', status.heatpump.op.outdoor);
             }
             await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt ? status.sensor.thermometer.batt : 0);
-            await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact ? status.sensor.thermometer.hact : 0);
+            await this.setCapabilityValue('measure_humidity', this.apiClient.getHumidityFromStatus(status));
         } catch (error) {
             this.error('failed to update status:', error);
         }
