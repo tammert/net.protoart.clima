@@ -19,5 +19,8 @@
   },
   "0.3.2": {
     "en": "Lower minimum temperatures to match with ClimateControl possibilities"
+  },
+  "0.3.3": {
+    "en": "Made capabilities more dynamic"
   }
 }
