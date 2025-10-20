@@ -35,12 +35,250 @@
   "flow": {
     "triggers": [
       {
-        "id": "me_defrost_active_true",
+        "id": "me_operating_mode_changed",
         "title": {
-          "en": "Defrost is active"
+          "en": "Operating mode has changed"
         },
         "titleFormatted": {
-          "en": "Defrost is active"
+          "en": "Operating mode has changed to [[me_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_fan_speed_changed",
+        "title": {
+          "en": "Fan speed has changed"
+        },
+        "titleFormatted": {
+          "en": "Fan speed has changed to [[me_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent (1)"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low (2)"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium (3)"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High (4)"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max (5)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_vane_mode_changed",
+        "title": {
+          "en": "Vane mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Vane mode has changed to [[me_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Up"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Middle-up"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Middle-down"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "Down"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_wide_vane_mode_changed",
+        "title": {
+          "en": "Wide vane mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode has changed to [[me_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Middle-left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Middle-right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Right"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_defrost_active_true",
+        "title": {
+          "en": "Defrost turned on"
+        },
+        "titleFormatted": {
+          "en": "Defrost turned on"
         },
         "args": [
           {
@@ -53,10 +291,10 @@
       {
         "id": "me_defrost_active_false",
         "title": {
-          "en": "Defrost is not active"
+          "en": "Defrost turned off"
         },
         "titleFormatted": {
-          "en": "Defrost is not active"
+          "en": "Defrost turned off"
         },
         "args": [
           {
@@ -67,171 +305,21 @@
         ]
       },
       {
-        "id": "mhi_defrost_active_true",
+        "id": "mhi_operating_mode_changed",
         "title": {
-          "en": "Defrost is active"
+          "en": "Operating mode has changed"
         },
         "titleFormatted": {
-          "en": "Defrost is active"
+          "en": "Operating mode has changed to [[mhi_operating_mode]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=mitsubishi_heavy_industries"
-          }
-        ]
-      },
-      {
-        "id": "mhi_defrost_active_false",
-        "title": {
-          "en": "Defrost is not active"
-        },
-        "titleFormatted": {
-          "en": "Defrost is not active"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_heavy_industries"
-          }
-        ]
-      }
-    ],
-    "conditions": [
-      {
-        "id": "me_fan_speed_is",
-        "title": {
-          "en": "Fan speed is"
-        },
-        "titleFormatted": {
-          "en": "Fan speed is [[fan_speed]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "fan_speed",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "silent",
-                "title": {
-                  "en": "Silent (1)"
-                }
-              },
-              {
-                "id": "low",
-                "title": {
-                  "en": "Low (2)"
-                }
-              },
-              {
-                "id": "med",
-                "title": {
-                  "en": "Medium (3)"
-                }
-              },
-              {
-                "id": "high",
-                "title": {
-                  "en": "High (4)"
-                }
-              },
-              {
-                "id": "superhigh",
-                "title": {
-                  "en": "Max (5)"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "me_fan_speed_is_not",
-        "title": {
-          "en": "Fan speed is not"
-        },
-        "titleFormatted": {
-          "en": "Fan speed is not [[fan_speed]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "fan_speed",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "silent",
-                "title": {
-                  "en": "Silent (1)"
-                }
-              },
-              {
-                "id": "low",
-                "title": {
-                  "en": "Low (2)"
-                }
-              },
-              {
-                "id": "med",
-                "title": {
-                  "en": "Medium (3)"
-                }
-              },
-              {
-                "id": "high",
-                "title": {
-                  "en": "High (4)"
-                }
-              },
-              {
-                "id": "superhigh",
-                "title": {
-                  "en": "Max (5)"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "me_operating_mode_is",
-        "title": {
-          "en": "Operating mode is"
-        },
-        "titleFormatted": {
-          "en": "Operating mode is [[operating_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "operating_mode",
+            "name": "mhi_operating_mode",
             "type": "dropdown",
             "values": [
               {
@@ -269,320 +357,12 @@
         ]
       },
       {
-        "id": "me_operating_mode_is_not",
+        "id": "mhi_fan_speed_changed",
         "title": {
-          "en": "Operating mode is not"
+          "en": "Fan speed has changed"
         },
         "titleFormatted": {
-          "en": "Operating mode is not [[operating_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "operating_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "cool",
-                "title": {
-                  "en": "Cool"
-                }
-              },
-              {
-                "id": "heat",
-                "title": {
-                  "en": "Heat"
-                }
-              },
-              {
-                "id": "dry",
-                "title": {
-                  "en": "Dry"
-                }
-              },
-              {
-                "id": "fan",
-                "title": {
-                  "en": "Fan"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "me_vane_mode_is",
-        "title": {
-          "en": "Vane mode is"
-        },
-        "titleFormatted": {
-          "en": "Vane mode is [[vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "swing",
-                "title": {
-                  "en": "Swing"
-                }
-              },
-              {
-                "id": "1",
-                "title": {
-                  "en": "Up"
-                }
-              },
-              {
-                "id": "2",
-                "title": {
-                  "en": "Middle-up"
-                }
-              },
-              {
-                "id": "3",
-                "title": {
-                  "en": "Middle"
-                }
-              },
-              {
-                "id": "4",
-                "title": {
-                  "en": "Middle-down"
-                }
-              },
-              {
-                "id": "5",
-                "title": {
-                  "en": "Down"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "me_vane_mode_is_not",
-        "title": {
-          "en": "Vane mode is not"
-        },
-        "titleFormatted": {
-          "en": "Vane mode is not [[vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "swing",
-                "title": {
-                  "en": "Swing"
-                }
-              },
-              {
-                "id": "1",
-                "title": {
-                  "en": "Up"
-                }
-              },
-              {
-                "id": "2",
-                "title": {
-                  "en": "Middle-up"
-                }
-              },
-              {
-                "id": "3",
-                "title": {
-                  "en": "Middle"
-                }
-              },
-              {
-                "id": "4",
-                "title": {
-                  "en": "Middle-down"
-                }
-              },
-              {
-                "id": "5",
-                "title": {
-                  "en": "Down"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "me_wide_vane_mode_is",
-        "title": {
-          "en": "Wide vane mode is"
-        },
-        "titleFormatted": {
-          "en": "Wide vane mode is [[wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "swing",
-                "title": {
-                  "en": "Swing"
-                }
-              },
-              {
-                "id": "maxleft",
-                "title": {
-                  "en": "Left"
-                }
-              },
-              {
-                "id": "left",
-                "title": {
-                  "en": "Middle-left"
-                }
-              },
-              {
-                "id": "middle",
-                "title": {
-                  "en": "Middle"
-                }
-              },
-              {
-                "id": "right",
-                "title": {
-                  "en": "Middle-right"
-                }
-              },
-              {
-                "id": "maxright",
-                "title": {
-                  "en": "Right"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "me_wide_vane_mode_is_not",
-        "title": {
-          "en": "Wide vane mode is not"
-        },
-        "titleFormatted": {
-          "en": "Wide vane mode is not [[wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "swing",
-                "title": {
-                  "en": "Swing"
-                }
-              },
-              {
-                "id": "maxleft",
-                "title": {
-                  "en": "Left"
-                }
-              },
-              {
-                "id": "left",
-                "title": {
-                  "en": "Middle-left"
-                }
-              },
-              {
-                "id": "middle",
-                "title": {
-                  "en": "Middle"
-                }
-              },
-              {
-                "id": "right",
-                "title": {
-                  "en": "Middle-right"
-                }
-              },
-              {
-                "id": "maxright",
-                "title": {
-                  "en": "Right"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "mhi_fan_speed_is",
-        "title": {
-          "en": "Fan speed is"
-        },
-        "titleFormatted": {
-          "en": "Fan speed is [[fan_speed]]"
+          "en": "Fan speed has changed to [[mhi_fan_speed]]"
         },
         "args": [
           {
@@ -591,7 +371,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "fan_speed",
+            "name": "mhi_fan_speed",
             "type": "dropdown",
             "values": [
               {
@@ -629,12 +409,12 @@
         ]
       },
       {
-        "id": "mhi_fan_speed_is_not",
+        "id": "mhi_vane_mode_changed",
         "title": {
-          "en": "Fan speed is not"
+          "en": "Vane mode has changed"
         },
         "titleFormatted": {
-          "en": "Fan speed is not [[fan_speed]]"
+          "en": "Vane mode has changed to [[mhi_vane_mode]]"
         },
         "args": [
           {
@@ -643,163 +423,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "fan_speed",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "1",
-                "title": {
-                  "en": "1"
-                }
-              },
-              {
-                "id": "2",
-                "title": {
-                  "en": "2"
-                }
-              },
-              {
-                "id": "3",
-                "title": {
-                  "en": "3"
-                }
-              },
-              {
-                "id": "4",
-                "title": {
-                  "en": "4"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "mhi_operating_mode_is",
-        "title": {
-          "en": "Operating mode is"
-        },
-        "titleFormatted": {
-          "en": "Operating mode is [[operating_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_heavy_industries"
-          },
-          {
-            "name": "operating_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "cool",
-                "title": {
-                  "en": "Cool"
-                }
-              },
-              {
-                "id": "heat",
-                "title": {
-                  "en": "Heat"
-                }
-              },
-              {
-                "id": "dry",
-                "title": {
-                  "en": "Dry"
-                }
-              },
-              {
-                "id": "fan",
-                "title": {
-                  "en": "Fan"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "mhi_operating_mode_is_not",
-        "title": {
-          "en": "Operating mode is not"
-        },
-        "titleFormatted": {
-          "en": "Operating mode is not [[operating_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_heavy_industries"
-          },
-          {
-            "name": "operating_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "cool",
-                "title": {
-                  "en": "Cool"
-                }
-              },
-              {
-                "id": "heat",
-                "title": {
-                  "en": "Heat"
-                }
-              },
-              {
-                "id": "dry",
-                "title": {
-                  "en": "Dry"
-                }
-              },
-              {
-                "id": "fan",
-                "title": {
-                  "en": "Fan"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "mhi_vane_mode_is",
-        "title": {
-          "en": "Vane mode is"
-        },
-        "titleFormatted": {
-          "en": "Vane mode is [[vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_heavy_industries"
-          },
-          {
-            "name": "vane_mode",
+            "name": "mhi_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -837,12 +461,12 @@
         ]
       },
       {
-        "id": "mhi_vane_mode_is_not",
+        "id": "mhi_wide_vane_mode_changed",
         "title": {
-          "en": "Vane mode is not"
+          "en": "Wide vane mode has changed"
         },
         "titleFormatted": {
-          "en": "Vane mode is not [[vane_mode]]"
+          "en": "Wide vane mode has changed to [[mhi_wide_vane_mode]]"
         },
         "args": [
           {
@@ -851,59 +475,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "swing",
-                "title": {
-                  "en": "Swing"
-                }
-              },
-              {
-                "id": "1",
-                "title": {
-                  "en": "1"
-                }
-              },
-              {
-                "id": "2",
-                "title": {
-                  "en": "2"
-                }
-              },
-              {
-                "id": "3",
-                "title": {
-                  "en": "3"
-                }
-              },
-              {
-                "id": "4",
-                "title": {
-                  "en": "4"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "mhi_wide_vane_mode_is",
-        "title": {
-          "en": "Wide vane mode is"
-        },
-        "titleFormatted": {
-          "en": "Wide vane mode is [[wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_heavy_industries"
-          },
-          {
-            "name": "wide_vane_mode",
+            "name": "mhi_wide_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -959,12 +531,284 @@
         ]
       },
       {
-        "id": "mhi_wide_vane_mode_is_not",
+        "id": "mhi_defrost_active_true",
         "title": {
-          "en": "Wide vane mode is not"
+          "en": "Defrost turned on"
         },
         "titleFormatted": {
-          "en": "Wide vane mode is not [[wide_vane_mode]]"
+          "en": "Defrost turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      },
+      {
+        "id": "mhi_defrost_active_false",
+        "title": {
+          "en": "Defrost turned off"
+        },
+        "titleFormatted": {
+          "en": "Defrost turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "me_operating_mode_is",
+        "title": {
+          "en": "Operating mode is"
+        },
+        "titleFormatted": {
+          "en": "Operating mode !{{is|is not}} [[me_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_fan_speed_is",
+        "title": {
+          "en": "Fan speed is"
+        },
+        "titleFormatted": {
+          "en": "Fan speed !{{is|is not}} [[me_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent (1)"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low (2)"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium (3)"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High (4)"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max (5)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_vane_mode_is",
+        "title": {
+          "en": "Vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Vane mode !{{is|is not}} [[me_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Up"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Middle-up"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Middle-down"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "Down"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_wide_vane_mode_is",
+        "title": {
+          "en": "Wide vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode !{{is|is not}} [[me_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Middle-left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Middle-right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Right"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mhi_operating_mode_is",
+        "title": {
+          "en": "Operating mode is"
+        },
+        "titleFormatted": {
+          "en": "Operating mode !{{is|is not}} [[mhi_operating_mode]]"
         },
         "args": [
           {
@@ -973,7 +817,163 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "wide_vane_mode",
+            "name": "mhi_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mhi_fan_speed_is",
+        "title": {
+          "en": "Fan speed is"
+        },
+        "titleFormatted": {
+          "en": "Fan speed !{{is|is not}} [[mhi_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          },
+          {
+            "name": "mhi_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mhi_vane_mode_is",
+        "title": {
+          "en": "Vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Vane mode !{{is|is not}} [[mhi_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          },
+          {
+            "name": "mhi_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mhi_wide_vane_mode_is",
+        "title": {
+          "en": "Wide vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode !{{is|is not}} [[mhi_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          },
+          {
+            "name": "mhi_wide_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -1031,12 +1031,12 @@
     ],
     "actions": [
       {
-        "id": "me_set_fan_speed",
+        "id": "me_operating_mode_set",
         "title": {
-          "en": "Set fan speed to"
+          "en": "Set operating mode"
         },
         "titleFormatted": {
-          "en": "Set fan speed to [[fan_speed]]"
+          "en": "Set operating mode to [[me_operating_mode]]"
         },
         "args": [
           {
@@ -1045,7 +1045,59 @@
             "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "fan_speed",
+            "name": "me_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "me_fan_speed_set",
+        "title": {
+          "en": "Set fan speed"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[me_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "me_fan_speed",
             "type": "dropdown",
             "values": [
               {
@@ -1089,12 +1141,12 @@
         ]
       },
       {
-        "id": "me_set_operating_mode",
+        "id": "me_vane_mode_set",
         "title": {
-          "en": "Set operating mode to"
+          "en": "Set vane mode"
         },
         "titleFormatted": {
-          "en": "Set operating mode to [[operating_mode]]"
+          "en": "Set vane mode to [[me_vane_mode]]"
         },
         "args": [
           {
@@ -1103,59 +1155,7 @@
             "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "operating_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "cool",
-                "title": {
-                  "en": "Cool"
-                }
-              },
-              {
-                "id": "heat",
-                "title": {
-                  "en": "Heat"
-                }
-              },
-              {
-                "id": "dry",
-                "title": {
-                  "en": "Dry"
-                }
-              },
-              {
-                "id": "fan",
-                "title": {
-                  "en": "Fan"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "me_set_vane_mode",
-        "title": {
-          "en": "Set vane mode to"
-        },
-        "titleFormatted": {
-          "en": "Set vane mode to [[vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_electric"
-          },
-          {
-            "name": "vane_mode",
+            "name": "me_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -1205,12 +1205,12 @@
         ]
       },
       {
-        "id": "me_set_wide_vane_mode",
+        "id": "me_wide_vane_mode_set",
         "title": {
-          "en": "Set wide vane mode to"
+          "en": "Set wide vane mode"
         },
         "titleFormatted": {
-          "en": "Set wide vane mode to [[wide_vane_mode]]"
+          "en": "Set wide vane mode to [[me_wide_vane_mode]]"
         },
         "args": [
           {
@@ -1219,7 +1219,7 @@
             "filter": "driver_id=mitsubishi_electric"
           },
           {
-            "name": "wide_vane_mode",
+            "name": "me_wide_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -1269,12 +1269,12 @@
         ]
       },
       {
-        "id": "mhi_set_fan_speed",
+        "id": "mhi_operating_mode_set",
         "title": {
-          "en": "Set fan speed to"
+          "en": "Set operating mode"
         },
         "titleFormatted": {
-          "en": "Set fan speed to [[fan_speed]]"
+          "en": "Set operating mode to [[mhi_operating_mode]]"
         },
         "args": [
           {
@@ -1283,59 +1283,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "fan_speed",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              },
-              {
-                "id": "1",
-                "title": {
-                  "en": "1"
-                }
-              },
-              {
-                "id": "2",
-                "title": {
-                  "en": "2"
-                }
-              },
-              {
-                "id": "3",
-                "title": {
-                  "en": "3"
-                }
-              },
-              {
-                "id": "4",
-                "title": {
-                  "en": "4"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "mhi_set_operating_mode",
-        "title": {
-          "en": "Set operating mode to"
-        },
-        "titleFormatted": {
-          "en": "Set operating mode to [[operating_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mitsubishi_heavy_industries"
-          },
-          {
-            "name": "operating_mode",
+            "name": "mhi_operating_mode",
             "type": "dropdown",
             "values": [
               {
@@ -1373,12 +1321,12 @@
         ]
       },
       {
-        "id": "mhi_set_vane_mode",
+        "id": "mhi_fan_speed_set",
         "title": {
-          "en": "Set vane mode to"
+          "en": "Set fan speed"
         },
         "titleFormatted": {
-          "en": "Set vane mode to [[vane_mode]]"
+          "en": "Set fan speed to [[mhi_fan_speed]]"
         },
         "args": [
           {
@@ -1387,7 +1335,59 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "vane_mode",
+            "name": "mhi_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mhi_vane_mode_set",
+        "title": {
+          "en": "Set vane mode"
+        },
+        "titleFormatted": {
+          "en": "Set vane mode to [[mhi_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          },
+          {
+            "name": "mhi_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -1425,12 +1425,12 @@
         ]
       },
       {
-        "id": "mhi_set_wide_vane_mode",
+        "id": "mhi_wide_vane_mode_set",
         "title": {
-          "en": "Set wide vane mode to"
+          "en": "Set wide vane mode"
         },
         "titleFormatted": {
-          "en": "Set wide vane mode to [[wide_vane_mode]]"
+          "en": "Set wide vane mode to [[mhi_wide_vane_mode]]"
         },
         "args": [
           {
@@ -1439,7 +1439,7 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           },
           {
-            "name": "wide_vane_mode",
+            "name": "mhi_wide_vane_mode",
             "type": "dropdown",
             "values": [
               {
@@ -1505,18 +1505,18 @@
       "class": "airconditioning",
       "capabilities": [
         "onoff",
-        "operating_mode",
-        "fan_speed",
-        "vane_mode",
-        "wide_vane_mode",
+        "me_operating_mode",
+        "me_fan_speed",
+        "me_vane_mode",
+        "me_wide_vane_mode",
+        "me_defrost_active",
         "target_temperature",
         "meter_power",
         "measure_power",
         "measure_temperature",
         "measure_temperature.outside",
         "measure_battery",
-        "measure_humidity",
-        "defrost_active"
+        "measure_humidity"
       ],
       "platforms": [
         "local"
@@ -1526,7 +1526,8 @@
       ],
       "images": {
         "small": "/assets/images/drivers/small.png",
-        "large": "/assets/images/drivers/large.png"
+        "large": "/assets/images/drivers/large.png",
+        "xlarge": "/assets/images/drivers/xlarge.png"
       },
       "pair": [
         {
@@ -1557,172 +1558,6 @@
             "en": "Temperature outside"
           },
           "step": 1
-        },
-        "fan_speed": {
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "silent",
-              "title": {
-                "en": "Silent (1)"
-              }
-            },
-            {
-              "id": "low",
-              "title": {
-                "en": "Low (2)"
-              }
-            },
-            {
-              "id": "med",
-              "title": {
-                "en": "Medium (3)"
-              }
-            },
-            {
-              "id": "high",
-              "title": {
-                "en": "High (4)"
-              }
-            },
-            {
-              "id": "superhigh",
-              "title": {
-                "en": "Max (5)"
-              }
-            }
-          ]
-        },
-        "operating_mode": {
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "cool",
-              "title": {
-                "en": "Cool"
-              }
-            },
-            {
-              "id": "heat",
-              "title": {
-                "en": "Heat"
-              }
-            },
-            {
-              "id": "dry",
-              "title": {
-                "en": "Dry"
-              }
-            },
-            {
-              "id": "fan",
-              "title": {
-                "en": "Fan"
-              }
-            }
-          ]
-        },
-        "vane_mode": {
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "swing",
-              "title": {
-                "en": "Swing"
-              }
-            },
-            {
-              "id": "1",
-              "title": {
-                "en": "Up"
-              }
-            },
-            {
-              "id": "2",
-              "title": {
-                "en": "Middle-up"
-              }
-            },
-            {
-              "id": "3",
-              "title": {
-                "en": "Middle"
-              }
-            },
-            {
-              "id": "4",
-              "title": {
-                "en": "Middle-down"
-              }
-            },
-            {
-              "id": "5",
-              "title": {
-                "en": "Down"
-              }
-            }
-          ]
-        },
-        "wide_vane_mode": {
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "swing",
-              "title": {
-                "en": "Swing"
-              }
-            },
-            {
-              "id": "maxleft",
-              "title": {
-                "en": "Left"
-              }
-            },
-            {
-              "id": "left",
-              "title": {
-                "en": "Middle-left"
-              }
-            },
-            {
-              "id": "middle",
-              "title": {
-                "en": "Middle"
-              }
-            },
-            {
-              "id": "right",
-              "title": {
-                "en": "Middle-right"
-              }
-            },
-            {
-              "id": "maxright",
-              "title": {
-                "en": "Right"
-              }
-            }
-          ]
         }
       },
       "energy": {
@@ -1740,17 +1575,18 @@
       "class": "airconditioning",
       "capabilities": [
         "onoff",
-        "operating_mode",
-        "fan_speed",
-        "vane_mode",
-        "wide_vane_mode",
+        "mhi_operating_mode",
+        "mhi_fan_speed",
+        "mhi_vane_mode",
+        "mhi_wide_vane_mode",
+        "mhi_defrost_active",
         "target_temperature",
+        "meter_power",
         "measure_power",
         "measure_temperature",
         "measure_temperature.outside",
         "measure_battery",
-        "measure_humidity",
-        "defrost_active"
+        "measure_humidity"
       ],
       "platforms": [
         "local"
@@ -1760,7 +1596,8 @@
       ],
       "images": {
         "small": "/assets/images/drivers/small.png",
-        "large": "/assets/images/drivers/large.png"
+        "large": "/assets/images/drivers/large.png",
+        "xlarge": "/assets/images/drivers/xlarge.png"
       },
       "pair": [
         {
@@ -1791,160 +1628,6 @@
             "en": "Temperature outside"
           },
           "step": 1
-        },
-        "fan_speed": {
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "1",
-              "title": {
-                "en": "1"
-              }
-            },
-            {
-              "id": "2",
-              "title": {
-                "en": "2"
-              }
-            },
-            {
-              "id": "3",
-              "title": {
-                "en": "3"
-              }
-            },
-            {
-              "id": "4",
-              "title": {
-                "en": "4"
-              }
-            }
-          ]
-        },
-        "operating_mode": {
-          "values": [
-            {
-              "id": "auto",
-              "title": {
-                "en": "Auto"
-              }
-            },
-            {
-              "id": "cool",
-              "title": {
-                "en": "Cool"
-              }
-            },
-            {
-              "id": "heat",
-              "title": {
-                "en": "Heat"
-              }
-            },
-            {
-              "id": "dry",
-              "title": {
-                "en": "Dry"
-              }
-            },
-            {
-              "id": "fan",
-              "title": {
-                "en": "Fan"
-              }
-            }
-          ]
-        },
-        "vane_mode": {
-          "values": [
-            {
-              "id": "swing",
-              "title": {
-                "en": "Swing"
-              }
-            },
-            {
-              "id": "1",
-              "title": {
-                "en": "1"
-              }
-            },
-            {
-              "id": "2",
-              "title": {
-                "en": "2"
-              }
-            },
-            {
-              "id": "3",
-              "title": {
-                "en": "3"
-              }
-            },
-            {
-              "id": "4",
-              "title": {
-                "en": "4"
-              }
-            }
-          ]
-        },
-        "wide_vane_mode": {
-          "values": [
-            {
-              "id": "swing",
-              "title": {
-                "en": "Swing"
-              }
-            },
-            {
-              "id": "1",
-              "title": {
-                "en": "1"
-              }
-            },
-            {
-              "id": "2",
-              "title": {
-                "en": "2"
-              }
-            },
-            {
-              "id": "3",
-              "title": {
-                "en": "3"
-              }
-            },
-            {
-              "id": "4",
-              "title": {
-                "en": "4"
-              }
-            },
-            {
-              "id": "5",
-              "title": {
-                "en": "5"
-              }
-            },
-            {
-              "id": "6",
-              "title": {
-                "en": "6"
-              }
-            },
-            {
-              "id": "7",
-              "title": {
-                "en": "7"
-              }
-            }
-          ]
         }
       },
       "energy": {
@@ -1975,6 +1658,402 @@
       "getable": true,
       "setable": true,
       "values": []
+    },
+    "me_defrost_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Defrost active"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/defrost_active.svg"
+    },
+    "me_fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "silent",
+          "title": {
+            "en": "Silent (1)"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low (2)"
+          }
+        },
+        {
+          "id": "med",
+          "title": {
+            "en": "Medium (3)"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High (4)"
+          }
+        },
+        {
+          "id": "superhigh",
+          "title": {
+            "en": "Max (5)"
+          }
+        }
+      ]
+    },
+    "me_operating_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry"
+          }
+        },
+        {
+          "id": "fan",
+          "title": {
+            "en": "Fan"
+          }
+        }
+      ]
+    },
+    "me_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Up"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Middle-up"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Middle"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Middle-down"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "Down"
+          }
+        }
+      ]
+    },
+    "me_wide_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Wide vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "maxleft",
+          "title": {
+            "en": "Left"
+          }
+        },
+        {
+          "id": "left",
+          "title": {
+            "en": "Middle-left"
+          }
+        },
+        {
+          "id": "middle",
+          "title": {
+            "en": "Middle"
+          }
+        },
+        {
+          "id": "right",
+          "title": {
+            "en": "Middle-right"
+          }
+        },
+        {
+          "id": "maxright",
+          "title": {
+            "en": "Right"
+          }
+        }
+      ]
+    },
+    "mhi_defrost_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Defrost active"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/defrost_active.svg"
+    },
+    "mhi_fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "4"
+          }
+        }
+      ]
+    },
+    "mhi_operating_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry"
+          }
+        },
+        {
+          "id": "fan",
+          "title": {
+            "en": "Fan"
+          }
+        }
+      ]
+    },
+    "mhi_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "4"
+          }
+        }
+      ]
+    },
+    "mhi_wide_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Wide vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "4"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "5"
+          }
+        },
+        {
+          "id": "6",
+          "title": {
+            "en": "6"
+          }
+        },
+        {
+          "id": "7",
+          "title": {
+            "en": "7"
+          }
+        }
+      ]
     },
     "operating_mode": {
       "type": "enum",

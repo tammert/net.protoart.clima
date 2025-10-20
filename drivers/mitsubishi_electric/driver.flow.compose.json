@@ -1,24 +1,30 @@
 {
   "triggers": [
     {
-      "id": "me_defrost_active_true",
-      "title": {"en": "Defrost is active"},
-      "titleFormatted": {"en": "Defrost is active"}
-    },
-    {
-      "id": "me_defrost_active_false",
-      "title": {"en": "Defrost is not active"},
-      "titleFormatted": {"en": "Defrost is not active"}
-    }
-  ],
-  "conditions": [
-    {
-      "id": "me_fan_speed_is",
-      "title": {"en": "Fan speed is"},
-      "titleFormatted": {"en": "Fan speed is [[fan_speed]]"},
+      "id": "me_operating_mode_changed",
+      "title": {"en": "Operating mode has changed"},
+      "titleFormatted": {"en": "Operating mode has changed to [[me_operating_mode]]"},
       "args": [
         {
-          "name": "fan_speed",
+          "name": "me_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "me_fan_speed_changed",
+      "title": {"en": "Fan speed has changed"},
+      "titleFormatted": {"en": "Fan speed has changed to [[me_fan_speed]]"},
+      "args": [
+        {
+          "name": "me_fan_speed",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -32,67 +38,12 @@
       ]
     },
     {
-      "id": "me_fan_speed_is_not",
-      "title": {"en": "Fan speed is not"},
-      "titleFormatted": {"en": "Fan speed is not [[fan_speed]]"},
+      "id": "me_vane_mode_changed",
+      "title": {"en": "Vane mode has changed"},
+      "titleFormatted": {"en": "Vane mode has changed to [[me_vane_mode]]"},
       "args": [
         {
-          "name": "fan_speed",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "silent", "title": {"en": "Silent (1)"}},
-            {"id": "low", "title": {"en": "Low (2)"}},
-            {"id": "med", "title": {"en": "Medium (3)"}},
-            {"id": "high", "title": {"en": "High (4)"}},
-            {"id": "superhigh", "title": {"en": "Max (5)"}}
-          ]
-        }
-      ]
-    },
-    {
-      "id": "me_operating_mode_is",
-      "title": {"en": "Operating mode is"},
-      "titleFormatted": {"en": "Operating mode is [[operating_mode]]"},
-      "args": [
-        {
-          "name": "operating_mode",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "cool", "title": {"en": "Cool"}},
-            {"id": "heat", "title": {"en": "Heat"}},
-            {"id": "dry", "title": {"en": "Dry"}},
-            {"id": "fan", "title": {"en": "Fan"}}
-          ]
-        }
-      ]
-    },
-    {
-      "id": "me_operating_mode_is_not",
-      "title": {"en": "Operating mode is not"},
-      "titleFormatted": {"en": "Operating mode is not [[operating_mode]]"},
-      "args": [
-        {
-          "name": "operating_mode",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "cool", "title": {"en": "Cool"}},
-            {"id": "heat", "title": {"en": "Heat"}},
-            {"id": "dry", "title": {"en": "Dry"}},
-            {"id": "fan", "title": {"en": "Fan"}}
-          ]
-        }
-      ]
-    },
-    {
-      "id": "me_vane_mode_is",
-      "title": {"en": "Vane mode is"},
-      "titleFormatted": {"en": "Vane mode is [[vane_mode]]"},
-      "args": [
-        {
-          "name": "vane_mode",
+          "name": "me_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -107,12 +58,81 @@
       ]
     },
     {
-      "id": "me_vane_mode_is_not",
-      "title": {"en": "Vane mode is not"},
-      "titleFormatted": {"en": "Vane mode is not [[vane_mode]]"},
+      "id": "me_wide_vane_mode_changed",
+      "title": {"en": "Wide vane mode has changed"},
+      "titleFormatted": {"en": "Wide vane mode has changed to [[me_wide_vane_mode]]"},
       "args": [
         {
-          "name": "vane_mode",
+          "name": "me_wide_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "maxleft", "title": {"en": "Left"}},
+            {"id": "left", "title": {"en": "Middle-left"}},
+            {"id": "middle", "title": {"en": "Middle"}},
+            {"id": "right", "title": {"en": "Middle-right"}},
+            {"id": "maxright", "title": {"en": "Right"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "me_defrost_active_true",
+      "title": {"en": "Defrost turned on"},
+      "titleFormatted": {"en": "Defrost turned on"}
+    },
+    {
+      "id": "me_defrost_active_false",
+      "title": {"en": "Defrost turned off"},
+      "titleFormatted": {"en": "Defrost turned off"}
+    }
+  ],
+  "conditions": [
+    {
+      "id": "me_operating_mode_is",
+      "title": {"en": "Operating mode is"},
+      "titleFormatted": {"en": "Operating mode !{{is|is not}} [[me_operating_mode]]"},
+      "args": [
+        {
+          "name": "me_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "me_fan_speed_is",
+      "title": {"en": "Fan speed is"},
+      "titleFormatted": {"en": "Fan speed !{{is|is not}} [[me_fan_speed]]"},
+      "args": [
+        {
+          "name": "me_fan_speed",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "silent", "title": {"en": "Silent (1)"}},
+            {"id": "low", "title": {"en": "Low (2)"}},
+            {"id": "med", "title": {"en": "Medium (3)"}},
+            {"id": "high", "title": {"en": "High (4)"}},
+            {"id": "superhigh", "title": {"en": "Max (5)"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "me_vane_mode_is",
+      "title": {"en": "Vane mode is"},
+      "titleFormatted": {"en": "Vane mode !{{is|is not}} [[me_vane_mode]]"},
+      "args": [
+        {
+          "name": "me_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -129,30 +149,10 @@
     {
       "id": "me_wide_vane_mode_is",
       "title": {"en": "Wide vane mode is"},
-      "titleFormatted": {"en": "Wide vane mode is [[wide_vane_mode]]"},
+      "titleFormatted": {"en": "Wide vane mode !{{is|is not}} [[me_wide_vane_mode]]"},
       "args": [
         {
-          "name": "wide_vane_mode",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "swing", "title": {"en": "Swing"}},
-            {"id": "maxleft", "title": {"en": "Left"}},
-            {"id": "left", "title": {"en": "Middle-left"}},
-            {"id": "middle", "title": {"en": "Middle"}},
-            {"id": "right", "title": {"en": "Middle-right"}},
-            {"id": "maxright", "title": {"en": "Right"}}
-          ]
-        }
-      ]
-    },
-    {
-      "id": "me_wide_vane_mode_is_not",
-      "title": {"en": "Wide vane mode is not"},
-      "titleFormatted": {"en": "Wide vane mode is not [[wide_vane_mode]]"},
-      "args": [
-        {
-          "name": "wide_vane_mode",
+          "name": "me_wide_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -169,12 +169,30 @@
   ],
   "actions": [
     {
-      "id": "me_set_fan_speed",
-      "title": {"en": "Set fan speed to"},
-      "titleFormatted": {"en": "Set fan speed to [[fan_speed]]"},
+      "id": "me_operating_mode_set",
+      "title": {"en": "Set operating mode"},
+      "titleFormatted": {"en": "Set operating mode to [[me_operating_mode]]"},
       "args": [
         {
-          "name": "fan_speed",
+          "name": "me_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "me_fan_speed_set",
+      "title": {"en": "Set fan speed"},
+      "titleFormatted": {"en": "Set fan speed to [[me_fan_speed]]"},
+      "args": [
+        {
+          "name": "me_fan_speed",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -188,30 +206,12 @@
       ]
     },
     {
-      "id": "me_set_operating_mode",
-      "title": {"en": "Set operating mode to"},
-      "titleFormatted": {"en": "Set operating mode to [[operating_mode]]"},
+      "id": "me_vane_mode_set",
+      "title": {"en": "Set vane mode"},
+      "titleFormatted": {"en": "Set vane mode to [[me_vane_mode]]"},
       "args": [
         {
-          "name": "operating_mode",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}},
-            {"id": "cool", "title": {"en": "Cool"}},
-            {"id": "heat", "title": {"en": "Heat"}},
-            {"id": "dry", "title": {"en": "Dry"}},
-            {"id": "fan", "title": {"en": "Fan"}}
-          ]
-        }
-      ]
-    },
-    {
-      "id": "me_set_vane_mode",
-      "title": {"en": "Set vane mode to"},
-      "titleFormatted": {"en": "Set vane mode to [[vane_mode]]"},
-      "args": [
-        {
-          "name": "vane_mode",
+          "name": "me_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -226,12 +226,12 @@
       ]
     },
     {
-      "id": "me_set_wide_vane_mode",
-      "title": {"en": "Set wide vane mode to"},
-      "titleFormatted": {"en": "Set wide vane mode to [[wide_vane_mode]]"},
+      "id": "me_wide_vane_mode_set",
+      "title": {"en": "Set wide vane mode"},
+      "titleFormatted": {"en": "Set wide vane mode to [[me_wide_vane_mode]]"},
       "args": [
         {
-          "name": "wide_vane_mode",
+          "name": "me_wide_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
