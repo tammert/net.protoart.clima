@@ -4,38 +4,40 @@ class ClimateControlDriver extends Homey.Driver {
     protected brand!: string
 
     async onInit() {
+        // generate brand-specific names for the capabilities
+        const operatingModeCapabilityName = `${this.brand}_operating_mode`
+        const fanSpeedCapabilityName = `${this.brand}_fan_speed`
+        const vaneModeCapabilityName = `${this.brand}_vane_mode`
+        const wideVaneModeCapabilityName = `${this.brand}_wide_vane_mode`
+
         // Trigger ("When...") flow card listeners are auto-generated
 
         // Condition ("And...") flow card listeners
-        this.homey.flow.getConditionCard(`${this.brand}_operating_mode_is`).registerRunListener(async (args, state) => {
-            return args.operating_mode === args.device.getCapabilityValue(`${this.brand}_operating_mode`);
+        this.homey.flow.getConditionCard(`${operatingModeCapabilityName}_is`).registerRunListener(async (args, state) => {
+            return args[operatingModeCapabilityName] === args.device.getCapabilityValue(operatingModeCapabilityName);
         });
-        this.homey.flow.getConditionCard(`${this.brand}_fan_speed_is`).registerRunListener(async (args, state) => {
-            return args.fan_speed === args.device.getCapabilityValue(`${this.brand}_fan_speed`);
+        this.homey.flow.getConditionCard(`${fanSpeedCapabilityName}_is`).registerRunListener(async (args, state) => {
+            return args[fanSpeedCapabilityName] === args.device.getCapabilityValue(fanSpeedCapabilityName);
         });
-        this.homey.flow.getConditionCard(`${this.brand}_vane_mode_is`).registerRunListener(async (args, state) => {
-            return args.vane_mode === args.device.getCapabilityValue(`${this.brand}_vane_mode`);
+        this.homey.flow.getConditionCard(`${vaneModeCapabilityName}_is`).registerRunListener(async (args, state) => {
+            return args[vaneModeCapabilityName] === args.device.getCapabilityValue(vaneModeCapabilityName);
         });
-        this.homey.flow.getConditionCard(`${this.brand}_wide_vane_mode_is`).registerRunListener(async (args, state) => {
-            return args.wide_vane_mode === args.device.getCapabilityValue(`${this.brand}_wide_vane_mode`);
+        this.homey.flow.getConditionCard(`${wideVaneModeCapabilityName}_is`).registerRunListener(async (args, state) => {
+            return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
         });
 
         // Action ("Then...") flow card listeners
-        this.homey.flow.getActionCard(`${this.brand}_operating_mode_set`).registerRunListener(async (args, state) => {
-            this.homey.log(`${this.brand}_operating_mode_set`)
-            await args.device.triggerCapabilityListener(`${this.brand}_operating_mode`, args.operating_mode);
+        this.homey.flow.getActionCard(`${operatingModeCapabilityName}_set`).registerRunListener(async (args, state) => {
+            await args.device.triggerCapabilityListener(operatingModeCapabilityName, args[operatingModeCapabilityName]);
         });
-        this.homey.flow.getActionCard(`${this.brand}_fan_speed_set`).registerRunListener(async (args, state) => {
-            this.homey.log(`${this.brand}_fan_speed_set`)
-            await args.device.triggerCapabilityListener(`${this.brand}_fan_speed`, args.fan_speed);
+        this.homey.flow.getActionCard(`${fanSpeedCapabilityName}_set`).registerRunListener(async (args, state) => {
+            await args.device.triggerCapabilityListener(fanSpeedCapabilityName, args[fanSpeedCapabilityName]);
         });
-        this.homey.flow.getActionCard(`${this.brand}_vane_mode_set`).registerRunListener(async (args, state) => {
-            this.homey.log(`${this.brand}_vane_mode_set`)
-            await args.device.triggerCapabilityListener(`${this.brand}_vane_mode`, args.vane_mode);
+        this.homey.flow.getActionCard(`${vaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
+            await args.device.triggerCapabilityListener(vaneModeCapabilityName, args[vaneModeCapabilityName]);
         });
-        this.homey.flow.getActionCard(`${this.brand}_wide_vane_mode_set`).registerRunListener(async (args, state) => {
-            this.homey.log(`${this.brand}_wide_vane_mode_set`)
-            await args.device.triggerCapabilityListener(`${this.brand}_wide_vane`, args.wide_vane_mode);
+        this.homey.flow.getActionCard(`${wideVaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
+            await args.device.triggerCapabilityListener(wideVaneModeCapabilityName, args[wideVaneModeCapabilityName]);
         });
     }
 

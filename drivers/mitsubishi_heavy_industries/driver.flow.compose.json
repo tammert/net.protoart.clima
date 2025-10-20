@@ -90,10 +90,10 @@
     {
       "id": "mhi_operating_mode_is",
       "title": {"en": "Operating mode is"},
-      "titleFormatted": {"en": "Operating mode !{{is|is not}} [[operating_mode]]"},
+      "titleFormatted": {"en": "Operating mode !{{is|is not}} [[mhi_operating_mode]]"},
       "args": [
         {
-          "name": "operating_mode",
+          "name": "mhi_operating_mode",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -108,10 +108,10 @@
     {
       "id": "mhi_fan_speed_is",
       "title": {"en": "Fan speed is"},
-      "titleFormatted": {"en": "Fan speed !{{is|is not}} [[fan_speed]]"},
+      "titleFormatted": {"en": "Fan speed !{{is|is not}} [[mhi_fan_speed]]"},
       "args": [
         {
-          "name": "fan_speed",
+          "name": "mhi_fan_speed",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -126,10 +126,10 @@
     {
       "id": "mhi_vane_mode_is",
       "title": {"en": "Vane mode is"},
-      "titleFormatted": {"en": "Vane mode !{{is|is not}} [[vane_mode]]"},
+      "titleFormatted": {"en": "Vane mode !{{is|is not}} [[mhi_vane_mode]]"},
       "args": [
         {
-          "name": "vane_mode",
+          "name": "mhi_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -144,10 +144,10 @@
     {
       "id": "mhi_wide_vane_mode_is",
       "title": {"en": "Wide vane mode is"},
-      "titleFormatted": {"en": "Wide vane mode !{{is|is not}} [[wide_vane_mode]]"},
+      "titleFormatted": {"en": "Wide vane mode !{{is|is not}} [[mhi_wide_vane_mode]]"},
       "args": [
         {
-          "name": "wide_vane_mode",
+          "name": "mhi_wide_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -167,10 +167,10 @@
     {
       "id": "mhi_operating_mode_set",
       "title": {"en": "Set operating mode"},
-      "titleFormatted": {"en": "Set operating mode to [[operating_mode]]"},
+      "titleFormatted": {"en": "Set operating mode to [[mhi_operating_mode]]"},
       "args": [
         {
-          "name": "operating_mode",
+          "name": "mhi_operating_mode",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -185,10 +185,10 @@
     {
       "id": "mhi_fan_speed_set",
       "title": {"en": "Set fan speed"},
-      "titleFormatted": {"en": "Set fan speed to [[fan_speed]]"},
+      "titleFormatted": {"en": "Set fan speed to [[mhi_fan_speed]]"},
       "args": [
         {
-          "name": "fan_speed",
+          "name": "mhi_fan_speed",
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -203,10 +203,10 @@
     {
       "id": "mhi_vane_mode_set",
       "title": {"en": "Set vane mode"},
-      "titleFormatted": {"en": "Set vane mode to [[vane_mode]]"},
+      "titleFormatted": {"en": "Set vane mode to [[mhi_vane_mode]]"},
       "args": [
         {
-          "name": "vane_mode",
+          "name": "mhi_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -221,10 +221,10 @@
     {
       "id": "mhi_wide_vane_mode_set",
       "title": {"en": "Set wide vane mode"},
-      "titleFormatted": {"en": "Set wide vane mode to [[wide_vane_mode]]"},
+      "titleFormatted": {"en": "Set wide vane mode to [[mhi_wide_vane_mode]]"},
       "args": [
         {
-          "name": "wide_vane_mode",
+          "name": "mhi_wide_vane_mode",
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
