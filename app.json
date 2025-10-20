@@ -1526,7 +1526,8 @@
       ],
       "images": {
         "small": "/assets/images/drivers/small.png",
-        "large": "/assets/images/drivers/large.png"
+        "large": "/assets/images/drivers/large.png",
+        "xlarge": "/assets/images/drivers/xlarge.png"
       },
       "pair": [
         {
@@ -1595,7 +1596,8 @@
       ],
       "images": {
         "small": "/assets/images/drivers/small.png",
-        "large": "/assets/images/drivers/large.png"
+        "large": "/assets/images/drivers/large.png",
+        "xlarge": "/assets/images/drivers/xlarge.png"
       },
       "pair": [
         {
