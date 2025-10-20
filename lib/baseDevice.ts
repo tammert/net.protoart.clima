@@ -8,6 +8,12 @@ class ClimateControlDevice extends Homey.Device {
     protected pollingInterval!: NodeJS.Timeout;
 
     async onInit() {
+        // generate brand-specific names for the capabilities
+        const operatingModeCapabilityName = `${this.brand}_operating_mode`
+        const fanSpeedCapabilityName = `${this.brand}_fan_speed`
+        const vaneModeCapabilityName = `${this.brand}_vane_mode`
+        const wideVaneModeCapabilityName = `${this.brand}_wide_vane_mode`
+
         // Get the device's IP address from store
         const address = this.getStoreValue('address');
         const port = this.getStoreValue('port');
@@ -24,7 +30,6 @@ class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setPower(value);
-                await this.setCapabilityValue('onoff', value);
                 this.log('power set successfully to:', value);
             } catch (error) {
                 this.error('failed to set power:', error);
@@ -36,15 +41,14 @@ class ClimateControlDevice extends Homey.Device {
         if (this.hasCapability('operating_mode')) {
             await this.removeCapability('operating_mode');
         }
-        if (!this.hasCapability(`${this.brand}_operating_mode`)) {
-            await this.addCapability(`${this.brand}_operating_mode`);
+        if (!this.hasCapability(operatingModeCapabilityName)) {
+            await this.addCapability(operatingModeCapabilityName);
         }
-        this.registerCapabilityListener(`${this.brand}_operating_mode`, async (value: string) => {
+        this.registerCapabilityListener(operatingModeCapabilityName, async (value: string) => {
             this.log('operating_mode capability changed to:', value);
 
             try {
                 await this.apiClient.setOperatingMode(value);
-                await this.setCapabilityValue(`${this.brand}_operating_mode`, value);
                 this.log('operating mode set successfully to:', value);
             } catch (error) {
                 this.error('failed to set operating mode:', error);
@@ -52,33 +56,18 @@ class ClimateControlDevice extends Homey.Device {
             }
         });
 
-        // target_temperature
-        this.registerCapabilityListener('target_temperature', async (value: number) => {
-            this.log('target_temperature capability changed to:', value);
-
-            try {
-                await this.apiClient.setTemperature(value);
-                await this.setCapabilityValue('target_temperature', value);
-                this.log('temperature set successfully to:', value);
-            } catch (error) {
-                this.error('failed to set temperature:', error);
-                throw new Error(`failed to set temperature to ${value}: ${error}`);
-            }
-        });
-
         // fan_speed
         if (this.hasCapability('fan_speed')) {
             await this.removeCapability('fan_speed');
         }
-        if (!this.hasCapability(`${this.brand}_fan_speed`)) {
-            await this.addCapability(`${this.brand}_fan_speed`);
+        if (!this.hasCapability(fanSpeedCapabilityName)) {
+            await this.addCapability(fanSpeedCapabilityName);
         }
-        this.registerCapabilityListener(`${this.brand}_fan_speed`, async (value: string) => {
+        this.registerCapabilityListener(fanSpeedCapabilityName, async (value: string) => {
             this.log('fan_speed capability changed to:', value);
 
             try {
                 await this.apiClient.setFanSpeed(value);
-                await this.setCapabilityValue(`${this.brand}_fan_speed`, value);
                 this.log('fan speed set successfully to:', value);
             } catch (error) {
                 this.error('failed to set fan speed:', error);
@@ -90,15 +79,14 @@ class ClimateControlDevice extends Homey.Device {
         if (this.hasCapability('vane_mode')) {
             await this.removeCapability('vane_mode');
         }
-        if (!this.hasCapability(`${this.brand}_vane_mode`)) {
-            await this.addCapability(`${this.brand}_vane_mode`);
+        if (!this.hasCapability(vaneModeCapabilityName)) {
+            await this.addCapability(vaneModeCapabilityName);
         }
-        this.registerCapabilityListener(`${this.brand}_vane_mode`, async (value: string) => {
+        this.registerCapabilityListener(vaneModeCapabilityName, async (value: string) => {
             this.log('vane_mode capability changed to:', value);
 
             try {
                 await this.apiClient.setVaneMode(value);
-                await this.setCapabilityValue(`${this.brand}_vane_mode`, value);
                 this.log('vane mode set successfully to:', value);
             } catch (error) {
                 this.error('failed to set vane mode:', error);
@@ -110,19 +98,31 @@ class ClimateControlDevice extends Homey.Device {
         if (this.hasCapability('wide_vane_mode')) {
             await this.removeCapability('wide_vane_mode');
         }
-        if (!this.hasCapability(`${this.brand}_wide_vane_mode`)) {
-            await this.addCapability(`${this.brand}_wide_vane_mode`);
+        if (!this.hasCapability(wideVaneModeCapabilityName)) {
+            await this.addCapability(wideVaneModeCapabilityName);
         }
-        this.registerCapabilityListener(`${this.brand}_wide_vane_mode`, async (value: string) => {
+        this.registerCapabilityListener(wideVaneModeCapabilityName, async (value: string) => {
             this.log('wide_vane_mode capability changed to:', value);
 
             try {
                 await this.apiClient.setWideVaneMode(value);
-                await this.setCapabilityValue(`${this.brand}_wide_vane_mode`, value);
                 this.log('horizontal vane set successfully to:', value);
             } catch (error) {
                 this.error('failed to set horizontal vane:', error);
                 throw new Error(`failed to set horizontal vane to ${value}: ${error}`);
+            }
+        });
+
+        // target_temperature
+        this.registerCapabilityListener('target_temperature', async (value: number) => {
+            this.log('target_temperature capability changed to:', value);
+
+            try {
+                await this.apiClient.setTemperature(value);
+                this.log('temperature set successfully to:', value);
+            } catch (error) {
+                this.error('failed to set temperature:', error);
+                throw new Error(`failed to set temperature to ${value}: ${error}`);
             }
         });
 
