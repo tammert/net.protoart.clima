@@ -16,13 +16,8 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
         this.brand = "mhi"
         await super.onInit();
 
-        // Get initial status
-        await this.updateStatus();
-
-        // Poll for status every 60 seconds
-        this.pollingInterval = this.homey.setInterval(async () => {
-            await this.updateStatus();
-        }, 60000);
+        // Start polling
+        await this.startPolling()
 
         this.log('MitsubishiHeavyIndustriesDevice has been initialized');
     }
@@ -46,19 +41,34 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
         }
     }
 
-    /**
-     * onAdded is called when the user adds the device, called just after pairing.
-     */
     async onAdded() {
         this.log('MitsubishiHeavyIndustriesDevice has been added');
     }
 
-    /**
-     * onRenamed is called when the user updates the device's name.
-     * This method can be used this to synchronise the name to the device.
-     * @param {string} name The new name
-     */
     async onRenamed(name: string) {
         this.log('MitsubishiHeavyIndustriesDevice was renamed');
+    }
+
+    async onSettings({oldSettings, newSettings, changedKeys}: {
+        oldSettings: { [p: string]: boolean | string | number | undefined | null };
+        newSettings: { [p: string]: boolean | string | number | undefined | null };
+        changedKeys: string[]
+    }): Promise<string | void> {
+        if (changedKeys.includes("polling_interval")) {
+            this.pollingInterval.close()
+            await this.startPolling()
+        }
+        if (changedKeys.includes("temperature_step_size")) {
+            const opts = this.getCapabilityOptions("target_temperature")
+            opts.step = newSettings["temperature_step_size"];
+            await this.setCapabilityOptions("target_temperature", opts);
+        }
+    }
+
+    async startPolling() {
+        await this.updateStatus();
+        this.pollingInterval = this.homey.setInterval(async () => {
+            await this.updateStatus();
+        }, this.getSetting("polling_interval") * 60000);
     }
 };
