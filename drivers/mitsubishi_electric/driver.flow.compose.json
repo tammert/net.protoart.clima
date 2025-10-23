@@ -244,6 +244,17 @@
           ]
         }
       ]
+    },
+    {
+      "id": "me_remote_temperature_set",
+      "title": {"en": "Set remote temperature"},
+      "titleFormatted": {"en": "Set remote temperature to [[remote_temperature]]"},
+      "args": [
+        {
+          "name": "remote_temperature",
+          "type": "number"
+        }
+      ]
     }
   ]
 }

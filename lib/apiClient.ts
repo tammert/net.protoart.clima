@@ -117,6 +117,7 @@ export interface ApiEndpoints {
     operating_mode: string;
     vane_mode: string;
     wide_vane_mode: string;
+    remote_temperature: string;
 }
 
 class ApiClient {
@@ -232,6 +233,22 @@ class ApiClient {
 
         } catch (error) {
             throw new Error(`Failed to set swing mode: ${error}`);
+        }
+    }
+
+    async setRemoteTemperature(temperature: number): Promise<boolean> {
+        try {
+            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.remote_temperature}=${temperature}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                return true;
+            }
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+        } catch (error) {
+            throw new Error(`Failed to set temperature: ${error}`);
         }
     }
 

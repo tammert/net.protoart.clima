@@ -39,6 +39,9 @@ class ClimateControlDriver extends Homey.Driver {
         this.homey.flow.getActionCard(`${wideVaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
             await args.device.triggerCapabilityListener(wideVaneModeCapabilityName, args[wideVaneModeCapabilityName]);
         });
+        this.homey.flow.getActionCard(`${this.brand}_remote_temperature_set`).registerRunListener(async (args, state) => {
+            await args.device.apiClient.setRemoteTemperature(args['remote_temperature']);
+        });
     }
 
     async onPairListDevices() {

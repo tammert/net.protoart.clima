@@ -10,14 +10,15 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             operating_mode: 'mode',
             fan_speed: 'fan',
             vane_mode: 'vane',
-            wide_vane_mode: 'vanelr'
+            wide_vane_mode: 'vanelr',
+            remote_temperature: 'remote_temperature'
         };
 
         this.brand = "mhi"
         await super.onInit();
 
         // Start polling
-        await this.startPolling()
+        await this.startPolling(this.getSetting("polling_interval") || 1 as number)
 
         this.log('MitsubishiHeavyIndustriesDevice has been initialized');
     }
@@ -54,9 +55,13 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
         newSettings: { [p: string]: boolean | string | number | undefined | null };
         changedKeys: string[]
     }): Promise<string | void> {
+        if (Homey.env.NODE_ENV === 'development') {
+            this.log('onSettings:\n', oldSettings, newSettings, changedKeys);
+        }
+
         if (changedKeys.includes("polling_interval")) {
             this.pollingInterval.close()
-            await this.startPolling()
+            await this.startPolling(<number>newSettings["polling_interval"]);
         }
         if (changedKeys.includes("temperature_step_size")) {
             const opts = this.getCapabilityOptions("target_temperature")
@@ -65,10 +70,10 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
         }
     }
 
-    async startPolling() {
+    async startPolling(pollingInterval: number) {
         await this.updateStatus();
         this.pollingInterval = this.homey.setInterval(async () => {
             await this.updateStatus();
-        }, this.getSetting("polling_interval") * 60000);
+        }, pollingInterval * 60000);
     }
 };

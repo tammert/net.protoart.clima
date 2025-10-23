@@ -1269,6 +1269,26 @@
         ]
       },
       {
+        "id": "me_remote_temperature_set",
+        "title": {
+          "en": "Set remote temperature"
+        },
+        "titleFormatted": {
+          "en": "Set remote temperature to [[remote_temperature]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          },
+          {
+            "name": "remote_temperature",
+            "type": "number"
+          }
+        ]
+      },
+      {
         "id": "mhi_operating_mode_set",
         "title": {
           "en": "Set operating mode"
@@ -1491,6 +1511,26 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "mhi_remote_temperature_set",
+        "title": {
+          "en": "Set remote temperature"
+        },
+        "titleFormatted": {
+          "en": "Set remote temperature to [[remote_temperature]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          },
+          {
+            "name": "remote_temperature",
+            "type": "number"
           }
         ]
       }
