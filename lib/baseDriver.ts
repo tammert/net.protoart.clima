@@ -9,6 +9,7 @@ class ClimateControlDriver extends Homey.Driver {
         const fanSpeedCapabilityName = `${this.brand}_fan_speed`
         const vaneModeCapabilityName = `${this.brand}_vane_mode`
         const wideVaneModeCapabilityName = `${this.brand}_wide_vane_mode`
+        const defrostCapabilityName = `${this.brand}_defrost_active`
 
         // Trigger ("When...") flow card listeners
         this.homey.flow.getTriggerCard(`${operatingModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
@@ -22,6 +23,12 @@ class ClimateControlDriver extends Homey.Driver {
         });
         this.homey.flow.getTriggerCard(`${wideVaneModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
             return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
+        });
+        this.homey.flow.getTriggerCard(`${defrostCapabilityName}_true`).registerRunListener(async (args, state) => {
+            return args.device.getCapabilityValue(defrostCapabilityName);
+        });
+        this.homey.flow.getTriggerCard(`${defrostCapabilityName}_false`).registerRunListener(async (args, state) => {
+            return !args.device.getCapabilityValue(defrostCapabilityName);
         });
 
         // Condition ("And...") flow card listeners
