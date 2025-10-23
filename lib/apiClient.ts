@@ -73,11 +73,11 @@ export interface MitsubishiHeavyIndustriesHeatpump {
         return_air: number;
         current: number; // current in Amps?
         outdoor: number; // outdoor temperature
-        thi_r1: number;
-        thi_r3: number;
-        thi_r2: number;
+        thi_r1: number; // Temperature Heat exchanger Indoor 1
+        thi_r3: number; // Temperature Heat exchanger Indoor 2
+        thi_r2: number; // Temperature Heat exchanger Indoor 3
         compr_freq: number;
-        tho_r1: number;
+        tho_r1: number; // Temperature Heat exchanger Outdoor 1
     };
     oper: boolean; // operation
     error_code: number;
