@@ -33,8 +33,8 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
             await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.defrost);
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
             await this.setCapabilityValue('measure_power', status.heatpump.pinp);
-            if (status.heatpump.tout != 0) {
-                // 0 is used for "absent" value, so we can't use it as the real 0°C
+            if (status.heatpump.oper) {
+                // outside temperature is only reported when the unit is on
                 await this.setCapabilityValue('measure_temperature.outside', status.heatpump.tout);
             }
         } catch (error) {
