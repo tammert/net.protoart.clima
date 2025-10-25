@@ -81,7 +81,7 @@ class ClimateControlDriver extends Homey.Driver {
             };
         });
 
-        this.log("returning devices:", devices.length);
+        this.log("returning devices:\n", devices);
         return devices;
     }
 }

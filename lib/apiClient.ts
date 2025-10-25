@@ -15,7 +15,7 @@ export type MitsubishiHeavyIndustriesFanSpeedEnum = 'auto' | '1' | '2' | '3' | '
 export type MitsubishiHeavyIndustriesVaneModeEnum = 'swing' | '1' | '2' | '3' | '4'
 export type MitsubishiHeavyIndustriesWideVaneModeEnum = 'swing' | '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
-export interface MitsubishiElectricHeatpump {
+export interface MitsubishiElectricHeatPump {
     heatmin: number;
     heatmax: number;
     coolmin: number;
@@ -41,7 +41,7 @@ export interface MitsubishiElectricHeatpump {
     actual_temperature: number;
 }
 
-export interface MitsubishiHeavyIndustriesHeatpump {
+export interface MitsubishiHeavyIndustriesHeatPump {
     heatmin: number;
     heatmax: number;
     coolmin: number;
@@ -101,12 +101,12 @@ export interface Sensor {
 }
 
 export interface MitsubishiElectricStatus {
-    heatpump: MitsubishiElectricHeatpump;
+    heatpump: MitsubishiElectricHeatPump;
     sensor: Sensor;
 }
 
 export interface MitsubishiHeavyIndustriesStatus {
-    heatpump: MitsubishiHeavyIndustriesHeatpump;
+    heatpump: MitsubishiHeavyIndustriesHeatPump;
     sensor: Sensor;
 }
 
@@ -131,124 +131,147 @@ class ApiClient {
 
     async getStatus<T>(): Promise<T> {
         try {
-            const response = await fetch(`${this.apiUrl}`);
+            const response = await fetch(this.apiUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             return await response.json() as T;
         } catch (error) {
-            throw new Error(`Failed to get status: ${error}`);
+            throw new Error(`Failed to get status: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
     async setPower(powerOn: boolean): Promise<boolean> {
         try {
             const powerValue = powerOn ? 'on' : 'off';
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.power}=${powerValue}`, {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.power, powerValue);
+
+            const response = await fetch(url.toString(), {
                 method: 'GET',
             });
 
-            // Check if the request was successful
-            if (response.ok) {
-                return true;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
-
+            return true;
         } catch (error) {
-            throw new Error(`Failed to set power: ${error}`);
+            throw new Error(`Failed to set power: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
     async setOperatingMode(mode: any): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.operating_mode}=${mode}`, {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.operating_mode, mode);
+
+            const response = await fetch(url.toString(), {
                 method: 'GET',
             });
 
-            if (response.ok) {
-                return true;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
-
+            return true;
         } catch (error) {
-            throw new Error(`Failed to set mode: ${error}`);
+            throw new Error(`Failed to set mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
     async setTemperature(temperature: number): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.set_temperature}=${temperature}`, {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.set_temperature, temperature.toString());
+
+            const response = await fetch(url.toString(), {
                 method: 'GET',
             });
 
-            if (response.ok) {
-                return true;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
-
+            return true;
         } catch (error) {
-            throw new Error(`Failed to set temperature: ${error}`);
+            throw new Error(`Failed to set temperature: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
     async setFanSpeed(fan_speed: any): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.fan_speed}=${fan_speed}`, {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.fan_speed, fan_speed);
+
+            const response = await fetch(url.toString(), {
                 method: 'GET',
             });
 
-            if (response.ok) {
-                return true;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
-
+            return true;
         } catch (error) {
-            throw new Error(`Failed to set fan mode: ${error}`);
+            throw new Error(`Failed to set fan mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
     async setVaneMode(vane_mode: any): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.vane_mode}=${vane_mode}`, {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.vane_mode, vane_mode);
+
+            const response = await fetch(url.toString(), {
                 method: 'GET',
             });
 
-            if (response.ok) {
-                return true;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
-
+            return true;
         } catch (error) {
-            throw new Error(`Failed to set swing mode: ${error}`);
+            throw new Error(`Failed to set swing mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
     async setWideVaneMode(wide_vane_mode: any): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.wide_vane_mode}=${wide_vane_mode}`, {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.wide_vane_mode, wide_vane_mode);
+
+            const response = await fetch(url.toString(), {
                 method: 'GET',
             });
 
-            if (response.ok) {
-                return true;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
-
+            return true;
         } catch (error) {
-            throw new Error(`Failed to set swing mode: ${error}`);
+            throw new Error(`Failed to set swing mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
     async setRemoteTemperature(temperature: number): Promise<boolean> {
         try {
-            const response = await fetch(`${this.apiUrl}?cmd=heatpump&${this.apiEndpoints.remote_temperature}=${temperature}`, {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.remote_temperature, temperature.toString());
+
+            const response = await fetch(url.toString(), {
                 method: 'GET',
             });
 
-            if (response.ok) {
-                return true;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
-
+            return true;
         } catch (error) {
-            throw new Error(`Failed to set temperature: ${error}`);
+            throw new Error(`Failed to set temperature: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
