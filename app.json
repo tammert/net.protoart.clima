@@ -1541,7 +1541,7 @@
       "name": {
         "en": "Mitsubishi Electric module"
       },
-      "discovery": "me_climatecontrol",
+      "discovery": "climatecontrol",
       "class": "airconditioning",
       "capabilities": [
         "onoff",
@@ -1642,7 +1642,7 @@
       "name": {
         "en": "Mitsubishi Heavy Industries module"
       },
-      "discovery": "mhi_climatecontrol",
+      "discovery": "climatecontrol",
       "class": "airconditioning",
       "capabilities": [
         "onoff",
@@ -2189,7 +2189,7 @@
     }
   },
   "discovery": {
-    "lg_climatecontrol": {
+    "climatecontrol": {
       "type": "mdns-sd",
       "mdns-sd": {
         "name": "http",
@@ -2199,95 +2199,10 @@
       "conditions": [
         [
           {
-            "field": "txt.name",
+            "field": "name",
             "match": {
               "type": "regex",
-              "value": "^HVAC_"
-            }
-          },
-          {
-            "field": "txt.model",
-            "match": {
-              "type": "regex",
-              "value": "^LG_"
-            }
-          }
-        ]
-      ]
-    },
-    "me_climatecontrol": {
-      "type": "mdns-sd",
-      "mdns-sd": {
-        "name": "http",
-        "protocol": "tcp"
-      },
-      "id": "{{txt.id}}",
-      "conditions": [
-        [
-          {
-            "field": "txt.name",
-            "match": {
-              "type": "regex",
-              "value": "^HVAC_"
-            }
-          },
-          {
-            "field": "txt.model",
-            "match": {
-              "type": "regex",
-              "value": "^ME_"
-            }
-          }
-        ]
-      ]
-    },
-    "mhi_climatecontrol": {
-      "type": "mdns-sd",
-      "mdns-sd": {
-        "name": "http",
-        "protocol": "tcp"
-      },
-      "id": "{{txt.id}}",
-      "conditions": [
-        [
-          {
-            "field": "txt.name",
-            "match": {
-              "type": "regex",
-              "value": "^HVAC_"
-            }
-          },
-          {
-            "field": "txt.model",
-            "match": {
-              "type": "regex",
-              "value": "^MHI_"
-            }
-          }
-        ]
-      ]
-    },
-    "pana_climatecontrol": {
-      "type": "mdns-sd",
-      "mdns-sd": {
-        "name": "http",
-        "protocol": "tcp"
-      },
-      "id": "{{txt.id}}",
-      "conditions": [
-        [
-          {
-            "field": "txt.name",
-            "match": {
-              "type": "regex",
-              "value": "^HVAC_"
-            }
-          },
-          {
-            "field": "txt.model",
-            "match": {
-              "type": "regex",
-              "value": "^PANA_"
+              "value": "^ClimateControl"
             }
           }
         ]

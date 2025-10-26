@@ -6,8 +6,4 @@ module.exports = class MitsubishiHeavyIndustriesDriver extends ClimateControlDri
         await super.onInit();
         this.log('MitsubishiHeavyIndustriesDriver has been initialized');
     }
-
-    async onPairListDevices() {
-        return super.onPairListDevices();
-    }
 }

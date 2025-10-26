@@ -2,7 +2,7 @@
   "name": {
     "en": "Mitsubishi Heavy Industries module"
   },
-  "discovery": "mhi_climatecontrol",
+  "discovery": "climatecontrol",
   "class": "airconditioning",
   "capabilities": [
     "onoff",

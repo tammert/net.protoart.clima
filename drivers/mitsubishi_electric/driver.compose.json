@@ -2,7 +2,7 @@
   "name": {
     "en": "Mitsubishi Electric module"
   },
-  "discovery": "me_climatecontrol",
+  "discovery": "climatecontrol",
   "class": "airconditioning",
   "capabilities": [
     "onoff",

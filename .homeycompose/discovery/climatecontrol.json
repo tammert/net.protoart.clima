@@ -8,17 +8,10 @@
   "conditions": [
     [
       {
-        "field": "txt.name",
+        "field": "name",
         "match": {
           "type": "regex",
-          "value": "^HVAC_"
-        }
-      },
-      {
-        "field": "txt.model",
-        "match": {
-          "type": "regex",
-          "value": "^MHI_"
+          "value": "^ClimateControl"
         }
       }
     ]

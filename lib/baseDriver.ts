@@ -67,11 +67,16 @@ class ClimateControlDriver extends Homey.Driver {
         const discoveryStrategy = this.getDiscoveryStrategy();
         const discoveryResults = discoveryStrategy.getDiscoveryResults();
 
+        if (Homey.env.NODE_ENV === 'development') {
+            this.log('onPairListDevices:\n', discoveryStrategy);
+        }
+
         const devices = Object.values(discoveryResults).map((discoveryResult: any) => {
             return {
                 name: discoveryResult.txt.friendly_name,
                 data: {
                     id: discoveryResult.id,
+                    model: discoveryResult.txt.model,
                 },
                 store: {
                     address: discoveryResult.address,
@@ -81,8 +86,11 @@ class ClimateControlDriver extends Homey.Driver {
             };
         });
 
-        this.log("returning devices:\n", devices);
-        return devices;
+        // return only devices matching the brand
+        const pattern = new RegExp(`^${this.brand.toUpperCase()}_`);
+        return devices.filter(device => {
+            return device.data.model && pattern.test(device.data.model);
+        });
     }
 }
 

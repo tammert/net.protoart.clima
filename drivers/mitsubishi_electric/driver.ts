@@ -6,8 +6,4 @@ module.exports = class MitsubishiElectricDriver extends ClimateControlDriver {
         await super.onInit();
         this.log('MitsubishiElectricDriver has been initialized');
     }
-
-    async onPairListDevices() {
-        return super.onPairListDevices();
-    }
 }
