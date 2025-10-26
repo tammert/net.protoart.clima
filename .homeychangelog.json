@@ -31,5 +31,8 @@
   },
   "0.5.1": {
     "en": "Fixed trigger flows"
+  },
+  "0.6.0": {
+    "en": "Refactors, fixes and finally got device/driver mapping working correctly"
   }
 }
