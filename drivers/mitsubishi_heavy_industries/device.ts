@@ -33,7 +33,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.op.defrost);
             await this.setCapabilityValue('meter_power', status.heatpump.op.consumption);
             await this.setCapabilityValue('measure_power', status.heatpump.op.current * 230); // current in Amps, approximate W by using 230V
-            if (status.heatpump.oper) {
+            if (status.heatpump.oper || status.heatpump.op.outdoor != 0) {
                 // outside temperature is only reported when the unit is on
                 await this.setCapabilityValue('measure_temperature.outside', status.heatpump.op.outdoor);
             }

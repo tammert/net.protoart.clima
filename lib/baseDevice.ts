@@ -38,12 +38,6 @@ class ClimateControlDevice extends Homey.Device {
         });
 
         // operating_mode
-        if (this.hasCapability('operating_mode')) {
-            await this.removeCapability('operating_mode');
-        }
-        if (!this.hasCapability(operatingModeCapabilityName)) {
-            await this.addCapability(operatingModeCapabilityName);
-        }
         this.registerCapabilityListener(operatingModeCapabilityName, async (value: string) => {
             this.log('operating_mode capability changed to:', value);
 
@@ -57,12 +51,6 @@ class ClimateControlDevice extends Homey.Device {
         });
 
         // fan_speed
-        if (this.hasCapability('fan_speed')) {
-            await this.removeCapability('fan_speed');
-        }
-        if (!this.hasCapability(fanSpeedCapabilityName)) {
-            await this.addCapability(fanSpeedCapabilityName);
-        }
         this.registerCapabilityListener(fanSpeedCapabilityName, async (value: string) => {
             this.log('fan_speed capability changed to:', value);
 
@@ -76,12 +64,6 @@ class ClimateControlDevice extends Homey.Device {
         });
 
         // vane_mode
-        if (this.hasCapability('vane_mode')) {
-            await this.removeCapability('vane_mode');
-        }
-        if (!this.hasCapability(vaneModeCapabilityName)) {
-            await this.addCapability(vaneModeCapabilityName);
-        }
         this.registerCapabilityListener(vaneModeCapabilityName, async (value: string) => {
             this.log('vane_mode capability changed to:', value);
 
@@ -95,12 +77,6 @@ class ClimateControlDevice extends Homey.Device {
         });
 
         // wide_vane_mode
-        if (this.hasCapability('wide_vane_mode')) {
-            await this.removeCapability('wide_vane_mode');
-        }
-        if (!this.hasCapability(wideVaneModeCapabilityName)) {
-            await this.addCapability(wideVaneModeCapabilityName);
-        }
         this.registerCapabilityListener(wideVaneModeCapabilityName, async (value: string) => {
             this.log('wide_vane_mode capability changed to:', value);
 
@@ -125,17 +101,6 @@ class ClimateControlDevice extends Homey.Device {
                 throw new Error(`failed to set temperature to ${value}: ${error}`);
             }
         });
-
-        // capabilities added later might need to be added to older devices
-        if (this.hasCapability('alarm_cold')) {
-            await this.removeCapability('alarm_cold');
-        }
-        if (this.hasCapability('defrost_active')) {
-            await this.removeCapability('defrost_active');
-        }
-        if (!this.hasCapability(`${this.brand}_defrost_active`)) {
-            await this.addCapability(`${this.brand}_defrost_active`);
-        }
     }
 
     async updateStatus(status: any) {
@@ -174,7 +139,7 @@ class ClimateControlDevice extends Homey.Device {
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
             await this.setCapabilityValue('measure_temperature', this.apiClient.getTemperatureFromStatus(status));
 
-            if (status.sensor && status.sensor.thermometer) {
+            if (status.sensor && status.sensor.thermometer && status.sensor.thermometer.name != '-') {
                 await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact);
                 await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt);
             }
