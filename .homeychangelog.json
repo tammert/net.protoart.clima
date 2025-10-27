@@ -34,5 +34,8 @@
   },
   "0.6.0": {
     "en": "Refactors, fixes and finally got device/driver mapping working correctly"
+  },
+  "0.6.1": {
+    "en": "App Icon and support link"
   }
 }
