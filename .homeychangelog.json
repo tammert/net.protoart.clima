@@ -37,5 +37,8 @@
   },
   "0.6.1": {
     "en": "App Icon and support link"
+  },
+  "0.7.0": {
+    "en": "two new MHI capabilities, more insights, extra flow highlights, npm update"
   }
 }
