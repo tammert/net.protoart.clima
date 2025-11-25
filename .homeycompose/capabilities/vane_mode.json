@@ -1,8 +1,0 @@
-{
-  "type": "enum",
-  "title": {"en": "Vane mode"},
-  "uiComponent": "picker",
-  "getable": true,
-  "setable": true,
-  "values": []
-}

@@ -16,7 +16,8 @@
             {"id": "fan", "title": {"en": "Fan"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "mhi_fan_speed_changed",
@@ -34,7 +35,8 @@
             {"id": "4", "title": {"en": "4"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "mhi_vane_mode_changed",
@@ -180,7 +182,8 @@
             {"id": "fan", "title": {"en": "Fan"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "mhi_fan_speed_set",
@@ -198,7 +201,8 @@
             {"id": "4", "title": {"en": "4"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "mhi_vane_mode_set",

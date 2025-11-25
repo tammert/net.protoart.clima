@@ -17,6 +17,14 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
         this.brand = "mhi"
         await super.onInit();
 
+        // new capabilities in v0.7.0
+        if (!this.hasCapability(`${this.brand}_compressor_frequency`)) {
+            await this.addCapability(`${this.brand}_compressor_frequency`);
+        }
+        if (!this.hasCapability(`${this.brand}_outdoor_fan_speed`)) {
+            await this.addCapability(`${this.brand}_outdoor_fan_speed`);
+        }
+
         // Start polling
         await this.startPolling(this.getSetting("polling_interval") || 1 as number)
 
@@ -37,6 +45,8 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
                 // outside temperature is only reported when the unit is on
                 await this.setCapabilityValue('measure_temperature.outside', status.heatpump.op.outdoor);
             }
+            await this.setCapabilityValue(`${this.brand}_compressor_frequency`, status.heatpump.op.compr_freq);
+            await this.setCapabilityValue(`${this.brand}_outdoor_fan_speed`, status.heatpump.op.ou_fan);
         } catch (error) {
             this.error('failed to update status:', error);
         }

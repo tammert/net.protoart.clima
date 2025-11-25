@@ -1,0 +1,10 @@
+{
+  "type": "number",
+  "title": {"en": "Outdoor fan speed"},
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "icon": "/assets/outdoor_fan_speed.svg",
+  "insights": true,
+  "step": 1
+}

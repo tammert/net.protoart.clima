@@ -101,6 +101,14 @@ class ClimateControlDevice extends Homey.Device {
                 throw new Error(`failed to set temperature to ${value}: ${error}`);
             }
         });
+
+        // new capability options in v0.7.0
+        try {
+            this.getCapabilityOptions(`${this.brand}_defrost_active`)
+        } catch (error) {
+            this.log(`adding insights to ${this.brand}_defrost_active`)
+            await this.setCapabilityOptions(`${this.brand}_defrost_active`, {insights: true});
+        }
     }
 
     async updateStatus(status: any) {

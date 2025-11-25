@@ -16,7 +16,8 @@
             {"id": "fan", "title": {"en": "Fan"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "me_fan_speed_changed",
@@ -35,7 +36,8 @@
             {"id": "superhigh", "title": {"en": "Max (5)"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "me_vane_mode_changed",
@@ -184,7 +186,8 @@
             {"id": "fan", "title": {"en": "Fan"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "me_fan_speed_set",
@@ -203,7 +206,8 @@
             {"id": "superhigh", "title": {"en": "Max (5)"}}
           ]
         }
-      ]
+      ],
+      "highlight": true
     },
     {
       "id": "me_vane_mode_set",

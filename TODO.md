@@ -1,3 +1,11 @@
-TODO
-* add fault code for ME
-* MHI THI cards?
+# TODO
+
+Global:
+* localizations
+* ME ATW?
+
+ME:
+* fault code?
+
+MHI:
+* THI - read?

@@ -33,6 +33,7 @@
     "url": "https://github.com/tammert/net.protoart.clima/issues"
   },
   "support": "https://gathering.tweakers.net/forum/list_messages/2233498/",
+  "homeyCommunityTopicId": 145121,
   "flow": {
     "triggers": [
       {
@@ -85,7 +86,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "me_fan_speed_changed",
@@ -143,7 +145,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "me_vane_mode_changed",
@@ -355,7 +358,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "mhi_fan_speed_changed",
@@ -407,7 +411,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "mhi_vane_mode_changed",
@@ -1081,7 +1086,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "me_fan_speed_set",
@@ -1139,7 +1145,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "me_vane_mode_set",
@@ -1339,7 +1346,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "mhi_fan_speed_set",
@@ -1391,7 +1399,8 @@
               }
             ]
           }
-        ]
+        ],
+        "highlight": true
       },
       {
         "id": "mhi_vane_mode_set",
@@ -1652,6 +1661,8 @@
         "mhi_vane_mode",
         "mhi_wide_vane_mode",
         "mhi_defrost_active",
+        "mhi_compressor_frequency",
+        "mhi_outdoor_fan_speed",
         "target_temperature",
         "meter_power",
         "measure_power",
@@ -1742,26 +1753,6 @@
     }
   ],
   "capabilities": {
-    "defrost_active": {
-      "type": "boolean",
-      "title": {
-        "en": "Defrost active"
-      },
-      "uiComponent": "sensor",
-      "getable": true,
-      "setable": false,
-      "icon": "/assets/defrost_active.svg"
-    },
-    "fan_speed": {
-      "type": "enum",
-      "title": {
-        "en": "Fan speed"
-      },
-      "uiComponent": "picker",
-      "getable": true,
-      "setable": true,
-      "values": []
-    },
     "me_defrost_active": {
       "type": "boolean",
       "title": {
@@ -1770,7 +1761,8 @@
       "uiComponent": "sensor",
       "getable": true,
       "setable": false,
-      "icon": "/assets/defrost_active.svg"
+      "icon": "/assets/defrost_active.svg",
+      "insights": true
     },
     "me_fan_speed": {
       "type": "enum",
@@ -1966,6 +1958,21 @@
         }
       ]
     },
+    "mhi_compressor_frequency": {
+      "type": "number",
+      "title": {
+        "en": "Compressor frequency"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/compressor_frequency.svg",
+      "insights": true,
+      "units": {
+        "en": "Hz"
+      },
+      "step": 0.1
+    },
     "mhi_defrost_active": {
       "type": "boolean",
       "title": {
@@ -1974,7 +1981,8 @@
       "uiComponent": "sensor",
       "getable": true,
       "setable": false,
-      "icon": "/assets/defrost_active.svg"
+      "icon": "/assets/defrost_active.svg",
+      "insights": true
     },
     "mhi_fan_speed": {
       "type": "enum",
@@ -2057,6 +2065,18 @@
           }
         }
       ]
+    },
+    "mhi_outdoor_fan_speed": {
+      "type": "number",
+      "title": {
+        "en": "Outdoor fan speed"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/outdoor_fan_speed.svg",
+      "insights": true,
+      "step": 1
     },
     "mhi_vane_mode": {
       "type": "enum",
@@ -2157,36 +2177,6 @@
           }
         }
       ]
-    },
-    "operating_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Operating mode"
-      },
-      "uiComponent": "picker",
-      "getable": true,
-      "setable": true,
-      "values": []
-    },
-    "vane_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Vane mode"
-      },
-      "uiComponent": "picker",
-      "getable": true,
-      "setable": true,
-      "values": []
-    },
-    "wide_vane_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Wide vane mode"
-      },
-      "uiComponent": "picker",
-      "getable": true,
-      "setable": true,
-      "values": []
     }
   },
   "discovery": {
