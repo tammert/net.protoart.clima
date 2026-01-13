@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "net.protoart.clima",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
@@ -161,34 +161,6 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "lg_wide_vane_mode_changed",
-        "title": {
-          "en": "Wide vane mode has changed"
-        },
-        "titleFormatted": {
-          "en": "Wide vane mode has changed to [[lg_wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=lg"
-          },
-          {
-            "name": "lg_wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
                 "id": "1",
                 "title": {
                   "en": "1"
@@ -222,6 +194,34 @@
                 "id": "6",
                 "title": {
                   "en": "6"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_wide_vane_mode_changed",
+        "title": {
+          "en": "Wide vane mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode has changed to [[lg_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
                 }
               }
             ]
@@ -917,34 +917,6 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "lg_wide_vane_mode_is",
-        "title": {
-          "en": "Wide vane mode is"
-        },
-        "titleFormatted": {
-          "en": "Wide vane mode !{{is|is not}} [[lg_wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=lg"
-          },
-          {
-            "name": "lg_wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
                 "id": "1",
                 "title": {
                   "en": "1"
@@ -978,6 +950,34 @@
                 "id": "6",
                 "title": {
                   "en": "6"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_wide_vane_mode_is",
+        "title": {
+          "en": "Wide vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode !{{is|is not}} [[lg_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
                 }
               }
             ]
@@ -1575,34 +1575,6 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "lg_wide_vane_mode_set",
-        "title": {
-          "en": "Set wide vane mode"
-        },
-        "titleFormatted": {
-          "en": "Set wide vane mode to [[lg_wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=lg"
-          },
-          {
-            "name": "lg_wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
                 "id": "1",
                 "title": {
                   "en": "1"
@@ -1636,6 +1608,34 @@
                 "id": "6",
                 "title": {
                   "en": "6"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_wide_vane_mode_set",
+        "title": {
+          "en": "Set wide vane mode"
+        },
+        "titleFormatted": {
+          "en": "Set wide vane mode to [[lg_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
                 }
               }
             ]
@@ -2574,23 +2574,6 @@
       "setable": true,
       "values": [
         {
-          "id": "auto",
-          "title": {
-            "en": "Auto"
-          }
-        }
-      ]
-    },
-    "lg_wide_vane_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Wide vane mode"
-      },
-      "uiComponent": "picker",
-      "getable": true,
-      "setable": true,
-      "values": [
-        {
           "id": "1",
           "title": {
             "en": "1"
@@ -2624,6 +2607,23 @@
           "id": "6",
           "title": {
             "en": "6"
+          }
+        }
+      ]
+    },
+    "lg_wide_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Wide vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
           }
         }
       ]

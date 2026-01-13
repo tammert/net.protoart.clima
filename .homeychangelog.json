@@ -43,5 +43,8 @@
   },
   "0.8.0": {
     "en": "added LG air-to-air"
+  },
+  "0.8.1": {
+    "en": "fixed LG vane"
   }
 }
