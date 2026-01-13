@@ -30,6 +30,7 @@ class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setPower(value);
+                await this.setCapabilityValue('onoff', value);
                 this.log('power set successfully to:', value);
             } catch (error) {
                 this.error('failed to set power:', error);
@@ -43,6 +44,7 @@ class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setOperatingMode(value);
+                await this.setCapabilityValue(operatingModeCapabilityName, value);
                 this.log('operating mode set successfully to:', value);
             } catch (error) {
                 this.error('failed to set operating mode:', error);
@@ -56,6 +58,7 @@ class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setFanSpeed(value);
+                await this.setCapabilityValue(fanSpeedCapabilityName, value);
                 this.log('fan speed set successfully to:', value);
             } catch (error) {
                 this.error('failed to set fan speed:', error);
@@ -69,6 +72,7 @@ class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setVaneMode(value);
+                await this.setCapabilityValue(vaneModeCapabilityName, value);
                 this.log('vane mode set successfully to:', value);
             } catch (error) {
                 this.error('failed to set vane mode:', error);
@@ -82,6 +86,7 @@ class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setWideVaneMode(value);
+                await this.setCapabilityValue(wideVaneModeCapabilityName, value);
                 this.log('horizontal vane set successfully to:', value);
             } catch (error) {
                 this.error('failed to set horizontal vane:', error);
@@ -95,6 +100,7 @@ class ClimateControlDevice extends Homey.Device {
 
             try {
                 await this.apiClient.setTemperature(value);
+                await this.setCapabilityValue('target_temperature', value);
                 this.log('temperature set successfully to:', value);
             } catch (error) {
                 this.error('failed to set temperature:', error);

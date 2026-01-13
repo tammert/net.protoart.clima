@@ -36,8 +36,8 @@ export interface LGHeatPump {
     tinp: string; // temperature input
     oper: boolean; // operation
     fan: LGFanSpeedEnum;
-    vane0: LGVaneModeEnum; // horizontal vane?
-    vane1: LGWideVaneModeEnum; // vertical vane
+    vane0: LGWideVaneModeEnum; // horizontal swing, vertical vane
+    vane1: LGVaneModeEnum; // vertical swing, horizontal vane
     vane2: string;
     vane3: string;
     dred: number; // days run?

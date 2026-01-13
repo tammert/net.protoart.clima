@@ -9,8 +9,8 @@ module.exports = class LGDevice extends ClimateControlDevice {
             set_temperature: 'set_temperature',
             operating_mode: 'mode',
             fan_speed: 'fan',
-            vane_mode: 'vane0',
-            wide_vane_mode: 'vane1',
+            vane_mode: 'vane1',
+            wide_vane_mode: 'vane0',
             remote_temperature: 'remote_temperature'
         };
 

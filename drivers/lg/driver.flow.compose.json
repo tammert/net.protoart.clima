@@ -47,7 +47,12 @@
           "name": "lg_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5"}},
+            {"id": "6", "title": {"en": "6"}}
           ]
         }
       ]
@@ -61,12 +66,7 @@
           "name": "lg_wide_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "1", "title": {"en": "1"}},
-            {"id": "2", "title": {"en": "2"}},
-            {"id": "3", "title": {"en": "3"}},
-            {"id": "4", "title": {"en": "4"}},
-            {"id": "5", "title": {"en": "5"}},
-            {"id": "6", "title": {"en": "6"}}
+            {"id": "auto", "title": {"en": "Auto"}}
           ]
         }
       ]
@@ -128,7 +128,12 @@
           "name": "lg_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5"}},
+            {"id": "6", "title": {"en": "6"}}
           ]
         }
       ]
@@ -142,12 +147,7 @@
           "name": "lg_wide_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "1", "title": {"en": "1"}},
-            {"id": "2", "title": {"en": "2"}},
-            {"id": "3", "title": {"en": "3"}},
-            {"id": "4", "title": {"en": "4"}},
-            {"id": "5", "title": {"en": "5"}},
-            {"id": "6", "title": {"en": "6"}}
+            {"id": "auto", "title": {"en": "Auto"}}
           ]
         }
       ]
@@ -201,7 +201,12 @@
           "name": "lg_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "auto", "title": {"en": "Auto"}}
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5"}},
+            {"id": "6", "title": {"en": "6"}}
           ]
         }
       ]
@@ -215,12 +220,7 @@
           "name": "lg_wide_vane_mode",
           "type": "dropdown",
           "values": [
-            {"id": "1", "title": {"en": "1"}},
-            {"id": "2", "title": {"en": "2"}},
-            {"id": "3", "title": {"en": "3"}},
-            {"id": "4", "title": {"en": "4"}},
-            {"id": "5", "title": {"en": "5"}},
-            {"id": "6", "title": {"en": "6"}}
+            {"id": "auto", "title": {"en": "Auto"}}
           ]
         }
       ]

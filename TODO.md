@@ -4,7 +4,7 @@ Global:
 * localizations
 * add Panasonic
 * add ME ATW
-* flows should set capability (currently relies on update to have it shown correctly)
+* fix defrosting insights
 
 ME:
 * fault code?
