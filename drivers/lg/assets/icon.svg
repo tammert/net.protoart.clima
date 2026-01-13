@@ -12,5 +12,5 @@
     <rect x="150" y="80" width="20" height="40" fill="black"/>
     <rect x="470" y="80" width="20" height="40" fill="black"/>
     <rect x="790" y="80" width="20" height="40" fill="black"/>
-    <text x="380" y="830" fill="black" font-size="100">MHI</text>
+    <text x="410" y="830" fill="black" font-size="100">LG</text>
 </svg>

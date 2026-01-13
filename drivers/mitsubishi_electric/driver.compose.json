@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "Mitsubishi Electric module"
+    "en": "Mitsubishi Electric air-to-air module"
   },
   "discovery": "climatecontrol",
   "class": "airconditioning",

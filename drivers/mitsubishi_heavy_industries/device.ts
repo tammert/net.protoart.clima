@@ -37,6 +37,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             await super.updateStatus(status);
 
             // brand-specific capabilities
+            await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
             await this.setCapabilityValue(`${this.brand}_wide_vane_mode`, status.heatpump.vanelr);
             await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.op.defrost);
             await this.setCapabilityValue('meter_power', status.heatpump.op.consumption);

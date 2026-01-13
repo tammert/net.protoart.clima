@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
+    "outDir": "./.homeybuild",
     "lib": ["ES2020"],
     "types": ["node", "homey"],
     "esModuleInterop": true,
@@ -16,6 +17,7 @@
     "**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".homeybuild"
   ]
 }

@@ -37,6 +37,230 @@
   "flow": {
     "triggers": [
       {
+         "id": "lg_operating_mode_changed",
+        "title": {
+          "en": "Operating mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Operating mode has changed to [[lg_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_fan_speed_changed",
+        "title": {
+          "en": "Fan speed has changed"
+        },
+        "titleFormatted": {
+          "en": "Fan speed has changed to [[lg_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "slow",
+                "title": {
+                  "en": "Slow"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_vane_mode_changed",
+        "title": {
+          "en": "Vane mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Vane mode has changed to [[lg_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_wide_vane_mode_changed",
+        "title": {
+          "en": "Wide vane mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode has changed to [[lg_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "5"
+                }
+              },
+              {
+                "id": "6",
+                "title": {
+                  "en": "6"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_defrost_active_true",
+        "title": {
+          "en": "Defrost turned on"
+        },
+        "titleFormatted": {
+          "en": "Defrost turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_defrost_active_false",
+        "title": {
+          "en": "Defrost turned off"
+        },
+        "titleFormatted": {
+          "en": "Defrost turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
         "id": "me_operating_mode_changed",
         "title": {
           "en": "Operating mode has changed"
@@ -571,6 +795,196 @@
     ],
     "conditions": [
       {
+        "id": "lg_operating_mode_is",
+        "title": {
+          "en": "Operating mode is"
+        },
+        "titleFormatted": {
+          "en": "Operating mode !{{is|is not}} [[lg_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_fan_speed_is",
+        "title": {
+          "en": "Fan speed is"
+        },
+        "titleFormatted": {
+          "en": "Fan speed !{{is|is not}} [[lg_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "slow",
+                "title": {
+                  "en": "Slow"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_vane_mode_is",
+        "title": {
+          "en": "Vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Vane mode !{{is|is not}} [[lg_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_wide_vane_mode_is",
+        "title": {
+          "en": "Wide vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Wide vane mode !{{is|is not}} [[lg_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "5"
+                }
+              },
+              {
+                "id": "6",
+                "title": {
+                  "en": "6"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "me_operating_mode_is",
         "title": {
           "en": "Operating mode is"
@@ -1036,6 +1450,218 @@
       }
     ],
     "actions": [
+      {
+        "id": "lg_operating_mode_set",
+        "title": {
+          "en": "Set operating mode"
+        },
+        "titleFormatted": {
+          "en": "Set operating mode to [[lg_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_fan_speed_set",
+        "title": {
+          "en": "Set fan speed"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[lg_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "slow",
+                "title": {
+                  "en": "Slow"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_vane_mode_set",
+        "title": {
+          "en": "Set vane mode"
+        },
+        "titleFormatted": {
+          "en": "Set vane mode to [[lg_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_wide_vane_mode_set",
+        "title": {
+          "en": "Set wide vane mode"
+        },
+        "titleFormatted": {
+          "en": "Set wide vane mode to [[lg_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "lg_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "5"
+                }
+              },
+              {
+                "id": "6",
+                "title": {
+                  "en": "6"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg_remote_temperature_set",
+        "title": {
+          "en": "Set remote temperature"
+        },
+        "titleFormatted": {
+          "en": "Set remote temperature to [[remote_temperature]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "remote_temperature",
+            "type": "number"
+          }
+        ]
+      },
       {
         "id": "me_operating_mode_set",
         "title": {
@@ -1549,7 +2175,99 @@
   "drivers": [
     {
       "name": {
-        "en": "Mitsubishi Electric module"
+        "en": "LG air-to-air module"
+      },
+      "discovery": "climatecontrol",
+      "class": "airconditioning",
+      "capabilities": [
+        "onoff",
+        "lg_operating_mode",
+        "lg_fan_speed",
+        "lg_vane_mode",
+        "lg_wide_vane_mode",
+        "lg_defrost_active",
+        "target_temperature",
+        "measure_temperature",
+        "measure_battery",
+        "measure_humidity"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/assets/images/drivers/small.png",
+        "large": "/assets/images/drivers/large.png",
+        "xlarge": "/assets/images/drivers/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 10,
+          "max": 31,
+          "step": 0.5
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Temperature inside"
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "id": "lg",
+      "settings": [
+        {
+          "id": "polling_interval",
+          "type": "number",
+          "label": {
+            "en": "Polling interval"
+          },
+          "hint": {
+            "en": "Time between data refreshes from ClimateControl module"
+          },
+          "value": 1,
+          "min": 1,
+          "max": 60,
+          "units": {
+            "en": "minutes"
+          }
+        },
+        {
+          "id": "temperature_step_size",
+          "type": "number",
+          "label": {
+            "en": "Temperature step size"
+          },
+          "hint": {
+            "en": "Step size when setting temperature"
+          },
+          "value": 0.5,
+          "min": 0.1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Mitsubishi Electric air-to-air module"
       },
       "discovery": "climatecontrol",
       "class": "airconditioning",
@@ -1650,7 +2368,7 @@
     },
     {
       "name": {
-        "en": "Mitsubishi Heavy Industries module"
+        "en": "Mitsubishi Heavy Industries air-to-air module"
       },
       "discovery": "climatecontrol",
       "class": "airconditioning",
@@ -1753,6 +2471,163 @@
     }
   ],
   "capabilities": {
+    "lg_defrost_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Defrost active"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/defrost_active.svg",
+      "insights": true
+    },
+    "lg_fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "slow",
+          "title": {
+            "en": "Slow"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low"
+          }
+        },
+        {
+          "id": "med",
+          "title": {
+            "en": "Medium"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High"
+          }
+        }
+      ]
+    },
+    "lg_operating_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry"
+          }
+        },
+        {
+          "id": "fan",
+          "title": {
+            "en": "Fan"
+          }
+        }
+      ]
+    },
+    "lg_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        }
+      ]
+    },
+    "lg_wide_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Wide vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "1"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "4"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "5"
+          }
+        },
+        {
+          "id": "6",
+          "title": {
+            "en": "6"
+          }
+        }
+      ]
+    },
     "me_defrost_active": {
       "type": "boolean",
       "title": {

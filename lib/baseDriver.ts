@@ -86,8 +86,8 @@ class ClimateControlDriver extends Homey.Driver {
             };
         });
 
-        // return only devices matching the brand
-        const pattern = new RegExp(`^${this.brand.toUpperCase()}_`);
+        // return only air-to-air devices matching the brand
+        const pattern = new RegExp(`^${this.brand.toUpperCase()}_.*_ATA_.*`);
         return devices.filter(device => {
             return device.data.model && pattern.test(device.data.model);
         });

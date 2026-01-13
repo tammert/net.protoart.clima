@@ -3,17 +3,77 @@ import fetch from 'node-fetch';
 // Generic
 export type PowerEnum = 'on' | 'off';
 
+export interface Sensor {
+    thermometer: {
+        mac: string,
+        name: string,
+        batt: number, // battery percentage
+        hact: number, // humidity actual
+        rssi: number, // signal strength
+        tact: number, // temperature actual
+        last: number // last seen seconds ago
+    };
+    external: {
+        temperature: number,
+        humidity: number,
+    }
+}
+
+// LG
+export type LGOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type LGFanSpeedEnum = 'auto' | 'slow' | 'low' | 'med' | 'high'
+export type LGVaneModeEnum = 'auto'
+export type LGWideVaneModeEnum = '1' | '2' | '3' | '4' | '5' | '6'
+
+export interface LGHeatPump {
+    heatmin: number;
+    heatmax: number;
+    coolmin: number;
+    coolmax: number;
+    power: PowerEnum;
+    mode: LGOperatingModeEnum;
+    set_temperature: number;
+    tinp: string; // temperature input
+    oper: boolean; // operation
+    fan: LGFanSpeedEnum;
+    vane0: LGVaneModeEnum; // horizontal vane?
+    vane1: LGWideVaneModeEnum; // vertical vane
+    vane2: string;
+    vane3: string;
+    dred: number; // days run?
+    opdata: {
+        modelou: number; // model outdoor unit
+        modeliu: number; // model indoor unit
+        capacity: number;
+        Tpipein: number; // temperature pipe in
+        Tpipeout: number; // temperature pipe out
+        Tpipemid: number; // temperature pipe middle
+        oilchgw: boolean; // oil change warning
+        defrost: boolean;
+        preheat: boolean;
+        error_code: number;
+        iufanhrsrun: number; // indoor unit fan hours run
+        iuhrsrun: number; // indoor unit hours run
+    },
+    autodry: boolean;
+    hswing: boolean; // horizontal swing
+    vswing: boolean; // vertical swing
+    purifier: boolean;
+    humidifier: boolean;
+    swirl: boolean;
+    actual_temperature: number;
+}
+
+export interface LGStatus {
+    heatpump: LGHeatPump;
+    sensor: Sensor;
+}
+
 // Mitsubishi Electric
 export type MitsubishiElectricOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
 export type MitsubishiElectricFanSpeedEnum = 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'
 export type MitsubishiElectricVaneModeEnum = 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5'
 export type MitsubishiElectricWideVaneModeEnum = 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright'
-
-// Mitsubishi Heavy Industries
-export type MitsubishiHeavyIndustriesOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
-export type MitsubishiHeavyIndustriesFanSpeedEnum = 'auto' | '1' | '2' | '3' | '4'
-export type MitsubishiHeavyIndustriesVaneModeEnum = 'swing' | '1' | '2' | '3' | '4'
-export type MitsubishiHeavyIndustriesWideVaneModeEnum = 'swing' | '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
 export interface MitsubishiElectricHeatPump {
     heatmin: number;
@@ -40,6 +100,17 @@ export interface MitsubishiElectricHeatPump {
     tpcns: number; // total power consumption
     actual_temperature: number;
 }
+
+export interface MitsubishiElectricStatus {
+    heatpump: MitsubishiElectricHeatPump;
+    sensor: Sensor;
+}
+
+// Mitsubishi Heavy Industries
+export type MitsubishiHeavyIndustriesOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type MitsubishiHeavyIndustriesFanSpeedEnum = 'auto' | '1' | '2' | '3' | '4'
+export type MitsubishiHeavyIndustriesVaneModeEnum = 'swing' | '1' | '2' | '3' | '4'
+export type MitsubishiHeavyIndustriesWideVaneModeEnum = 'swing' | '1' | '2' | '3' | '4' | '5' | '6' | '7'
 
 export interface MitsubishiHeavyIndustriesHeatPump {
     heatmin: number;
@@ -82,27 +153,6 @@ export interface MitsubishiHeavyIndustriesHeatPump {
     oper: boolean; // operation
     error_code: number;
     actual_temperature: number;
-}
-
-export interface Sensor {
-    thermometer: {
-        mac: string,
-        name: string,
-        batt: number, // battery percentage
-        hact: number, // humidity actual
-        rssi: number, // signal strength
-        tact: number, // temperature actual
-        last: number // last seen seconds ago
-    };
-    external: {
-        temperature: number,
-        humidity: number,
-    }
-}
-
-export interface MitsubishiElectricStatus {
-    heatpump: MitsubishiElectricHeatPump;
-    sensor: Sensor;
 }
 
 export interface MitsubishiHeavyIndustriesStatus {

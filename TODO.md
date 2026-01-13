@@ -2,8 +2,9 @@
 
 Global:
 * localizations
-* ME ATW?
-* add LG & Panasonic
+* add Panasonic
+* add ME ATW
+* flows should set capability (currently relies on update to have it shown correctly)
 
 ME:
 * fault code?

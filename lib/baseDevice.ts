@@ -143,7 +143,6 @@ class ClimateControlDevice extends Homey.Device {
             await this.setCapabilityValue('onoff', status.heatpump.power === 'on');
             await this.setCapabilityValue(`${this.brand}_operating_mode`, status.heatpump.mode);
             await this.setCapabilityValue(`${this.brand}_fan_speed`, status.heatpump.fan);
-            await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);
             await this.setCapabilityValue('measure_temperature', this.apiClient.getTemperatureFromStatus(status));
 

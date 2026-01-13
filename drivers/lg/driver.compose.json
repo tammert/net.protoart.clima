@@ -1,23 +1,18 @@
 {
   "name": {
-    "en": "Mitsubishi Heavy Industries air-to-air module"
+    "en": "LG air-to-air module"
   },
   "discovery": "climatecontrol",
   "class": "airconditioning",
   "capabilities": [
     "onoff",
-    "mhi_operating_mode",
-    "mhi_fan_speed",
-    "mhi_vane_mode",
-    "mhi_wide_vane_mode",
-    "mhi_defrost_active",
-    "mhi_compressor_frequency",
-    "mhi_outdoor_fan_speed",
+    "lg_operating_mode",
+    "lg_fan_speed",
+    "lg_vane_mode",
+    "lg_wide_vane_mode",
+    "lg_defrost_active",
     "target_temperature",
-    "meter_power",
-    "measure_power",
     "measure_temperature",
-    "measure_temperature.outside",
     "measure_battery",
     "measure_humidity"
   ],
@@ -53,10 +48,6 @@
     },
     "measure_temperature": {
       "title": {"en": "Temperature inside"}
-    },
-    "measure_temperature.outside": {
-      "title": {"en": "Temperature outside"},
-      "step": 0.1
     }
   },
   "energy": {
