@@ -40,5 +40,8 @@
   },
   "0.7.0": {
     "en": "two new MHI capabilities, more insights, extra flow highlights, npm update"
+  },
+  "0.8.0": {
+    "en": "added LG air-to-air"
   }
 }
