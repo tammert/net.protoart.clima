@@ -46,5 +46,8 @@
   },
   "0.8.1": {
     "en": "fixed LG vane"
+  },
+  "0.9.0": {
+    "en": "LG: removed wide_vane (unsupported by CC), added 5! toggles and flow cards"
   }
 }
