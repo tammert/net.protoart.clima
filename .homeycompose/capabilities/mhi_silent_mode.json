@@ -1,0 +1,8 @@
+{
+  "type": "boolean",
+  "title": {"en": "Silent Mode"},
+  "uiComponent": "toggle",
+  "getable": true,
+  "setable": true,
+  "insights": true
+}

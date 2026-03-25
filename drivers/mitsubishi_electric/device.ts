@@ -16,6 +16,10 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
 
         this.brand = "me"
         await super.onInit();
+        await super.ensureAddedCapabilities(
+            [],
+            []
+        )
 
         // Start polling
         await this.startPolling(this.getSetting("polling_interval") || 1 as number)

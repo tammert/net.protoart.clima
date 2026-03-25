@@ -56,6 +56,7 @@ export interface LGHeatPump {
         iuhrsrun: number; // indoor unit hours run
     },
     autodry: boolean;
+    energy_saving: boolean;
     hswing: boolean; // horizontal swing
     vswing: boolean; // vertical swing
     purifier: boolean;
@@ -166,8 +167,14 @@ export interface ApiEndpoints {
     set_temperature: string;
     operating_mode: string;
     vane_mode: string;
-    wide_vane_mode: string;
+    wide_vane_mode?: string;
     remote_temperature: string;
+    silent_mode?: string;
+    autodry?: string;
+    purifier?: string;
+    energy_saving?: string;
+    hswing?: string;
+    vswing?: string;
 }
 
 class ApiClient {
@@ -175,8 +182,8 @@ class ApiClient {
     private readonly apiEndpoints: ApiEndpoints;
 
     constructor(private readonly address: string, private readonly port: number, private readonly path: string, private readonly endpoints: ApiEndpoints) {
-        this.apiUrl = `http://${address}:${port || 80}${path || '/control'}`;
-        this.apiEndpoints = endpoints;
+        this.apiUrl = `http://${this.address}:${this.port || 80}${this.path || '/control'}`;
+        this.apiEndpoints = this.endpoints;
     }
 
     async getStatus<T>(): Promise<T> {
@@ -291,7 +298,7 @@ class ApiClient {
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.wide_vane_mode, wide_vane_mode);
+            url.searchParams.append(this.apiEndpoints.wide_vane_mode || 'widevane', wide_vane_mode);
 
             const response = await fetch(url.toString(), {
                 method: 'GET',
@@ -322,6 +329,120 @@ class ApiClient {
             return true;
         } catch (error) {
             throw new Error(`Failed to set temperature: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setSilentMode(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.silent_mode || 'silent_mode', enabled ? 'on' : 'off');
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set autodry: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setAutodry(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.autodry || 'autodry', enabled ? 'true' : 'false');
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set autodry: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setPurifier(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.purifier || 'purifier', enabled ? 'true' : 'false');
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set purifier: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setEnergySaving(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.energy_saving || 'energy_saving', enabled ? 'true' : 'false');
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set energy saving: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setHSwing(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.hswing || 'hswing', enabled ? 'true' : 'false');
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set horizontal swing: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setVSwing(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.vswing || 'vswing', enabled ? 'true' : 'false');
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set vertical swing: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 

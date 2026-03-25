@@ -11,19 +11,30 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             fan_speed: 'fan',
             vane_mode: 'vane',
             wide_vane_mode: 'vanelr',
-            remote_temperature: 'remote_temperature'
+            remote_temperature: 'remote_temperature',
+            silent_mode: 'silent_mode',
         };
 
         this.brand = "mhi"
         await super.onInit();
+        await super.ensureAddedCapabilities(
+            ['mhi_silent_mode'],
+            []
+        )
 
-        // new capabilities in v0.7.0
-        if (!this.hasCapability(`${this.brand}_compressor_frequency`)) {
-            await this.addCapability(`${this.brand}_compressor_frequency`);
-        }
-        if (!this.hasCapability(`${this.brand}_outdoor_fan_speed`)) {
-            await this.addCapability(`${this.brand}_outdoor_fan_speed`);
-        }
+        // MHI specific listeners
+        this.registerCapabilityListener('mhi_silent_mode', async (value: boolean) => {
+            this.log('silent_mode capability changed to:', value);
+
+            try {
+                await this.apiClient.setSilentMode(value);
+                await this.setCapabilityValue('mhi_silent_mode', value);
+                this.log('silent_mode set successfully to:', value);
+            } catch (error) {
+                this.error('failed to set silent_mode:', error);
+                throw new Error(`failed to set silent_mode to ${value}: ${error}`);
+            }
+        });
 
         // Start polling
         await this.startPolling(this.getSetting("polling_interval") || 1 as number)
@@ -40,6 +51,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
             await this.setCapabilityValue(`${this.brand}_wide_vane_mode`, status.heatpump.vanelr);
             await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.op.defrost);
+            await this.setCapabilityValue(`${this.brand}_silent_mode`, status.heatpump.silent_mode);
             await this.setCapabilityValue('meter_power', status.heatpump.op.consumption);
             await this.setCapabilityValue('measure_power', status.heatpump.op.current * 230); // current in Amps, approximate W by using 230V
             if (status.heatpump.oper || status.heatpump.op.outdoor != 0) {

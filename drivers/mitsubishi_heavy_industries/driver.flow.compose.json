@@ -86,6 +86,16 @@
       "id": "mhi_defrost_active_false",
       "title": {"en": "Defrost turned off"},
       "titleFormatted": {"en": "Defrost turned off"}
+    },
+    {
+      "id": "mhi_silent_mode_true",
+      "title": { "en": "Silent mode turned on" },
+      "titleFormatted": { "en": "Silent mode turned on" }
+    },
+    {
+      "id": "mhi_silent_mode_false",
+      "title": { "en": "Silent mode turned off" },
+      "titleFormatted": { "en": "Silent mode turned off" }
     }
   ],
   "conditions": [
@@ -163,6 +173,16 @@
           ]
         }
       ]
+    },
+    {
+      "id": "mhi_defrost_active_is",
+      "title": {"en": "Defrost is active"},
+      "titleFormatted": {"en": "Defrost !{{is|is not}} active"}
+    },
+    {
+      "id": "mhi_silent_mode_is",
+      "title": { "en": "Silent mode is" },
+      "titleFormatted": { "en": "Silent mode !{{is|is not}} on" }
     }
   ],
   "actions": [
@@ -253,6 +273,18 @@
           "type": "number"
         }
       ]
+    },
+    {
+      "id": "mhi_silent_mode_set",
+      "title": { "en": "Set silent mode" },
+      "titleFormatted": { "en": "Set silent mode to [[boolean]]" },
+      "args": [
+        {
+          "name": "boolean",
+          "type": "checkbox"
+        }
+      ],
+      "highlight": true
     }
   ]
 }

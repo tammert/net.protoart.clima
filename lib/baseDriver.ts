@@ -21,9 +21,11 @@ class ClimateControlDriver extends Homey.Driver {
         this.homey.flow.getTriggerCard(`${vaneModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
             return args[vaneModeCapabilityName] === args.device.getCapabilityValue(vaneModeCapabilityName);
         });
-        this.homey.flow.getTriggerCard(`${wideVaneModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
-            return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
-        });
+        if (this.brand != 'lg') {
+            this.homey.flow.getTriggerCard(`${wideVaneModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
+                return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
+            });
+        }
         this.homey.flow.getTriggerCard(`${defrostCapabilityName}_true`).registerRunListener(async (args, state) => {
             return args.device.getCapabilityValue(defrostCapabilityName);
         });
@@ -41,8 +43,13 @@ class ClimateControlDriver extends Homey.Driver {
         this.homey.flow.getConditionCard(`${vaneModeCapabilityName}_is`).registerRunListener(async (args, state) => {
             return args[vaneModeCapabilityName] === args.device.getCapabilityValue(vaneModeCapabilityName);
         });
-        this.homey.flow.getConditionCard(`${wideVaneModeCapabilityName}_is`).registerRunListener(async (args, state) => {
-            return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
+        if (this.brand != 'lg') {
+            this.homey.flow.getConditionCard(`${wideVaneModeCapabilityName}_is`).registerRunListener(async (args, state) => {
+                return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
+            });
+        }
+        this.homey.flow.getConditionCard(`${defrostCapabilityName}_is`).registerRunListener(async (args, state) => {
+            return args.device.getCapabilityValue(defrostCapabilityName);
         });
 
         // Action ("Then...") flow card listeners
@@ -55,9 +62,11 @@ class ClimateControlDriver extends Homey.Driver {
         this.homey.flow.getActionCard(`${vaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
             await args.device.triggerCapabilityListener(vaneModeCapabilityName, args[vaneModeCapabilityName]);
         });
-        this.homey.flow.getActionCard(`${wideVaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
-            await args.device.triggerCapabilityListener(wideVaneModeCapabilityName, args[wideVaneModeCapabilityName]);
-        });
+        if (this.brand != 'lg') {
+            this.homey.flow.getActionCard(`${wideVaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
+                await args.device.triggerCapabilityListener(wideVaneModeCapabilityName, args[wideVaneModeCapabilityName]);
+            });
+        }
         this.homey.flow.getActionCard(`${this.brand}_remote_temperature_set`).registerRunListener(async (args, state) => {
             await args.device.apiClient.setRemoteTemperature(args['remote_temperature']);
         });

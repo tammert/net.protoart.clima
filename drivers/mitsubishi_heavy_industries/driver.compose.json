@@ -11,6 +11,7 @@
     "mhi_vane_mode",
     "mhi_wide_vane_mode",
     "mhi_defrost_active",
+    "mhi_silent_mode",
     "mhi_compressor_frequency",
     "mhi_outdoor_fan_speed",
     "target_temperature",

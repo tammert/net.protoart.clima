@@ -45,6 +45,7 @@ class ClimateControlDevice extends Homey.Device {
             try {
                 await this.apiClient.setOperatingMode(value);
                 await this.setCapabilityValue(operatingModeCapabilityName, value);
+                await this.setCapabilityValue('onoff', true); // setting a different operating mode always turns the device on
                 this.log('operating mode set successfully to:', value);
             } catch (error) {
                 this.error('failed to set operating mode:', error);
@@ -80,19 +81,21 @@ class ClimateControlDevice extends Homey.Device {
             }
         });
 
-        // wide_vane_mode
-        this.registerCapabilityListener(wideVaneModeCapabilityName, async (value: string) => {
-            this.log('wide_vane_mode capability changed to:', value);
+        // wide_vane_mode, not available for LG
+        if (this.brand != 'lg') {
+            this.registerCapabilityListener(wideVaneModeCapabilityName, async (value: string) => {
+                this.log('wide_vane_mode capability changed to:', value);
 
-            try {
-                await this.apiClient.setWideVaneMode(value);
-                await this.setCapabilityValue(wideVaneModeCapabilityName, value);
-                this.log('horizontal vane set successfully to:', value);
-            } catch (error) {
-                this.error('failed to set horizontal vane:', error);
-                throw new Error(`failed to set horizontal vane to ${value}: ${error}`);
-            }
-        });
+                try {
+                    await this.apiClient.setWideVaneMode(value);
+                    await this.setCapabilityValue(wideVaneModeCapabilityName, value);
+                    this.log('horizontal vane set successfully to:', value);
+                } catch (error) {
+                    this.error('failed to set horizontal vane:', error);
+                    throw new Error(`failed to set horizontal vane to ${value}: ${error}`);
+                }
+            });
+        }
 
         // target_temperature
         this.registerCapabilityListener('target_temperature', async (value: number) => {
@@ -107,14 +110,6 @@ class ClimateControlDevice extends Homey.Device {
                 throw new Error(`failed to set temperature to ${value}: ${error}`);
             }
         });
-
-        // new capability options in v0.7.0
-        try {
-            this.getCapabilityOptions(`${this.brand}_defrost_active`)
-        } catch (error) {
-            this.log(`adding insights to ${this.brand}_defrost_active`)
-            await this.setCapabilityOptions(`${this.brand}_defrost_active`, {insights: true});
-        }
     }
 
     async updateStatus(status: any) {
@@ -179,6 +174,24 @@ class ClimateControlDevice extends Homey.Device {
         }
 
         this.log('ClimateControlDevice has been deleted');
+    }
+
+    async ensureAddedCapabilities(added: string[], removed: string[]) {
+        const capabilities = this.getCapabilities();
+
+        for (const capability of added) {
+            if (!capabilities.includes(capability)) {
+                this.log(`adding capability for ${capability}`);
+                await this.addCapability(capability);
+            }
+        }
+
+        for (const capability of removed) {
+            if (capabilities.includes(capability)) {
+                this.log(`removing capability for ${capability}`);
+                await this.removeCapability(capability);
+            }
+        }
     }
 }
 

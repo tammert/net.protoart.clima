@@ -167,6 +167,11 @@
           ]
         }
       ]
+    },
+    {
+      "id": "me_defrost_active_is",
+      "title": {"en": "Defrost is active"},
+      "titleFormatted": {"en": "Defrost !{{is|is not}} active"}
     }
   ],
   "actions": [

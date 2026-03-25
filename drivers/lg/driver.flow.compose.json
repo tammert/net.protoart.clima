@@ -58,20 +58,6 @@
       ]
     },
     {
-      "id": "lg_wide_vane_mode_changed",
-      "title": {"en": "Wide vane mode has changed"},
-      "titleFormatted": {"en": "Wide vane mode has changed to [[lg_wide_vane_mode]]"},
-      "args": [
-        {
-          "name": "lg_wide_vane_mode",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}}
-          ]
-        }
-      ]
-    },
-    {
       "id": "lg_defrost_active_true",
       "title": {"en": "Defrost turned on"},
       "titleFormatted": {"en": "Defrost turned on"}
@@ -80,6 +66,56 @@
       "id": "lg_defrost_active_false",
       "title": {"en": "Defrost turned off"},
       "titleFormatted": {"en": "Defrost turned off"}
+    },
+    {
+      "id": "lg_autodry_true",
+      "title": {"en": "Auto Dry turned on"},
+      "titleFormatted": {"en": "Auto Dry turned on"}
+    },
+    {
+      "id": "lg_autodry_false",
+      "title": {"en": "Auto Dry turned off"},
+      "titleFormatted": {"en": "Auto Dry turned off"}
+    },
+    {
+      "id": "lg_purifier_true",
+      "title": {"en": "Purifier turned on"},
+      "titleFormatted": {"en": "Purifier turned on"}
+    },
+    {
+      "id": "lg_purifier_false",
+      "title": {"en": "Purifier turned off"},
+      "titleFormatted": {"en": "Purifier turned off"}
+    },
+    {
+      "id": "lg_energy_saving_true",
+      "title": {"en": "Energy Saving turned on"},
+      "titleFormatted": {"en": "Energy Saving turned on"}
+    },
+    {
+      "id": "lg_energy_saving_false",
+      "title": {"en": "Energy Saving turned off"},
+      "titleFormatted": {"en": "Energy Saving turned off"}
+    },
+    {
+      "id": "lg_hswing_true",
+      "title": {"en": "Horizontal swing turned on"},
+      "titleFormatted": {"en": "Horizontal swing turned on"}
+    },
+    {
+      "id": "lg_hswing_false",
+      "title": {"en": "Horizontal swing turned off"},
+      "titleFormatted": {"en": "Horizontal swing turned off"}
+    },
+    {
+      "id": "lg_vswing_true",
+      "title": {"en": "Vertical swing turned on"},
+      "titleFormatted": {"en": "Vertical swing turned on"}
+    },
+    {
+      "id": "lg_vswing_false",
+      "title": {"en": "Vertical swing turned off"},
+      "titleFormatted": {"en": "Vertical swing turned off"}
     }
   ],
   "conditions": [
@@ -139,18 +175,34 @@
       ]
     },
     {
-      "id": "lg_wide_vane_mode_is",
-      "title": {"en": "Wide vane mode is"},
-      "titleFormatted": {"en": "Wide vane mode !{{is|is not}} [[lg_wide_vane_mode]]"},
-      "args": [
-        {
-          "name": "lg_wide_vane_mode",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}}
-          ]
-        }
-      ]
+      "id": "lg_defrost_active_is",
+      "title": {"en": "Defrost is active"},
+      "titleFormatted": {"en": "Defrost !{{is|is not}} active"}
+    },
+    {
+      "id": "lg_autodry_is",
+      "title": {"en": "Auto Dry is enabled"},
+      "titleFormatted": {"en": "Auto Dry !{{is|is not}} enabled"}
+    },
+    {
+      "id": "lg_purifier_is",
+      "title": {"en": "Purifier is enabled"},
+      "titleFormatted": {"en": "Purifier !{{is|is not}} enabled"}
+    },
+    {
+      "id": "lg_energy_saving_is",
+      "title": {"en": "Energy Saving is enabled"},
+      "titleFormatted": {"en": "Energy Saving !{{is|is not}} enabled"}
+    },
+    {
+      "id": "lg_hswing_is",
+      "title": {"en": "Horizontal swing is enabled"},
+      "titleFormatted": {"en": "Horizontal swing !{{is|is not}} enabled"}
+    },
+    {
+      "id": "lg_vswing_is",
+      "title": {"en": "Vertical swing is enabled"},
+      "titleFormatted": {"en": "Vertical swing !{{is|is not}} enabled"}
     }
   ],
   "actions": [
@@ -212,20 +264,6 @@
       ]
     },
     {
-      "id": "lg_wide_vane_mode_set",
-      "title": {"en": "Set wide vane mode"},
-      "titleFormatted": {"en": "Set wide vane mode to [[lg_wide_vane_mode]]"},
-      "args": [
-        {
-          "name": "lg_wide_vane_mode",
-          "type": "dropdown",
-          "values": [
-            {"id": "auto", "title": {"en": "Auto"}}
-          ]
-        }
-      ]
-    },
-    {
       "id": "lg_remote_temperature_set",
       "title": {"en": "Set remote temperature"},
       "titleFormatted": {"en": "Set remote temperature to [[remote_temperature]]"},
@@ -235,6 +273,66 @@
           "type": "number"
         }
       ]
+    },
+    {
+      "id": "lg_autodry_set",
+      "title": {"en": "Set Auto Dry"},
+      "titleFormatted": {"en": "Set Auto Dry to [[boolean]]"},
+      "args": [
+        {
+          "name": "boolean",
+          "type": "checkbox"
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "lg_purifier_set",
+      "title": {"en": "Set Purifier"},
+      "titleFormatted": {"en": "Set Purifier to [[boolean]]"},
+      "args": [
+        {
+          "name": "boolean",
+          "type": "checkbox"
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "lg_energy_saving_set",
+      "title": {"en": "Set Energy Saving"},
+      "titleFormatted": {"en": "Set Energy Saving to [[boolean]]"},
+      "args": [
+        {
+          "name": "boolean",
+          "type": "checkbox"
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "lg_hswing_set",
+      "title": {"en": "Set horizontal swing"},
+      "titleFormatted": {"en": "Set horizontal swing to [[boolean]]"},
+      "args": [
+        {
+          "name": "boolean",
+          "type": "checkbox"
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "lg_vswing_set",
+      "title": {"en": "Set vertical swing"},
+      "titleFormatted": {"en": "Set vertical swing to [[boolean]]"},
+      "args": [
+        {
+          "name": "boolean",
+          "type": "checkbox"
+        }
+      ],
+      "highlight": true
     }
   ]
 }

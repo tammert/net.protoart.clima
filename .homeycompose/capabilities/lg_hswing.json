@@ -1,0 +1,7 @@
+{
+  "type": "boolean",
+  "title": {"en": "Horizontal Swing"},
+  "uiComponent": "toggle",
+  "getable": true,
+  "setable": true
+}

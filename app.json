@@ -201,34 +201,6 @@
         ]
       },
       {
-        "id": "lg_wide_vane_mode_changed",
-        "title": {
-          "en": "Wide vane mode has changed"
-        },
-        "titleFormatted": {
-          "en": "Wide vane mode has changed to [[lg_wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=lg"
-          },
-          {
-            "name": "lg_wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "lg_defrost_active_true",
         "title": {
           "en": "Defrost turned on"
@@ -251,6 +223,166 @@
         },
         "titleFormatted": {
           "en": "Defrost turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_autodry_true",
+        "title": {
+          "en": "Auto Dry turned on"
+        },
+        "titleFormatted": {
+          "en": "Auto Dry turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_autodry_false",
+        "title": {
+          "en": "Auto Dry turned off"
+        },
+        "titleFormatted": {
+          "en": "Auto Dry turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_purifier_true",
+        "title": {
+          "en": "Purifier turned on"
+        },
+        "titleFormatted": {
+          "en": "Purifier turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_purifier_false",
+        "title": {
+          "en": "Purifier turned off"
+        },
+        "titleFormatted": {
+          "en": "Purifier turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_energy_saving_true",
+        "title": {
+          "en": "Energy Saving turned on"
+        },
+        "titleFormatted": {
+          "en": "Energy Saving turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_energy_saving_false",
+        "title": {
+          "en": "Energy Saving turned off"
+        },
+        "titleFormatted": {
+          "en": "Energy Saving turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_hswing_true",
+        "title": {
+          "en": "Horizontal swing turned on"
+        },
+        "titleFormatted": {
+          "en": "Horizontal swing turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_hswing_false",
+        "title": {
+          "en": "Horizontal swing turned off"
+        },
+        "titleFormatted": {
+          "en": "Horizontal swing turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_vswing_true",
+        "title": {
+          "en": "Vertical swing turned on"
+        },
+        "titleFormatted": {
+          "en": "Vertical swing turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_vswing_false",
+        "title": {
+          "en": "Vertical swing turned off"
+        },
+        "titleFormatted": {
+          "en": "Vertical swing turned off"
         },
         "args": [
           {
@@ -791,6 +923,38 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           }
         ]
+      },
+      {
+        "id": "mhi_silent_mode_true",
+        "title": {
+          "en": "Silent mode turned on"
+        },
+        "titleFormatted": {
+          "en": "Silent mode turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      },
+      {
+        "id": "mhi_silent_mode_false",
+        "title": {
+          "en": "Silent mode turned off"
+        },
+        "titleFormatted": {
+          "en": "Silent mode turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
       }
     ],
     "conditions": [
@@ -957,30 +1121,98 @@
         ]
       },
       {
-        "id": "lg_wide_vane_mode_is",
+        "id": "lg_defrost_active_is",
         "title": {
-          "en": "Wide vane mode is"
+          "en": "Defrost is active"
         },
         "titleFormatted": {
-          "en": "Wide vane mode !{{is|is not}} [[lg_wide_vane_mode]]"
+          "en": "Defrost !{{is|is not}} active"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=lg"
-          },
+          }
+        ]
+      },
+      {
+        "id": "lg_autodry_is",
+        "title": {
+          "en": "Auto Dry is enabled"
+        },
+        "titleFormatted": {
+          "en": "Auto Dry !{{is|is not}} enabled"
+        },
+        "args": [
           {
-            "name": "lg_wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              }
-            ]
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_purifier_is",
+        "title": {
+          "en": "Purifier is enabled"
+        },
+        "titleFormatted": {
+          "en": "Purifier !{{is|is not}} enabled"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_energy_saving_is",
+        "title": {
+          "en": "Energy Saving is enabled"
+        },
+        "titleFormatted": {
+          "en": "Energy Saving !{{is|is not}} enabled"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_hswing_is",
+        "title": {
+          "en": "Horizontal swing is enabled"
+        },
+        "titleFormatted": {
+          "en": "Horizontal swing !{{is|is not}} enabled"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          }
+        ]
+      },
+      {
+        "id": "lg_vswing_is",
+        "title": {
+          "en": "Vertical swing is enabled"
+        },
+        "titleFormatted": {
+          "en": "Vertical swing !{{is|is not}} enabled"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
           }
         ]
       },
@@ -1223,6 +1455,22 @@
         ]
       },
       {
+        "id": "me_defrost_active_is",
+        "title": {
+          "en": "Defrost is active"
+        },
+        "titleFormatted": {
+          "en": "Defrost !{{is|is not}} active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_electric"
+          }
+        ]
+      },
+      {
         "id": "mhi_operating_mode_is",
         "title": {
           "en": "Operating mode is"
@@ -1447,6 +1695,38 @@
             ]
           }
         ]
+      },
+      {
+        "id": "mhi_defrost_active_is",
+        "title": {
+          "en": "Defrost is active"
+        },
+        "titleFormatted": {
+          "en": "Defrost !{{is|is not}} active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      },
+      {
+        "id": "mhi_silent_mode_is",
+        "title": {
+          "en": "Silent mode is"
+        },
+        "titleFormatted": {
+          "en": "Silent mode !{{is|is not}} on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
       }
     ],
     "actions": [
@@ -1615,34 +1895,6 @@
         ]
       },
       {
-        "id": "lg_wide_vane_mode_set",
-        "title": {
-          "en": "Set wide vane mode"
-        },
-        "titleFormatted": {
-          "en": "Set wide vane mode to [[lg_wide_vane_mode]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=lg"
-          },
-          {
-            "name": "lg_wide_vane_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "auto",
-                "title": {
-                  "en": "Auto"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "lg_remote_temperature_set",
         "title": {
           "en": "Set remote temperature"
@@ -1661,6 +1913,111 @@
             "type": "number"
           }
         ]
+      },
+      {
+        "id": "lg_autodry_set",
+        "title": {
+          "en": "Set Auto Dry"
+        },
+        "titleFormatted": {
+          "en": "Set Auto Dry to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "boolean",
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_purifier_set",
+        "title": {
+          "en": "Set Purifier"
+        },
+        "titleFormatted": {
+          "en": "Set Purifier to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "boolean",
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_energy_saving_set",
+        "title": {
+          "en": "Set Energy Saving"
+        },
+        "titleFormatted": {
+          "en": "Set Energy Saving to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "boolean",
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_hswing_set",
+        "title": {
+          "en": "Set horizontal swing"
+        },
+        "titleFormatted": {
+          "en": "Set horizontal swing to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "boolean",
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "lg_vswing_set",
+        "title": {
+          "en": "Set vertical swing"
+        },
+        "titleFormatted": {
+          "en": "Set vertical swing to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
+          },
+          {
+            "name": "boolean",
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
       },
       {
         "id": "me_operating_mode_set",
@@ -2169,6 +2526,27 @@
             "type": "number"
           }
         ]
+      },
+      {
+        "id": "mhi_silent_mode_set",
+        "title": {
+          "en": "Set silent mode"
+        },
+        "titleFormatted": {
+          "en": "Set silent mode to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          },
+          {
+            "name": "boolean",
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
       }
     ]
   },
@@ -2184,8 +2562,12 @@
         "lg_operating_mode",
         "lg_fan_speed",
         "lg_vane_mode",
-        "lg_wide_vane_mode",
         "lg_defrost_active",
+        "lg_autodry",
+        "lg_purifier",
+        "lg_energy_saving",
+        "lg_hswing",
+        "lg_vswing",
         "target_temperature",
         "measure_temperature",
         "measure_battery",
@@ -2379,6 +2761,7 @@
         "mhi_vane_mode",
         "mhi_wide_vane_mode",
         "mhi_defrost_active",
+        "mhi_silent_mode",
         "mhi_compressor_frequency",
         "mhi_outdoor_fan_speed",
         "target_temperature",
@@ -2471,6 +2854,16 @@
     }
   ],
   "capabilities": {
+    "lg_autodry": {
+      "type": "boolean",
+      "title": {
+        "en": "Auto Dry"
+      },
+      "uiComponent": "toggle",
+      "getable": true,
+      "setable": true,
+      "insights": true
+    },
     "lg_defrost_active": {
       "type": "boolean",
       "title": {
@@ -2480,6 +2873,16 @@
       "getable": true,
       "setable": false,
       "icon": "/assets/defrost_active.svg",
+      "insights": true
+    },
+    "lg_energy_saving": {
+      "type": "boolean",
+      "title": {
+        "en": "Energy Saving"
+      },
+      "uiComponent": "toggle",
+      "getable": true,
+      "setable": true,
       "insights": true
     },
     "lg_fan_speed": {
@@ -2523,6 +2926,15 @@
         }
       ]
     },
+    "lg_hswing": {
+      "type": "boolean",
+      "title": {
+        "en": "Horizontal Swing"
+      },
+      "uiComponent": "toggle",
+      "getable": true,
+      "setable": true
+    },
     "lg_operating_mode": {
       "type": "enum",
       "title": {
@@ -2563,6 +2975,16 @@
           }
         }
       ]
+    },
+    "lg_purifier": {
+      "type": "boolean",
+      "title": {
+        "en": "Purifier"
+      },
+      "uiComponent": "toggle",
+      "getable": true,
+      "setable": true,
+      "insights": true
     },
     "lg_vane_mode": {
       "type": "enum",
@@ -2611,22 +3033,14 @@
         }
       ]
     },
-    "lg_wide_vane_mode": {
-      "type": "enum",
+    "lg_vswing": {
+      "type": "boolean",
       "title": {
-        "en": "Wide vane mode"
+        "en": "Vertical Swing"
       },
-      "uiComponent": "picker",
+      "uiComponent": "toggle",
       "getable": true,
-      "setable": true,
-      "values": [
-        {
-          "id": "auto",
-          "title": {
-            "en": "Auto"
-          }
-        }
-      ]
+      "setable": true
     },
     "me_defrost_active": {
       "type": "boolean",
@@ -2952,6 +3366,16 @@
       "icon": "/assets/outdoor_fan_speed.svg",
       "insights": true,
       "step": 1
+    },
+    "mhi_silent_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Silent Mode"
+      },
+      "uiComponent": "toggle",
+      "getable": true,
+      "setable": true,
+      "insights": true
     },
     "mhi_vane_mode": {
       "type": "enum",
