@@ -16,7 +16,7 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
 
         this.brand = "me"
         await super.onInit();
-        await super.ensureAddedCapabilities(
+        await super.migrateCapabilities(
             [],
             []
         )

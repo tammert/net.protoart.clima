@@ -176,20 +176,20 @@ class ClimateControlDevice extends Homey.Device {
         this.log('ClimateControlDevice has been deleted');
     }
 
-    async ensureAddedCapabilities(added: string[], removed: string[]) {
+    async migrateCapabilities(added: string[], removed: string[]) {
         const capabilities = this.getCapabilities();
-
-        for (const capability of added) {
-            if (!capabilities.includes(capability)) {
-                this.log(`adding capability for ${capability}`);
-                await this.addCapability(capability);
-            }
-        }
 
         for (const capability of removed) {
             if (capabilities.includes(capability)) {
-                this.log(`removing capability for ${capability}`);
+                this.log(`removing capability ${capability}`);
                 await this.removeCapability(capability);
+            }
+        }
+
+        for (const capability of added) {
+            if (!capabilities.includes(capability)) {
+                this.log(`adding capability ${capability}`);
+                await this.addCapability(capability);
             }
         }
     }

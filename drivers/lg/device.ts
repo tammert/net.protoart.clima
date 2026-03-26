@@ -20,9 +20,9 @@ module.exports = class LGDevice extends ClimateControlDevice {
 
         this.brand = "lg"
         await super.onInit();
-        await super.ensureAddedCapabilities(
+        await super.migrateCapabilities(
             ['lg_autodry', 'lg_purifier', 'lg_energy_saving', 'lg_hswing', 'lg_vswing'],
-            []
+            ['lg_wide_vane_mode']
         )
 
         // LG specific listeners

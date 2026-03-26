@@ -17,7 +17,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
 
         this.brand = "mhi"
         await super.onInit();
-        await super.ensureAddedCapabilities(
+        await super.migrateCapabilities(
             ['mhi_silent_mode'],
             []
         )
