@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import {boolToOnOff} from "./utils";
 
 // Generic
 export type PowerEnum = 'on' | 'off';
@@ -200,10 +201,9 @@ class ApiClient {
 
     async setPower(powerOn: boolean): Promise<boolean> {
         try {
-            const powerValue = powerOn ? 'on' : 'off';
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.power, powerValue);
+            url.searchParams.append(this.apiEndpoints.power, boolToOnOff(powerOn));
 
             const response = await fetch(url.toString(), {
                 method: 'GET',
@@ -336,7 +336,7 @@ class ApiClient {
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.silent_mode || 'silent_mode', enabled ? 'on' : 'off');
+            url.searchParams.append(this.apiEndpoints.silent_mode || 'silent_mode', boolToOnOff(enabled));
 
             const response = await fetch(url.toString(), {
                 method: 'GET',
@@ -355,7 +355,7 @@ class ApiClient {
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.autodry || 'autodry', enabled ? 'true' : 'false');
+            url.searchParams.append(this.apiEndpoints.autodry || 'autodry', boolToOnOff(enabled));
 
             const response = await fetch(url.toString(), {
                 method: 'GET',
@@ -374,7 +374,7 @@ class ApiClient {
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.purifier || 'purifier', enabled ? 'true' : 'false');
+            url.searchParams.append(this.apiEndpoints.purifier || 'purifier', boolToOnOff(enabled));
 
             const response = await fetch(url.toString(), {
                 method: 'GET',
@@ -393,7 +393,7 @@ class ApiClient {
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.energy_saving || 'energy_saving', enabled ? 'true' : 'false');
+            url.searchParams.append(this.apiEndpoints.energy_saving || 'energy_saving', boolToOnOff(enabled));
 
             const response = await fetch(url.toString(), {
                 method: 'GET',
@@ -412,7 +412,7 @@ class ApiClient {
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.hswing || 'hswing', enabled ? 'true' : 'false');
+            url.searchParams.append(this.apiEndpoints.hswing || 'hswing', boolToOnOff(enabled));
 
             const response = await fetch(url.toString(), {
                 method: 'GET',
@@ -431,7 +431,7 @@ class ApiClient {
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.vswing || 'vswing', enabled ? 'true' : 'false');
+            url.searchParams.append(this.apiEndpoints.vswing || 'vswing', boolToOnOff(enabled));
 
             const response = await fetch(url.toString(), {
                 method: 'GET',

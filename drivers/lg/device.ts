@@ -1,6 +1,7 @@
 import Homey from 'homey';
 import ClimateControlDevice from '../../lib/baseDevice';
 import {LGStatus} from "../../lib/apiClient";
+import {toBoolean} from "../../lib/utils";
 
 module.exports = class LGDevice extends ClimateControlDevice {
     async onInit() {
@@ -104,12 +105,12 @@ module.exports = class LGDevice extends ClimateControlDevice {
 
             // brand-specific capabilities
             await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane0);
-            await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.opdata.defrost);
-            await this.setCapabilityValue(`${this.brand}_autodry`, status.heatpump.autodry);
-            await this.setCapabilityValue(`${this.brand}_purifier`, status.heatpump.purifier);
-            await this.setCapabilityValue(`${this.brand}_energy_saving`, status.heatpump.energy_saving);
-            await this.setCapabilityValue(`${this.brand}_hswing`, status.heatpump.hswing);
-            await this.setCapabilityValue(`${this.brand}_vswing`, status.heatpump.vswing);
+            await this.setCapabilityValue(`${this.brand}_defrost_active`, toBoolean(status.heatpump.opdata.defrost));
+            await this.setCapabilityValue(`${this.brand}_autodry`, toBoolean(status.heatpump.autodry));
+            await this.setCapabilityValue(`${this.brand}_purifier`, toBoolean(status.heatpump.purifier));
+            await this.setCapabilityValue(`${this.brand}_energy_saving`, toBoolean(status.heatpump.energy_saving));
+            await this.setCapabilityValue(`${this.brand}_hswing`, toBoolean(status.heatpump.hswing));
+            await this.setCapabilityValue(`${this.brand}_vswing`, toBoolean(status.heatpump.vswing));
         } catch (error) {
             this.error('failed to update status:', error);
         }

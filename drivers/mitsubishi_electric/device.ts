@@ -1,6 +1,7 @@
 import Homey from 'homey';
 import ClimateControlDevice from '../../lib/baseDevice';
 import {MitsubishiElectricStatus} from "../../lib/apiClient";
+import {toBoolean} from "../../lib/utils";
 
 module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
     async onInit() {
@@ -35,7 +36,7 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
             // brand-specific capabilities
             await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
             await this.setCapabilityValue(`${this.brand}_wide_vane_mode`, status.heatpump.widevane);
-            await this.setCapabilityValue(`${this.brand}_defrost_active`, status.heatpump.defrost);
+            await this.setCapabilityValue(`${this.brand}_defrost_active`, toBoolean(status.heatpump.defrost));
             await this.setCapabilityValue('meter_power', status.heatpump.tpcns);
             await this.setCapabilityValue('measure_power', status.heatpump.pinp);
             if (status.heatpump.oper || status.heatpump.tout != 0) {
