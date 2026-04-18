@@ -2859,7 +2859,8 @@
       "title": {
         "en": "Auto Dry"
       },
-      "uiComponent": "toggle",
+      "uiComponent": "button",
+      "icon": "/assets/autodry.svg",
       "getable": true,
       "setable": true,
       "insights": true
@@ -2880,7 +2881,8 @@
       "title": {
         "en": "Energy Saving"
       },
-      "uiComponent": "toggle",
+      "uiComponent": "button",
+      "icon": "/assets/energy_saving.svg",
       "getable": true,
       "setable": true,
       "insights": true
@@ -2931,7 +2933,8 @@
       "title": {
         "en": "Horizontal Swing"
       },
-      "uiComponent": "toggle",
+      "uiComponent": "button",
+      "icon": "/assets/vswing.svg",
       "getable": true,
       "setable": true
     },
@@ -2981,7 +2984,8 @@
       "title": {
         "en": "Purifier"
       },
-      "uiComponent": "toggle",
+      "uiComponent": "button",
+      "icon": "/assets/purifier.svg",
       "getable": true,
       "setable": true,
       "insights": true
@@ -3038,7 +3042,8 @@
       "title": {
         "en": "Vertical Swing"
       },
-      "uiComponent": "toggle",
+      "uiComponent": "button",
+      "icon": "/assets/vswing.svg",
       "getable": true,
       "setable": true
     },
@@ -3372,7 +3377,8 @@
       "title": {
         "en": "Silent Mode"
       },
-      "uiComponent": "toggle",
+      "uiComponent": "button",
+      "icon": "/assets/silent_mode.svg",
       "getable": true,
       "setable": true,
       "insights": true
