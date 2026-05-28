@@ -1,0 +1,67 @@
+{
+  "name": {
+    "en": "Panasonic air-to-air module"
+  },
+  "discovery": "climatecontrol",
+  "class": "airconditioning",
+  "capabilities": [
+    "onoff",
+    "pana_operating_mode",
+    "pana_fan_speed",
+    "pana_vane_mode",
+    "pana_wide_vane_mode",
+    "pana_milddry",
+    "pana_nanoex",
+    "pana_eco",
+    "pana_econavi",
+    "pana_preset",
+    "pana_defrost_active",
+    "target_temperature",
+    "measure_power",
+    "measure_temperature",
+    "measure_temperature.outside",
+    "measure_battery",
+    "measure_humidity"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "/assets/images/drivers/small.png",
+    "large": "/assets/images/drivers/large.png",
+    "xlarge": "/assets/images/drivers/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 16,
+      "max": 31,
+      "step": 0.5
+    },
+    "measure_temperature": {
+      "title": {"en": "Temperature inside"}
+    },
+    "measure_temperature.outside": {
+      "title": {"en": "Temperature outside"},
+      "step": 1
+    }
+  },
+  "energy": {
+    "batteries": ["CR2032"]
+  }
+}

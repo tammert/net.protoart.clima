@@ -1,5 +1,6 @@
 import Homey from 'homey';
 import ApiClient, {ApiEndpoints} from "./apiClient";
+import {toBoolean} from "./utils";
 
 class ClimateControlDevice extends Homey.Device {
     protected apiClient!: ApiClient
@@ -141,7 +142,7 @@ class ClimateControlDevice extends Homey.Device {
             }
 
             // generic capabilities
-            await this.setCapabilityValue('onoff', status.heatpump.power === 'on');
+            await this.setCapabilityValue('onoff', toBoolean(status.heatpump.power));
             await this.setCapabilityValue(`${this.brand}_operating_mode`, status.heatpump.mode);
             await this.setCapabilityValue(`${this.brand}_fan_speed`, status.heatpump.fan);
             await this.setCapabilityValue('target_temperature', status.heatpump.set_temperature);

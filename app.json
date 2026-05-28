@@ -24,7 +24,7 @@
   },
   "author": {
     "name": "Sebastiaan Tammer",
-    "email": "sebastiaantammer@gmail.com"
+    "email": "sebastiaan@tammer.nl"
   },
   "brandColor": "#2C6B78",
   "homepage": "https://clima.protoart.net",
@@ -955,6 +955,318 @@
             "filter": "driver_id=mitsubishi_heavy_industries"
           }
         ]
+      },
+      {
+        "id": "pana_operating_mode_changed",
+        "title": {
+          "en": "Operating mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Operating mode has changed to [[pana_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "pana_fan_speed_changed",
+        "title": {
+          "en": "Fan speed has changed"
+        },
+        "titleFormatted": {
+          "en": "Fan speed has changed to [[pana_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "pana_vane_mode_changed",
+        "title": {
+          "en": "Vertical vane mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Vertical vane mode has changed to [[pana_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1 (Highest)"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "5 (Lowest)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_wide_vane_mode_changed",
+        "title": {
+          "en": "Horizontal vane mode has changed"
+        },
+        "titleFormatted": {
+          "en": "Horizontal vane mode has changed to [[pana_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Max left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Max right"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_preset_changed",
+        "title": {
+          "en": "Preset has changed"
+        },
+        "titleFormatted": {
+          "en": "Preset has changed to [[pana_preset]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_preset",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "title": {
+                  "en": "Normal"
+                }
+              },
+              {
+                "id": "powerful",
+                "title": {
+                  "en": "Powerful"
+                }
+              },
+              {
+                "id": "quiet",
+                "title": {
+                  "en": "Quiet"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_defrost_active_true",
+        "title": {
+          "en": "Defrost turned on"
+        },
+        "titleFormatted": {
+          "en": "Defrost turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_defrost_active_false",
+        "title": {
+          "en": "Defrost turned off"
+        },
+        "titleFormatted": {
+          "en": "Defrost turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
       }
     ],
     "conditions": [
@@ -1725,6 +2037,300 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      },
+      {
+        "id": "pana_operating_mode_is",
+        "title": {
+          "en": "Operating mode is"
+        },
+        "titleFormatted": {
+          "en": "Operating mode !{{is|is not}} [[pana_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_fan_speed_is",
+        "title": {
+          "en": "Fan speed is"
+        },
+        "titleFormatted": {
+          "en": "Fan speed !{{is|is not}} [[pana_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_vane_mode_is",
+        "title": {
+          "en": "Vertical vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Vertical vane mode !{{is|is not}} [[pana_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1 (Highest)"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "5 (Lowest)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_wide_vane_mode_is",
+        "title": {
+          "en": "Horizontal vane mode is"
+        },
+        "titleFormatted": {
+          "en": "Horizontal vane mode !{{is|is not}} [[pana_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Max left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Max right"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_preset_is",
+        "title": {
+          "en": "Preset is"
+        },
+        "titleFormatted": {
+          "en": "Preset !{{is|is not}} [[pana_preset]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_preset",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "title": {
+                  "en": "Normal"
+                }
+              },
+              {
+                "id": "powerful",
+                "title": {
+                  "en": "Powerful"
+                }
+              },
+              {
+                "id": "quiet",
+                "title": {
+                  "en": "Quiet"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_defrost_active_is",
+        "title": {
+          "en": "Defrost is active"
+        },
+        "titleFormatted": {
+          "en": "Defrost !{{is|is not}} active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
           }
         ]
       }
@@ -2547,6 +3153,306 @@
           }
         ],
         "highlight": true
+      },
+      {
+        "id": "pana_operating_mode_set",
+        "title": {
+          "en": "Set operating mode"
+        },
+        "titleFormatted": {
+          "en": "Set operating mode to [[pana_operating_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_operating_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "cool",
+                "title": {
+                  "en": "Cool"
+                }
+              },
+              {
+                "id": "heat",
+                "title": {
+                  "en": "Heat"
+                }
+              },
+              {
+                "id": "dry",
+                "title": {
+                  "en": "Dry"
+                }
+              },
+              {
+                "id": "fan",
+                "title": {
+                  "en": "Fan"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "pana_fan_speed_set",
+        "title": {
+          "en": "Set fan speed"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[pana_fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_fan_speed",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "silent",
+                "title": {
+                  "en": "Silent"
+                }
+              },
+              {
+                "id": "low",
+                "title": {
+                  "en": "Low"
+                }
+              },
+              {
+                "id": "med",
+                "title": {
+                  "en": "Medium"
+                }
+              },
+              {
+                "id": "high",
+                "title": {
+                  "en": "High"
+                }
+              },
+              {
+                "id": "superhigh",
+                "title": {
+                  "en": "Max"
+                }
+              }
+            ]
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "pana_vane_mode_set",
+        "title": {
+          "en": "Set vertical vane mode"
+        },
+        "titleFormatted": {
+          "en": "Set vertical vane mode to [[pana_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "1 (Highest)"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "4"
+                }
+              },
+              {
+                "id": "5",
+                "title": {
+                  "en": "5 (Lowest)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_wide_vane_mode_set",
+        "title": {
+          "en": "Set horizontal vane mode"
+        },
+        "titleFormatted": {
+          "en": "Set horizontal vane mode to [[pana_wide_vane_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_wide_vane_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Auto"
+                }
+              },
+              {
+                "id": "swing",
+                "title": {
+                  "en": "Swing"
+                }
+              },
+              {
+                "id": "maxleft",
+                "title": {
+                  "en": "Max left"
+                }
+              },
+              {
+                "id": "left",
+                "title": {
+                  "en": "Left"
+                }
+              },
+              {
+                "id": "middle",
+                "title": {
+                  "en": "Middle"
+                }
+              },
+              {
+                "id": "right",
+                "title": {
+                  "en": "Right"
+                }
+              },
+              {
+                "id": "maxright",
+                "title": {
+                  "en": "Max right"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_preset_set",
+        "title": {
+          "en": "Set preset"
+        },
+        "titleFormatted": {
+          "en": "Set preset to [[pana_preset]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "pana_preset",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "normal",
+                "title": {
+                  "en": "Normal"
+                }
+              },
+              {
+                "id": "powerful",
+                "title": {
+                  "en": "Powerful"
+                }
+              },
+              {
+                "id": "quiet",
+                "title": {
+                  "en": "Quiet"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pana_remote_temperature_set",
+        "title": {
+          "en": "Set remote temperature"
+        },
+        "titleFormatted": {
+          "en": "Set remote temperature to [[remote_temperature]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "remote_temperature",
+            "type": "number"
+          }
+        ]
       }
     ]
   },
@@ -2820,6 +3726,111 @@
         ]
       },
       "id": "mitsubishi_heavy_industries",
+      "settings": [
+        {
+          "id": "polling_interval",
+          "type": "number",
+          "label": {
+            "en": "Polling interval"
+          },
+          "hint": {
+            "en": "Time between data refreshes from ClimateControl module"
+          },
+          "value": 1,
+          "min": 1,
+          "max": 60,
+          "units": {
+            "en": "minutes"
+          }
+        },
+        {
+          "id": "temperature_step_size",
+          "type": "number",
+          "label": {
+            "en": "Temperature step size"
+          },
+          "hint": {
+            "en": "Step size when setting temperature"
+          },
+          "value": 0.5,
+          "min": 0.1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Panasonic air-to-air module"
+      },
+      "discovery": "climatecontrol",
+      "class": "airconditioning",
+      "capabilities": [
+        "onoff",
+        "pana_operating_mode",
+        "pana_fan_speed",
+        "pana_vane_mode",
+        "pana_wide_vane_mode",
+        "pana_milddry",
+        "pana_nanoex",
+        "pana_eco",
+        "pana_econavi",
+        "pana_preset",
+        "pana_defrost_active",
+        "target_temperature",
+        "measure_power",
+        "measure_temperature",
+        "measure_temperature.outside",
+        "measure_battery",
+        "measure_humidity"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/assets/images/drivers/small.png",
+        "large": "/assets/images/drivers/large.png",
+        "xlarge": "/assets/images/drivers/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 16,
+          "max": 31,
+          "step": 0.5
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Temperature inside"
+          }
+        },
+        "measure_temperature.outside": {
+          "title": {
+            "en": "Temperature outside"
+          },
+          "step": 1
+        }
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "id": "panasonic",
       "settings": [
         {
           "id": "polling_interval",
@@ -3479,6 +4490,280 @@
           "id": "7",
           "title": {
             "en": "7"
+          }
+        }
+      ]
+    },
+    "pana_defrost_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Defrost active"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/defrost_active.svg",
+      "insights": true
+    },
+    "pana_eco": {
+      "type": "boolean",
+      "title": {
+        "en": "Eco mode"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "icon": "/assets/energy_saving.svg"
+    },
+    "pana_econavi": {
+      "type": "boolean",
+      "title": {
+        "en": "Econavi"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "icon": "/assets/energy_saving.svg"
+    },
+    "pana_fan_speed": {
+      "type": "enum",
+      "title": {
+        "en": "Fan speed"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "silent",
+          "title": {
+            "en": "Silent"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low"
+          }
+        },
+        {
+          "id": "med",
+          "title": {
+            "en": "Medium"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High"
+          }
+        },
+        {
+          "id": "superhigh",
+          "title": {
+            "en": "Max"
+          }
+        }
+      ]
+    },
+    "pana_milddry": {
+      "type": "boolean",
+      "title": {
+        "en": "Mild Dry"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "icon": "/assets/autodry.svg"
+    },
+    "pana_nanoex": {
+      "type": "boolean",
+      "title": {
+        "en": "NanoeX"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "icon": "/assets/purifier.svg"
+    },
+    "pana_operating_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool"
+          }
+        },
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat"
+          }
+        },
+        {
+          "id": "dry",
+          "title": {
+            "en": "Dry"
+          }
+        },
+        {
+          "id": "fan",
+          "title": {
+            "en": "Fan"
+          }
+        }
+      ]
+    },
+    "pana_preset": {
+      "type": "enum",
+      "title": {
+        "en": "Preset"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal"
+          }
+        },
+        {
+          "id": "powerful",
+          "title": {
+            "en": "Powerful"
+          }
+        },
+        {
+          "id": "quiet",
+          "title": {
+            "en": "Quiet"
+          }
+        }
+      ]
+    },
+    "pana_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Vertical vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1 (Highest)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "4"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "5 (Lowest)"
+          }
+        }
+      ]
+    },
+    "pana_wide_vane_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Horizontal vane mode"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "swing",
+          "title": {
+            "en": "Swing"
+          }
+        },
+        {
+          "id": "maxleft",
+          "title": {
+            "en": "Max left"
+          }
+        },
+        {
+          "id": "left",
+          "title": {
+            "en": "Left"
+          }
+        },
+        {
+          "id": "middle",
+          "title": {
+            "en": "Middle"
+          }
+        },
+        {
+          "id": "right",
+          "title": {
+            "en": "Right"
+          }
+        },
+        {
+          "id": "maxright",
+          "title": {
+            "en": "Max right"
           }
         }
       ]

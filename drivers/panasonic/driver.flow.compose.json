@@ -1,0 +1,317 @@
+{
+  "triggers": [
+    {
+      "id": "pana_operating_mode_changed",
+      "title": {"en": "Operating mode has changed"},
+      "titleFormatted": {"en": "Operating mode has changed to [[pana_operating_mode]]"},
+      "args": [
+        {
+          "name": "pana_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}}
+          ]
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "pana_fan_speed_changed",
+      "title": {"en": "Fan speed has changed"},
+      "titleFormatted": {"en": "Fan speed has changed to [[pana_fan_speed]]"},
+      "args": [
+        {
+          "name": "pana_fan_speed",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "silent", "title": {"en": "Silent"}},
+            {"id": "low", "title": {"en": "Low"}},
+            {"id": "med", "title": {"en": "Medium"}},
+            {"id": "high", "title": {"en": "High"}},
+            {"id": "superhigh", "title": {"en": "Max"}}
+          ]
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "pana_vane_mode_changed",
+      "title": {"en": "Vertical vane mode has changed"},
+      "titleFormatted": {"en": "Vertical vane mode has changed to [[pana_vane_mode]]"},
+      "args": [
+        {
+          "name": "pana_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "1", "title": {"en": "1 (Highest)"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5 (Lowest)"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_wide_vane_mode_changed",
+      "title": {"en": "Horizontal vane mode has changed"},
+      "titleFormatted": {"en": "Horizontal vane mode has changed to [[pana_wide_vane_mode]]"},
+      "args": [
+        {
+          "name": "pana_wide_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "maxleft", "title": {"en": "Max left"}},
+            {"id": "left", "title": {"en": "Left"}},
+            {"id": "middle", "title": {"en": "Middle"}},
+            {"id": "right", "title": {"en": "Right"}},
+            {"id": "maxright", "title": {"en": "Max right"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_preset_changed",
+      "title": {"en": "Preset has changed"},
+      "titleFormatted": {"en": "Preset has changed to [[pana_preset]]"},
+      "args": [
+        {
+          "name": "pana_preset",
+          "type": "dropdown",
+          "values": [
+            {"id": "normal", "title": {"en": "Normal"}},
+            {"id": "powerful", "title": {"en": "Powerful"}},
+            {"id": "quiet", "title": {"en": "Quiet"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_defrost_active_true",
+      "title": {"en": "Defrost turned on"},
+      "titleFormatted": {"en": "Defrost turned on"}
+    },
+    {
+      "id": "pana_defrost_active_false",
+      "title": {"en": "Defrost turned off"},
+      "titleFormatted": {"en": "Defrost turned off"}
+    }
+  ],
+  "conditions": [
+    {
+      "id": "pana_operating_mode_is",
+      "title": {"en": "Operating mode is"},
+      "titleFormatted": {"en": "Operating mode !{{is|is not}} [[pana_operating_mode]]"},
+      "args": [
+        {
+          "name": "pana_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_fan_speed_is",
+      "title": {"en": "Fan speed is"},
+      "titleFormatted": {"en": "Fan speed !{{is|is not}} [[pana_fan_speed]]"},
+      "args": [
+        {
+          "name": "pana_fan_speed",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "silent", "title": {"en": "Silent"}},
+            {"id": "low", "title": {"en": "Low"}},
+            {"id": "med", "title": {"en": "Medium"}},
+            {"id": "high", "title": {"en": "High"}},
+            {"id": "superhigh", "title": {"en": "Max"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_vane_mode_is",
+      "title": {"en": "Vertical vane mode is"},
+      "titleFormatted": {"en": "Vertical vane mode !{{is|is not}} [[pana_vane_mode]]"},
+      "args": [
+        {
+          "name": "pana_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "1", "title": {"en": "1 (Highest)"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5 (Lowest)"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_wide_vane_mode_is",
+      "title": {"en": "Horizontal vane mode is"},
+      "titleFormatted": {"en": "Horizontal vane mode !{{is|is not}} [[pana_wide_vane_mode]]"},
+      "args": [
+        {
+          "name": "pana_wide_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "maxleft", "title": {"en": "Max left"}},
+            {"id": "left", "title": {"en": "Left"}},
+            {"id": "middle", "title": {"en": "Middle"}},
+            {"id": "right", "title": {"en": "Right"}},
+            {"id": "maxright", "title": {"en": "Max right"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_preset_is",
+      "title": {"en": "Preset is"},
+      "titleFormatted": {"en": "Preset !{{is|is not}} [[pana_preset]]"},
+      "args": [
+        {
+          "name": "pana_preset",
+          "type": "dropdown",
+          "values": [
+            {"id": "normal", "title": {"en": "Normal"}},
+            {"id": "powerful", "title": {"en": "Powerful"}},
+            {"id": "quiet", "title": {"en": "Quiet"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_defrost_active_is",
+      "title": {"en": "Defrost is active"},
+      "titleFormatted": {"en": "Defrost !{{is|is not}} active"}
+    }
+  ],
+  "actions": [
+    {
+      "id": "pana_operating_mode_set",
+      "title": {"en": "Set operating mode"},
+      "titleFormatted": {"en": "Set operating mode to [[pana_operating_mode]]"},
+      "args": [
+        {
+          "name": "pana_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}}
+          ]
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "pana_fan_speed_set",
+      "title": {"en": "Set fan speed"},
+      "titleFormatted": {"en": "Set fan speed to [[pana_fan_speed]]"},
+      "args": [
+        {
+          "name": "pana_fan_speed",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "silent", "title": {"en": "Silent"}},
+            {"id": "low", "title": {"en": "Low"}},
+            {"id": "med", "title": {"en": "Medium"}},
+            {"id": "high", "title": {"en": "High"}},
+            {"id": "superhigh", "title": {"en": "Max"}}
+          ]
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "pana_vane_mode_set",
+      "title": {"en": "Set vertical vane mode"},
+      "titleFormatted": {"en": "Set vertical vane mode to [[pana_vane_mode]]"},
+      "args": [
+        {
+          "name": "pana_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "1", "title": {"en": "1 (Highest)"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}},
+            {"id": "5", "title": {"en": "5 (Lowest)"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_wide_vane_mode_set",
+      "title": {"en": "Set horizontal vane mode"},
+      "titleFormatted": {"en": "Set horizontal vane mode to [[pana_wide_vane_mode]]"},
+      "args": [
+        {
+          "name": "pana_wide_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "maxleft", "title": {"en": "Max left"}},
+            {"id": "left", "title": {"en": "Left"}},
+            {"id": "middle", "title": {"en": "Middle"}},
+            {"id": "right", "title": {"en": "Right"}},
+            {"id": "maxright", "title": {"en": "Max right"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_preset_set",
+      "title": {"en": "Set preset"},
+      "titleFormatted": {"en": "Set preset to [[pana_preset]]"},
+      "args": [
+        {
+          "name": "pana_preset",
+          "type": "dropdown",
+          "values": [
+            {"id": "normal", "title": {"en": "Normal"}},
+            {"id": "powerful", "title": {"en": "Powerful"}},
+            {"id": "quiet", "title": {"en": "Quiet"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pana_remote_temperature_set",
+      "title": {"en": "Set remote temperature"},
+      "titleFormatted": {"en": "Set remote temperature to [[remote_temperature]]"},
+      "args": [
+        {
+          "name": "remote_temperature",
+          "type": "number"
+        }
+      ]
+    }
+  ]
+}

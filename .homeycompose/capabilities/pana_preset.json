@@ -1,0 +1,12 @@
+{
+  "type": "enum",
+  "title": {"en": "Preset"},
+  "uiComponent": "picker",
+  "getable": true,
+  "setable": true,
+  "values": [
+    {"id": "normal", "title": {"en": "Normal"}},
+    {"id": "powerful", "title": {"en": "Powerful"}},
+    {"id": "quiet", "title": {"en": "Quiet"}}
+  ]
+}

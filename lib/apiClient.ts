@@ -2,8 +2,6 @@ import fetch from 'node-fetch';
 import {boolToOnOff} from "./utils";
 
 // Generic
-export type PowerEnum = 'on' | 'off';
-
 export interface Sensor {
     thermometer: {
         mac: string,
@@ -31,7 +29,7 @@ export interface LGHeatPump {
     heatmax: number;
     coolmin: number;
     coolmax: number;
-    power: PowerEnum;
+    power: boolean;
     mode: LGOperatingModeEnum;
     set_temperature: number;
     tinp: string; // temperature input
@@ -82,7 +80,7 @@ export interface MitsubishiElectricHeatPump {
     heatmax: number;
     coolmin: number;
     coolmax: number;
-    power: PowerEnum;
+    power: boolean;
     mode: MitsubishiElectricOperatingModeEnum;
     set_temperature: number;
     tinp: string; // temperature input
@@ -121,7 +119,7 @@ export interface MitsubishiHeavyIndustriesHeatPump {
     coolmax: number;
     set_temperature: number;
     tinp: string; // temperature input
-    power: PowerEnum;
+    power: boolean;
     mode: MitsubishiHeavyIndustriesOperatingModeEnum;
     fan: MitsubishiHeavyIndustriesFanSpeedEnum;
     vane: MitsubishiHeavyIndustriesVaneModeEnum;
@@ -162,6 +160,43 @@ export interface MitsubishiHeavyIndustriesStatus {
     sensor: Sensor;
 }
 
+// Panasonic
+export type PanasonicOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type PanasonicFanSpeedEnum = 'auto' | 'silent' | 'low' | 'med' | 'high' | 'superhigh'
+export type PanasonicVaneModeEnum = 'auto' | 'swing' | '1' | '2' | '3' | '4' | '5'
+export type PanasonicWideVaneModeEnum = 'auto' | 'swing' | 'maxleft' | 'left' | 'middle' | 'right' | 'maxright'
+export type PanasonicPresetEnum = 'normal' | 'powerful' | 'quiet'
+
+export interface PanasonicHeatPump {
+    heatmin: number;
+    heatmax: number;
+    coolmin: number;
+    coolmax: number;
+    power: boolean;
+    mode: PanasonicOperatingModeEnum;
+    set_temperature: number;
+    tinp: string; // temperature input
+    op: {
+        tout: number; // temperature outside
+        pinp: number; // power input
+        defrost: boolean; // defrost active
+    };
+    fan: PanasonicFanSpeedEnum;
+    vane: PanasonicVaneModeEnum;
+    widevane: PanasonicWideVaneModeEnum;
+    milddry: boolean;
+    nanoex: boolean;
+    eco: boolean;
+    econavi: boolean;
+    preset: PanasonicPresetEnum;
+    actual_temperature: number;
+}
+
+export interface PanasonicStatus {
+    heatpump: PanasonicHeatPump;
+    sensor: Sensor;
+}
+
 export interface ApiEndpoints {
     power: string;
     fan_speed: string;
@@ -176,6 +211,11 @@ export interface ApiEndpoints {
     energy_saving?: string;
     hswing?: string;
     vswing?: string;
+    milddry?: string;
+    nanoex?: string;
+    eco?: string;
+    econavi?: string;
+    preset?: string;
 }
 
 class ApiClient {
@@ -443,6 +483,101 @@ class ApiClient {
             return true;
         } catch (error) {
             throw new Error(`Failed to set vertical swing: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setMildDry(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.milddry || 'milddry', boolToOnOff(enabled));
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set mild dry: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setNanoEx(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.nanoex || 'nanoex', boolToOnOff(enabled));
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set nanoex: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setEco(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.eco || 'eco', boolToOnOff(enabled));
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set eco: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setEcoNavi(enabled: boolean): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.econavi || 'econavi', boolToOnOff(enabled));
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set econavi: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+
+    async setPreset(preset: PanasonicPresetEnum): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'heatpump');
+            url.searchParams.append(this.apiEndpoints.preset || 'preset', preset);
+
+            const response = await fetch(url.toString(), {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`Failed to set preset: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
