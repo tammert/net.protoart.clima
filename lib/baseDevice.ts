@@ -2,7 +2,7 @@ import Homey from 'homey';
 import ApiClient, {ApiEndpoints} from "./apiClient";
 import {toBoolean} from "./utils";
 
-class ClimateControlDevice extends Homey.Device {
+abstract class ClimateControlDevice extends Homey.Device {
     protected apiClient!: ApiClient
     protected apiEndpoints!: ApiEndpoints
     protected brand!: string
@@ -113,7 +113,54 @@ class ClimateControlDevice extends Homey.Device {
         });
     }
 
-    async updateStatus(status: any) {
+    async onSettings({oldSettings, newSettings, changedKeys}: {
+        oldSettings: { [p: string]: boolean | string | number | undefined | null };
+        newSettings: { [p: string]: boolean | string | number | undefined | null };
+        changedKeys: string[]
+    }): Promise<string | void> {
+        if (Homey.env.NODE_ENV === 'development') {
+            this.log('onSettings:\n', oldSettings, newSettings, changedKeys);
+        }
+
+        if (changedKeys.includes("polling_interval")) {
+            await this.startPolling(<number>newSettings["polling_interval"]);
+        }
+        if (changedKeys.includes("temperature_step_size")) {
+            const opts = this.getCapabilityOptions("target_temperature")
+            opts.step = newSettings["temperature_step_size"];
+            await this.setCapabilityOptions("target_temperature", opts);
+        }
+    }
+
+    async startPolling(pollingInterval: number) {
+        if (this.pollingInterval) {
+            this.homey.clearInterval(this.pollingInterval);
+        }
+
+        await this.updateStatus();
+        this.pollingInterval = this.homey.setInterval(async () => {
+            await this.updateStatus();
+        }, pollingInterval * 60000);
+    }
+
+    abstract updateStatus(status?: any): Promise<void>;
+
+    protected registerApiCapabilityListener(capabilityId: string, apiMethodName: keyof ApiClient, label: string) {
+        this.registerCapabilityListener(capabilityId, async (value: any) => {
+            this.log(`${label} capability changed to:`, value);
+            try {
+                const method = this.apiClient[apiMethodName] as Function;
+                await method.call(this.apiClient, value);
+                await this.setCapabilityValue(capabilityId, value);
+                this.log(`${label} set successfully to:`, value);
+            } catch (error) {
+                this.error(`failed to set ${label}:`, error);
+                throw new Error(`failed to set ${label} to ${value}: ${error instanceof Error ? error.message : error}`);
+            }
+        });
+    }
+
+    async updateStatusBase(status: any) {
         if (Homey.env.NODE_ENV === 'development') {
             this.log('status received:\n', status);
         }

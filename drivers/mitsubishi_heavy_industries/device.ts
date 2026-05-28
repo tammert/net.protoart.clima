@@ -24,18 +24,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
         )
 
         // MHI specific listeners
-        this.registerCapabilityListener('mhi_silent_mode', async (value: boolean) => {
-            this.log('silent_mode capability changed to:', value);
-
-            try {
-                await this.apiClient.setSilentMode(value);
-                await this.setCapabilityValue('mhi_silent_mode', value);
-                this.log('silent_mode set successfully to:', value);
-            } catch (error) {
-                this.error('failed to set silent_mode:', error);
-                throw new Error(`failed to set silent_mode to ${value}: ${error}`);
-            }
-        });
+        this.registerApiCapabilityListener(`${this.brand}_silent_mode`, 'setSilentMode', 'silent mode');
 
         // Start polling
         await this.startPolling(this.getSetting("polling_interval") || 1 as number)
@@ -46,7 +35,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
     async updateStatus() {
         try {
             const status: MitsubishiHeavyIndustriesStatus = await this.apiClient.getStatus();
-            await super.updateStatus(status);
+            await this.updateStatusBase(status);
 
             // brand-specific capabilities
             await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
@@ -72,32 +61,5 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
 
     async onRenamed(name: string) {
         this.log('MitsubishiHeavyIndustriesDevice was renamed');
-    }
-
-    async onSettings({oldSettings, newSettings, changedKeys}: {
-        oldSettings: { [p: string]: boolean | string | number | undefined | null };
-        newSettings: { [p: string]: boolean | string | number | undefined | null };
-        changedKeys: string[]
-    }): Promise<string | void> {
-        if (Homey.env.NODE_ENV === 'development') {
-            this.log('onSettings:\n', oldSettings, newSettings, changedKeys);
-        }
-
-        if (changedKeys.includes("polling_interval")) {
-            this.pollingInterval.close()
-            await this.startPolling(<number>newSettings["polling_interval"]);
-        }
-        if (changedKeys.includes("temperature_step_size")) {
-            const opts = this.getCapabilityOptions("target_temperature")
-            opts.step = newSettings["temperature_step_size"];
-            await this.setCapabilityOptions("target_temperature", opts);
-        }
-    }
-
-    async startPolling(pollingInterval: number) {
-        await this.updateStatus();
-        this.pollingInterval = this.homey.setInterval(async () => {
-            await this.updateStatus();
-        }, pollingInterval * 60000);
     }
 };

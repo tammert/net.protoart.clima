@@ -31,7 +31,7 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
     async updateStatus() {
         try {
             const status: MitsubishiElectricStatus = await this.apiClient.getStatus();
-            await super.updateStatus(status);
+            await this.updateStatusBase(status);
 
             // brand-specific capabilities
             await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
@@ -54,32 +54,5 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
 
     async onRenamed(name: string) {
         this.log('MitsubishiElectricDevice was renamed');
-    }
-
-    async onSettings({oldSettings, newSettings, changedKeys}: {
-        oldSettings: { [p: string]: boolean | string | number | undefined | null };
-        newSettings: { [p: string]: boolean | string | number | undefined | null };
-        changedKeys: string[]
-    }): Promise<string | void> {
-        if (Homey.env.NODE_ENV === 'development') {
-            this.log('onSettings:\n', oldSettings, newSettings, changedKeys);
-        }
-
-        if (changedKeys.includes("polling_interval")) {
-            this.pollingInterval.close()
-            await this.startPolling(<number>newSettings["polling_interval"]);
-        }
-        if (changedKeys.includes("temperature_step_size")) {
-            const opts = this.getCapabilityOptions("target_temperature")
-            opts.step = newSettings["temperature_step_size"];
-            await this.setCapabilityOptions("target_temperature", opts);
-        }
-    }
-
-    async startPolling(pollingInterval: number) {
-        await this.updateStatus();
-        this.pollingInterval = this.homey.setInterval(async () => {
-            await this.updateStatus();
-        }, pollingInterval * 60000);
     }
 };

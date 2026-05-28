@@ -239,346 +239,99 @@ class ApiClient {
         }
     }
 
-    async setPower(powerOn: boolean): Promise<boolean> {
+    private async setHeatpumpParam(endpointKey: keyof ApiEndpoints, value: string | number | boolean): Promise<boolean> {
+        const endpoint = this.apiEndpoints[endpointKey];
+        if (!endpoint) {
+            throw new Error(`Endpoint for ${endpointKey} not defined for this brand`);
+        }
+
+        const valStr = typeof value === 'boolean' ? boolToOnOff(value) : value.toString();
+
         try {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.power, boolToOnOff(powerOn));
+            url.searchParams.append(endpoint, valStr);
 
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
+            const response = await fetch(url.toString());
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return true;
         } catch (error) {
-            throw new Error(`Failed to set power: ${error instanceof Error ? error.message : 'Unknown error'}`);
+            throw new Error(`Failed to set ${endpointKey}: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
+    }
+
+    async setPower(powerOn: boolean): Promise<boolean> {
+        return this.setHeatpumpParam('power', powerOn);
     }
 
     async setOperatingMode(mode: any): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.operating_mode, mode);
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('operating_mode', mode);
     }
 
     async setTemperature(temperature: number): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.set_temperature, temperature.toString());
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set temperature: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('set_temperature', temperature);
     }
 
     async setFanSpeed(fan_speed: any): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.fan_speed, fan_speed);
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set fan mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('fan_speed', fan_speed);
     }
 
     async setVaneMode(vane_mode: any): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.vane_mode, vane_mode);
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set swing mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('vane_mode', vane_mode);
     }
 
     async setWideVaneMode(wide_vane_mode: any): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.wide_vane_mode || 'widevane', wide_vane_mode);
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set swing mode: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('wide_vane_mode', wide_vane_mode);
     }
 
     async setRemoteTemperature(temperature: number): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.remote_temperature, temperature.toString());
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set temperature: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('remote_temperature', temperature);
     }
 
     async setSilentMode(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.silent_mode || 'silent_mode', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set autodry: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('silent_mode', enabled);
     }
 
     async setAutodry(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.autodry || 'autodry', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set autodry: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('autodry', enabled);
     }
 
     async setPurifier(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.purifier || 'purifier', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set purifier: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('purifier', enabled);
     }
 
     async setEnergySaving(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.energy_saving || 'energy_saving', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set energy saving: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('energy_saving', enabled);
     }
 
     async setHSwing(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.hswing || 'hswing', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set horizontal swing: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('hswing', enabled);
     }
 
     async setVSwing(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.vswing || 'vswing', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set vertical swing: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('vswing', enabled);
     }
 
     async setMildDry(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.milddry || 'milddry', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set mild dry: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('milddry', enabled);
     }
 
     async setNanoEx(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.nanoex || 'nanoex', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set nanoex: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('nanoex', enabled);
     }
 
     async setEco(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.eco || 'eco', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set eco: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('eco', enabled);
     }
 
     async setEcoNavi(enabled: boolean): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.econavi || 'econavi', boolToOnOff(enabled));
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set econavi: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('econavi', enabled);
     }
 
     async setPreset(preset: PanasonicPresetEnum): Promise<boolean> {
-        try {
-            const url = new URL(this.apiUrl);
-            url.searchParams.append('cmd', 'heatpump');
-            url.searchParams.append(this.apiEndpoints.preset || 'preset', preset);
-
-            const response = await fetch(url.toString(), {
-                method: 'GET',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return true;
-        } catch (error) {
-            throw new Error(`Failed to set preset: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
+        return this.setHeatpumpParam('preset', preset);
     }
 
     getTemperatureFromStatus(status: any): number {

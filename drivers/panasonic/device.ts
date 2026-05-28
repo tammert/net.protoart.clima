@@ -28,21 +28,11 @@ module.exports = class PanasonicDevice extends ClimateControlDevice {
         )
 
         // Register brand-specific capability listeners
-        this.registerCapabilityListener(`${this.brand}_milddry`, async (value: boolean) => {
-            await this.apiClient.setMildDry(value);
-        });
-        this.registerCapabilityListener(`${this.brand}_nanoex`, async (value: boolean) => {
-            await this.apiClient.setNanoEx(value);
-        });
-        this.registerCapabilityListener(`${this.brand}_eco`, async (value: boolean) => {
-            await this.apiClient.setEco(value);
-        });
-        this.registerCapabilityListener(`${this.brand}_econavi`, async (value: boolean) => {
-            await this.apiClient.setEcoNavi(value);
-        });
-        this.registerCapabilityListener(`${this.brand}_preset`, async (value: string) => {
-            await this.apiClient.setPreset(value as any);
-        });
+        this.registerApiCapabilityListener(`${this.brand}_milddry`, 'setMildDry', 'mild dry');
+        this.registerApiCapabilityListener(`${this.brand}_nanoex`, 'setNanoEx', 'nanoex');
+        this.registerApiCapabilityListener(`${this.brand}_eco`, 'setEco', 'eco');
+        this.registerApiCapabilityListener(`${this.brand}_econavi`, 'setEcoNavi', 'econavi');
+        this.registerApiCapabilityListener(`${this.brand}_preset`, 'setPreset', 'preset');
 
         // Start polling
         await this.startPolling(this.getSetting("polling_interval") || 1 as number)
@@ -53,7 +43,7 @@ module.exports = class PanasonicDevice extends ClimateControlDevice {
     async updateStatus() {
         try {
             const status: PanasonicStatus = await this.apiClient.getStatus();
-            await super.updateStatus(status);
+            await this.updateStatusBase(status);
 
             // brand-specific capabilities
             await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane);
@@ -78,32 +68,5 @@ module.exports = class PanasonicDevice extends ClimateControlDevice {
 
     async onRenamed(name: string) {
         this.log('PanasonicDevice was renamed');
-    }
-
-    async onSettings({oldSettings, newSettings, changedKeys}: {
-        oldSettings: { [p: string]: boolean | string | number | undefined | null };
-        newSettings: { [p: string]: boolean | string | number | undefined | null };
-        changedKeys: string[]
-    }): Promise<string | void> {
-        if (Homey.env.NODE_ENV === 'development') {
-            this.log('onSettings:\n', oldSettings, newSettings, changedKeys);
-        }
-
-        if (changedKeys.includes("polling_interval")) {
-            this.pollingInterval.close()
-            await this.startPolling(<number>newSettings["polling_interval"]);
-        }
-        if (changedKeys.includes("temperature_step_size")) {
-            const opts = this.getCapabilityOptions("target_temperature")
-            opts.step = newSettings["temperature_step_size"];
-            await this.setCapabilityOptions("target_temperature", opts);
-        }
-    }
-
-    async startPolling(pollingInterval: number) {
-        await this.updateStatus();
-        this.pollingInterval = this.homey.setInterval(async () => {
-            await this.updateStatus();
-        }, pollingInterval * 60000);
     }
 };
