@@ -61,5 +61,8 @@
   },
   "0.10.0": {
     "en": "added Panasonic module compatibility"
+  },
+  "0.10.1": {
+    "en": "code refactor: DRY"
   }
 }
