@@ -58,5 +58,8 @@
   },
   "0.9.3": {
     "en": "new booleans are now buttons, with added SVG icons too"
+  },
+  "0.10.0": {
+    "en": "added Panasonic module compatibility"
   }
 }
