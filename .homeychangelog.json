@@ -64,5 +64,8 @@
   },
   "0.10.1": {
     "en": "code refactor: DRY"
+  },
+  "0.10.2": {
+    "en": "attempt to make available/unavailable more robust"
   }
 }
