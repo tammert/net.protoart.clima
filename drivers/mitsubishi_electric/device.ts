@@ -1,4 +1,3 @@
-import Homey from 'homey';
 import ClimateControlDevice from '../../lib/baseDevice';
 import {MitsubishiElectricStatus} from "../../lib/apiClient";
 import {toBoolean} from "../../lib/utils";

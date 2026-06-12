@@ -21,7 +21,7 @@ export interface Sensor {
 // LG
 export type LGOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
 export type LGFanSpeedEnum = 'auto' | 'slow' | 'low' | 'med' | 'high'
-export type LGVaneModeEnum = '0' | '1' | '2' | '3' | '4' | '5' | '6'
+export type LGVaneModeEnum = 'default' | '1' | '2' | '3' | '4' | '5' | '6'
 
 export interface LGHeatPump {
     heatmin: number;

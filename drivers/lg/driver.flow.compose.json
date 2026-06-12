@@ -47,6 +47,7 @@
           "name": "lg_vane_mode",
           "type": "dropdown",
           "values": [
+            {"id": "default", "title": {"en": "default"}},
             {"id": "1", "title": {"en": "1"}},
             {"id": "2", "title": {"en": "2"}},
             {"id": "3", "title": {"en": "3"}},
@@ -164,6 +165,7 @@
           "name": "lg_vane_mode",
           "type": "dropdown",
           "values": [
+            {"id": "default", "title": {"en": "default"}},
             {"id": "1", "title": {"en": "1"}},
             {"id": "2", "title": {"en": "2"}},
             {"id": "3", "title": {"en": "3"}},
@@ -253,6 +255,7 @@
           "name": "lg_vane_mode",
           "type": "dropdown",
           "values": [
+            {"id": "default", "title": {"en": "default"}},
             {"id": "1", "title": {"en": "1"}},
             {"id": "2", "title": {"en": "2"}},
             {"id": "3", "title": {"en": "3"}},
