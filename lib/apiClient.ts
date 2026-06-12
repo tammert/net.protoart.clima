@@ -38,13 +38,13 @@ export interface LGHeatPump {
     vane2: string;
     vane3: string;
     dred: number; // days run?
-    opdata: {
+    op: {
         modelou: number; // model outdoor unit
         modeliu: number; // model indoor unit
         capacity: number;
-        Tpipein: number; // temperature pipe in
-        Tpipeout: number; // temperature pipe out
-        Tpipemid: number; // temperature pipe middle
+        tpipein: number; // temperature pipe in
+        tpipeout: number; // temperature pipe out
+        tpipemid: number; // temperature pipe middle
         oilchgw: boolean; // oil change warning
         defrost: boolean;
         preheat: boolean;
