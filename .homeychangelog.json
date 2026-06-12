@@ -70,5 +70,8 @@
   },
   "0.10.3": {
     "en": "possible LG fixes (issues exposed by previous code)"
+  },
+  "0.10.4": {
+    "en": "more LG fixes"
   }
 }
