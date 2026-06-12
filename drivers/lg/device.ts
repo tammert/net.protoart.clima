@@ -10,7 +10,7 @@ module.exports = class LGDevice extends ClimateControlDevice {
             set_temperature: 'set_temperature',
             operating_mode: 'mode',
             fan_speed: 'fan',
-            vane_mode: 'vane1',
+            vane_mode: 'vane',
             remote_temperature: 'remote_temperature',
             autodry: 'autodry',
             purifier: 'purifier',
@@ -45,7 +45,7 @@ module.exports = class LGDevice extends ClimateControlDevice {
             await this.updateStatusBase(status);
 
             // brand-specific capabilities
-            await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane0);
+            await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane1);
             await this.setCapabilityValue(`${this.brand}_defrost_active`, toBoolean(status.heatpump.opdata.defrost));
             await this.setCapabilityValue(`${this.brand}_autodry`, toBoolean(status.heatpump.autodry));
             await this.setCapabilityValue(`${this.brand}_purifier`, toBoolean(status.heatpump.purifier));
