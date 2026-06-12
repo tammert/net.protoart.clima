@@ -59,6 +59,7 @@ module.exports = class PanasonicDevice extends ClimateControlDevice {
             await this.setCapabilityValue('measure_temperature.outside', status.heatpump.op.tout);
         } catch (error) {
             this.error('failed to update status:', error);
+            await this.setUnavailable(error instanceof Error ? error.message : "Unknown error");
         }
     }
 

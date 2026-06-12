@@ -54,6 +54,7 @@ module.exports = class LGDevice extends ClimateControlDevice {
             await this.setCapabilityValue(`${this.brand}_vswing`, toBoolean(status.heatpump.vswing));
         } catch (error) {
             this.error('failed to update status:', error);
+            await this.setUnavailable(error instanceof Error ? error.message : "Unknown error");
         }
     }
 

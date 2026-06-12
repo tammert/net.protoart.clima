@@ -45,6 +45,7 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
             }
         } catch (error) {
             this.error('failed to update status:', error);
+            await this.setUnavailable(error instanceof Error ? error.message : "Unknown error");
         }
     }
 

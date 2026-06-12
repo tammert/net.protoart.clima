@@ -52,6 +52,7 @@ module.exports = class MitsubishiHeavyIndustriesDevice extends ClimateControlDev
             await this.setCapabilityValue(`${this.brand}_outdoor_fan_speed`, status.heatpump.op.ou_fan);
         } catch (error) {
             this.error('failed to update status:', error);
+            await this.setUnavailable(error instanceof Error ? error.message : "Unknown error");
         }
     }
 

@@ -199,8 +199,11 @@ abstract class ClimateControlDevice extends Homey.Device {
                 await this.setCapabilityValue('measure_humidity', status.sensor.thermometer.hact);
                 await this.setCapabilityValue('measure_battery', status.sensor.thermometer.batt);
             }
+
+            await this.setAvailable();
         } catch (error) {
             this.error('failed to update status:', error);
+            await this.setUnavailable(error instanceof Error ? error.message : "Unknown error");
         }
     }
 
