@@ -1,0 +1,94 @@
+{
+  "mqtt": {
+    "ena": false,
+    "user": "factory",
+    "port": 1883,
+    "broker": "mqtt://homeassistant.local",
+    "con": false,
+    "sts": "-",
+    "ha_auto_disc": true,
+    "pub_sys_data": true
+  },
+  "http": {
+    "host": "heatpump"
+  },
+  "wifi": {
+    "ssid": "wifi SSID",
+    "rssi": -51,
+    "mac": "F1:9E:9E:74:CA:E4",
+    "ip": "192.168.178.168"
+  },
+  "fw": {
+    "curr": "3.1.4",
+    "last": "3.1.4",
+    "upd": true
+  },
+  "sys": {
+    "frname": "Living room",
+    "name": "HVAC_20C3E8",
+    "id": "255924763790796",
+    "sts": 3,
+    "hw": "MHI_V2.2",
+    "bl": "V0.5",
+    "stsled": true,
+    "dbg": false,
+    "lang": "ENG",
+    "conhp": true,
+    "conext": false,
+    "scale": "C",
+    "up": 10045
+  },
+  "heatpump": {
+    "heatmin": 16,
+    "heatmax": 23,
+    "coolmin": 16,
+    "coolmax": 25,
+    "set_temperature": 23,
+    "tinp": "wireless",
+    "power": "on",
+    "mode": "heat",
+    "fan": "4",
+    "vane": "4",
+    "vanelr": "6",
+    "auto3d": "off",
+    "peak_cut": 100,
+    "silent_mode": false,
+    "op": {
+      "iu_capacity": 4099,
+      "ou_eev1": 111,
+      "td": 53.5,
+      "defrost": false,
+      "ou_fan": 4,
+      "protection": "Normal",
+      "tdsh": 35,
+      "compr_run_time": 2300,
+      "iu_run_time": 2900,
+      "iu_fan": 8,
+      "set_temperature": 23,
+      "mode": 0,
+      "consumption": 1.75,
+      "return_air": 22.8,
+      "current": 2.2,
+      "outdoor": 12,
+      "thi_r1": 35.4,
+      "thi_r3": 35.7,
+      "thi_r2": 45.8,
+      "compr_freq": 29.7,
+      "tho_r1": -7.5
+    },
+    "oper": true,
+    "error_code": 0,
+    "actual_temperature": 22.8
+  },
+  "sensor": {
+    "thermometer": {
+      "mac": "A4:C1:38:97:BA:6C",
+      "name": "Clima_97BA6C",
+      "batt": 56,
+      "hact": 53,
+      "rssi": -59,
+      "tact": 22.9,
+      "last": -10
+    }
+  }
+}

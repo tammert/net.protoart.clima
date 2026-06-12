@@ -1,0 +1,78 @@
+{
+  "mqtt": {
+    "ena": false,
+    "user": "factory",
+    "port": 1883,
+    "broker": "mqtt://homeassistant.local",
+    "con": false,
+    "sts": "-",
+    "ha_auto_disc": true,
+    "pub_sys_data": true
+  },
+  "http": {
+    "host": "heatpump"
+  },
+  "wifi": {
+    "ssid": "wifi SSID",
+    "rssi": -51,
+    "mac": "F1:9E:9E:74:CA:E4",
+    "ip": "192.168.178.168"
+  },
+  "fw": {
+    "curr": "3.4.1",
+    "last": "3.4.1",
+    "upd": true,
+    "model": "PANA_CNCNT_ATA_WIFI"
+  },
+  "sys": {
+    "frname": "Slaapkamer",
+    "name": "HVAC_74CBA1",
+    "id": "251562486044356",
+    "sts": 3,
+    "hw": "PANA_CNCNT_ATA_WIFI_V2_0",
+    "bl": "0.9",
+    "stsled": true,
+    "dbg": false,
+    "lang": "DUT",
+    "conhp": true,
+    "scale": "C",
+    "up": 3111376
+  },
+  "heatpump": {
+    "heatmin": 16,
+    "heatmax": 31,
+    "coolmin": 16,
+    "coolmax": 31,
+    "power": "off",
+    "mode": "cool",
+    "set_temperature": 23,
+    "tinp": "wireless",
+    "op": {
+      "tout": 18,
+      "pinp": 24,
+      "defrost": false
+    },
+    "fan": "silent",
+    "vane": "auto",
+    "widevane": "auto",
+    "milddry": "off",
+    "nanoex": "off",
+    "eco": "off",
+    "econavi": "off",
+    "preset": "normal",
+    "actual_temperature": 23
+  },
+  "sensor": {
+    "thermometer": {
+      "hact": 40,
+      "offset": 0,
+      "mac": "A4:C1:38:EF:F8:89",
+      "name": "Clima_EFF889",
+      "batt": 100,
+      "rssi": -71,
+      "sq": 94,
+      "tact": 22.3,
+      "last": -7
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "mqtt": {
+    "ena": false,
+    "user": "factory",
+    "port": 1883,
+    "broker": "mqtt://homeassistant.local",
+    "con": false,
+    "sts": "-",
+    "ha_auto_disc": true,
+    "pub_sys_data": true
+  },
+  "http": {
+    "host": "heatpump"
+  },
+  "wifi": {
+    "ssid": "wifi SSID",
+    "rssi": -51,
+    "mac": "F1:9E:9E:74:CA:E4",
+    "ip": "192.168.178.168"
+  },
+  "fw": {
+    "curr": "3.1.8",
+    "last": "3.1.8",
+    "upd": true,
+    "model": "ME_CN105_ATA_WIFI"
+  },
+  "sys": {
+    "frname": "Woonkamer",
+    "name": "HVAC_35B294",
+    "id": "163493118818996",
+    "sts": 3,
+    "hw": "ME_V5.1",
+    "bl": "V0.7",
+    "stsled": false,
+    "dbg": false,
+    "lang": "ENG",
+    "conhp": true,
+    "conext": false,
+    "scale": "C",
+    "up": 1765000
+  },
+  "heatpump": {
+    "heatmin": 16,
+    "heatmax": 31,
+    "coolmin": 16,
+    "coolmax": 31,
+    "power": "on",
+    "mode": "heat",
+    "set_temperature": 20.5,
+    "tinp": "wireless",
+    "oper": true,
+    "isee": false,
+    "optime": 96082,
+    "filter": false,
+    "defrost": false,
+    "hotadjust": false,
+    "standby": false,
+    "tout": 4,
+    "pinp": 15,
+    "fault_code": "No error",
+    "fan": "med",
+    "vane": "auto",
+    "widevane": "right",
+    "tpcns": 19.90,
+    "actual_temperature": 20.5
+  },
+  "sensor": {
+    "thermometer": {
+      "mac": "A4:C1:38:D9:48:5B",
+      "name": "Clima_D9485B",
+      "batt": 98,
+      "hact": 47,
+      "rssi": -81,
+      "offset": 0.0,
+      "tact": 20.3,
+      "last": -1
+    }
+  }
+}

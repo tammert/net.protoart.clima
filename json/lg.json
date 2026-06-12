@@ -1,0 +1,92 @@
+{
+  "mqtt": {
+    "ena": false,
+    "user": "factory",
+    "port": 1883,
+    "broker": "mqtt://homeassistant.local",
+    "con": false,
+    "sts": "-",
+    "ha_auto_disc": true,
+    "pub_sys_data": true
+  },
+  "http": {
+    "host": "heatpump"
+  },
+  "wifi": {
+    "ssid": "wifi SSID",
+    "rssi": -51,
+    "mac": "F1:9E:9E:74:CA:E4",
+    "ip": "192.168.178.168"
+  },
+  "fw": {
+    "curr": "3.1.20",
+    "last": "3.1.20",
+    "upd": true,
+    "model": "LG_CNREMO_ATA_WIFI"
+  },
+  "sys": {
+    "frname": "Living room",
+    "name": "HVAC_380790",
+    "id": "158360690281780",
+    "sts": 3,
+    "hw": "HW_LG_CNREMO_ATA_WIFI_V1_0",
+    "bl": "V0.8",
+    "stsled": true,
+    "dbg": true,
+    "lang": "ENG",
+    "conhp": true,
+    "conext": false,
+    "scale": "C",
+    "up": 62617
+  },
+  "heatpump": {
+    "heatmin": 16,
+    "heatmax": 31,
+    "coolmin": 16,
+    "coolmax": 31,
+    "power": "on",
+    "mode": "heat",
+    "set_temperature": 19.5,
+    "tinp": "wireless",
+    "oper": false,
+    "fan": "auto",
+    "vane0": "auto",
+    "vane1": "auto",
+    "vane2": "auto",
+    "vane3": "auto",
+    "dred": 0,
+    "opdata": {
+      "modelou": 0,
+      "modeliu": 0,
+      "capacity": 0,
+      "Tpipein": 0,
+      "Tpipeout": 0,
+      "Tpipemid": 23,
+      "oilchgw": false,
+      "defrost": false,
+      "preheat": true,
+      "error_code": 0,
+      "iufanhrsrun": 0,
+      "iuhrsrun": 0
+    },
+    "autodry": false,
+    "hswing": false,
+    "vswing": true,
+    "purifier": false,
+    "humidifier": false,
+    "swirl": false,
+    "actual_temperature": 19
+  },
+  "sensor": {
+    "thermometer": {
+      "mac": "A4:C1:38:AC:69:7A",
+      "name": "Clima_AC697A",
+      "batt": 99,
+      "hact": 64,
+      "rssi": -63,
+      "offset": 0,
+      "tact": 19,
+      "last": -3
+    }
+  }
+}
