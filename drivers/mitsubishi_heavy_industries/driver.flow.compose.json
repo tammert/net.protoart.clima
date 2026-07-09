@@ -13,7 +13,8 @@
             {"id": "cool", "title": {"en": "Cool"}},
             {"id": "heat", "title": {"en": "Heat"}},
             {"id": "dry", "title": {"en": "Dry"}},
-            {"id": "fan", "title": {"en": "Fan"}}
+            {"id": "fan", "title": {"en": "Fan"}},
+            {"id": "off", "title": {"en": "Off"}}
           ]
         }
       ],
@@ -112,7 +113,8 @@
             {"id": "cool", "title": {"en": "Cool"}},
             {"id": "heat", "title": {"en": "Heat"}},
             {"id": "dry", "title": {"en": "Dry"}},
-            {"id": "fan", "title": {"en": "Fan"}}
+            {"id": "fan", "title": {"en": "Fan"}},
+            {"id": "off", "title": {"en": "Off"}}
           ]
         }
       ]
@@ -199,7 +201,8 @@
             {"id": "cool", "title": {"en": "Cool"}},
             {"id": "heat", "title": {"en": "Heat"}},
             {"id": "dry", "title": {"en": "Dry"}},
-            {"id": "fan", "title": {"en": "Fan"}}
+            {"id": "fan", "title": {"en": "Fan"}},
+            {"id": "off", "title": {"en": "Off"}}
           ]
         }
       ],
@@ -285,6 +288,11 @@
         }
       ],
       "highlight": true
+    },
+    {
+      "id": "mhi_restart",
+      "title": {"en": "Restart ClimateControl"},
+      "titleFormatted": {"en": "Restart ClimateControl"}
     }
   ]
 }

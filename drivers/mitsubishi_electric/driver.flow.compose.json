@@ -264,6 +264,11 @@
           "type": "number"
         }
       ]
+    },
+    {
+      "id": "me_restart",
+      "title": {"en": "Restart ClimateControl"},
+      "titleFormatted": {"en": "Restart ClimateControl"}
     }
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "mqtt": {
+    "ena": false,
+    "user": "factory",
+    "port": 1883,
+    "broker": "mqtt://homeassistant.local",
+    "con": false,
+    "sts": "-",
+    "ha_auto_disc": true,
+    "pub_sys_data": true
+  },
+  "http": {
+    "host": "heatpump"
+  },
+  "wifi": {
+    "ssid": "wifi SSID",
+    "rssi": -51,
+    "mac": "F1:9E:9E:74:CA:E4",
+    "ip": "192.168.178.168"
+  },
+  "fw": {
+    "curr": "3.4.2",
+    "last": "3.4.2",
+    "upd": true,
+    "model": "MHI_XY_ATA_WIFI"
+  },
+  "sys": {
+    "frname": "kantoor",
+    "name": "HVAC_414460",
+    "id": "86755645456789",
+    "sts": 9,
+    "hw": "MHI_XY_ATA_WIFI_V1_1",
+    "bl": "0.9",
+    "stsled": true,
+    "dbg": false,
+    "lang": "ENG",
+    "conhp": true,
+    "is_main": true,
+    "scale": "C",
+    "up": 1924237
+  },
+  "heatpump": {
+    "heatmin": 16,
+    "heatmax": 31,
+    "coolmin": 16,
+    "coolmax": 31,
+    "set_temperature": 22,
+    "power": "on",
+    "mode": "cool",
+    "fan": "1",
+    "vane": "1",
+    "tinp": "internal",
+    "actual_temperature": 21.8
+  }
+}

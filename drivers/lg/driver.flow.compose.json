@@ -336,6 +336,11 @@
         }
       ],
       "highlight": true
+    },
+    {
+      "id": "lg_restart",
+      "title": {"en": "Restart ClimateControl"},
+      "titleFormatted": {"en": "Restart ClimateControl"}
     }
   ]
 }

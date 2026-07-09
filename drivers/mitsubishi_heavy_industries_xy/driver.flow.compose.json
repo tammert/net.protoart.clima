@@ -1,0 +1,191 @@
+{
+  "triggers": [
+    {
+      "id": "mhi_xy_operating_mode_changed",
+      "title": {"en": "Operating mode has changed"},
+      "titleFormatted": {"en": "Operating mode has changed to [[mhi_xy_operating_mode]]"},
+      "args": [
+        {
+          "name": "mhi_xy_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}},
+            {"id": "off", "title": {"en": "Off"}}
+          ]
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "mhi_xy_fan_speed_changed",
+      "title": {"en": "Fan speed has changed"},
+      "titleFormatted": {"en": "Fan speed has changed to [[mhi_xy_fan_speed]]"},
+      "args": [
+        {
+          "name": "mhi_xy_fan_speed",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
+          ]
+        }
+      ],
+      "highlight": true
+    },
+    {
+      "id": "mhi_xy_vane_mode_changed",
+      "title": {"en": "Vane mode has changed"},
+      "titleFormatted": {"en": "Vane mode has changed to [[mhi_xy_vane_mode]]"},
+      "args": [
+        {
+          "name": "mhi_xy_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
+          ]
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "mhi_xy_operating_mode_is",
+      "title": {"en": "Operating mode is"},
+      "titleFormatted": {"en": "Operating mode !{{is|is not}} [[mhi_xy_operating_mode]]"},
+      "args": [
+        {
+          "name": "mhi_xy_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}},
+            {"id": "off", "title": {"en": "Off"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mhi_xy_fan_speed_is",
+      "title": {"en": "Fan speed is"},
+      "titleFormatted": {"en": "Fan speed !{{is|is not}} [[mhi_xy_fan_speed]]"},
+      "args": [
+        {
+          "name": "mhi_xy_fan_speed",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mhi_xy_vane_mode_is",
+      "title": {"en": "Vane mode is"},
+      "titleFormatted": {"en": "Vane mode !{{is|is not}} [[mhi_xy_vane_mode]]"},
+      "args": [
+        {
+          "name": "mhi_xy_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "mhi_xy_operating_mode_set",
+      "title": {"en": "Set operating mode"},
+      "titleFormatted": {"en": "Set operating mode to [[mhi_xy_operating_mode]]"},
+      "args": [
+        {
+          "name": "mhi_xy_operating_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "cool", "title": {"en": "Cool"}},
+            {"id": "heat", "title": {"en": "Heat"}},
+            {"id": "dry", "title": {"en": "Dry"}},
+            {"id": "fan", "title": {"en": "Fan"}},
+            {"id": "off", "title": {"en": "Off"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mhi_xy_fan_speed_set",
+      "title": {"en": "Set fan speed"},
+      "titleFormatted": {"en": "Set fan speed to [[mhi_xy_fan_speed]]"},
+      "args": [
+        {
+          "name": "mhi_xy_fan_speed",
+          "type": "dropdown",
+          "values": [
+            {"id": "auto", "title": {"en": "Auto"}},
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mhi_xy_vane_mode_set",
+      "title": {"en": "Set vane mode"},
+      "titleFormatted": {"en": "Set vane mode to [[mhi_xy_vane_mode]]"},
+      "args": [
+        {
+          "name": "mhi_xy_vane_mode",
+          "type": "dropdown",
+          "values": [
+            {"id": "swing", "title": {"en": "Swing"}},
+            {"id": "1", "title": {"en": "1"}},
+            {"id": "2", "title": {"en": "2"}},
+            {"id": "3", "title": {"en": "3"}},
+            {"id": "4", "title": {"en": "4"}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mhi_xy_remote_temperature_set",
+      "title": {"en": "Set remote temperature"},
+      "titleFormatted": {"en": "Set remote temperature to [[remote_temperature]]"},
+      "args": [
+        {
+          "name": "remote_temperature",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "mhi_xy_restart",
+      "title": {"en": "Restart ClimateControl"},
+      "titleFormatted": {"en": "Restart ClimateControl"}
+    }
+  ]
+}

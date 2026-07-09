@@ -1,0 +1,52 @@
+{
+  "name": "driver.mitsubishi_heavy_industries_xy.name",
+  "discovery": "climatecontrol",
+  "class": "airconditioning",
+  "capabilities": [
+    "onoff",
+    "mhi_xy_operating_mode",
+    "mhi_xy_fan_speed",
+    "mhi_xy_vane_mode",
+    "target_temperature",
+    "measure_temperature",
+    "measure_battery",
+    "measure_humidity"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "/assets/images/drivers/small.png",
+    "large": "/assets/images/drivers/large.png",
+    "xlarge": "/assets/images/drivers/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 16,
+      "max": 31,
+      "step": 0.5
+    },
+    "measure_temperature": {
+      "title": {"en": "Temperature inside"}
+    }
+  },
+  "energy": {
+    "batteries": ["CR2032"]
+  }
+}

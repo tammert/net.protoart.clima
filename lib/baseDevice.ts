@@ -20,6 +20,8 @@ abstract class ClimateControlDevice extends Homey.Device {
         const port = this.getStoreValue('port');
         const path = this.getStoreValue('path');
 
+        this.log('device name: ', this.getName());
+        this.log('device serial: ', this.getData().id);
         this.log('device address:', `${address}:${port}${path}`);
 
         // Initialize API client
@@ -203,7 +205,7 @@ abstract class ClimateControlDevice extends Homey.Device {
             await this.setAvailable();
         } catch (error) {
             this.error('failed to update status:', error);
-            await this.setUnavailable(error instanceof Error ? error.message : "Unknown error");
+            await this.setUnavailable(error instanceof Error ? error.message : 'unknown error');
         }
     }
 

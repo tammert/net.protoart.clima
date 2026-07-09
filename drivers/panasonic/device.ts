@@ -16,7 +16,7 @@ module.exports = class PanasonicDevice extends ClimateControlDevice {
             nanoex: 'nanoex',
             eco: 'eco',
             econavi: 'econavi',
-            preset: 'preset'
+            preset: 'preset',
         };
 
         this.brand = "pana"

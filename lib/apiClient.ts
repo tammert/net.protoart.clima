@@ -64,7 +64,7 @@ export interface LGHeatPump {
 
 export interface LGStatus {
     heatpump: LGHeatPump;
-    sensor: Sensor;
+    sensor?: Sensor;
 }
 
 // Mitsubishi Electric
@@ -101,11 +101,11 @@ export interface MitsubishiElectricHeatPump {
 
 export interface MitsubishiElectricStatus {
     heatpump: MitsubishiElectricHeatPump;
-    sensor: Sensor;
+    sensor?: Sensor;
 }
 
 // Mitsubishi Heavy Industries
-export type MitsubishiHeavyIndustriesOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan'
+export type MitsubishiHeavyIndustriesOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan' | 'off'
 export type MitsubishiHeavyIndustriesFanSpeedEnum = 'auto' | '1' | '2' | '3' | '4'
 export type MitsubishiHeavyIndustriesVaneModeEnum = 'swing' | '1' | '2' | '3' | '4'
 export type MitsubishiHeavyIndustriesWideVaneModeEnum = 'swing' | '1' | '2' | '3' | '4' | '5' | '6' | '7'
@@ -155,7 +155,32 @@ export interface MitsubishiHeavyIndustriesHeatPump {
 
 export interface MitsubishiHeavyIndustriesStatus {
     heatpump: MitsubishiHeavyIndustriesHeatPump;
-    sensor: Sensor;
+    sensor?: Sensor;
+}
+
+// Mitsubishi Heavy Industries XY
+export type MitsubishiHeavyIndustriesXyOperatingModeEnum = 'auto' | 'cool' | 'dry' | 'heat' | 'fan' | 'off'
+export type MitsubishiHeavyIndustriesXyFanSpeedEnum = 'auto' | '1' | '2' | '3' | '4'
+export type MitsubishiHeavyIndustriesXyVaneModeEnum = 'swing' | '1' | '2' | '3' | '4'
+
+export interface MitsubishiHeavyIndustriesXyHeatPump {
+    heatmin: number;
+    heatmax: number;
+    coolmin: number;
+    coolmax: number;
+    set_temperature: number;
+    tinp: string; // temperature input
+    power: string | boolean;
+    mode: MitsubishiHeavyIndustriesXyOperatingModeEnum;
+    fan: MitsubishiHeavyIndustriesXyFanSpeedEnum;
+    vane: MitsubishiHeavyIndustriesXyVaneModeEnum;
+    actual_temperature: number;
+    oper?: boolean;
+}
+
+export interface MitsubishiHeavyIndustriesXyStatus {
+    heatpump: MitsubishiHeavyIndustriesXyHeatPump;
+    sensor?: Sensor;
 }
 
 // Panasonic
@@ -192,17 +217,17 @@ export interface PanasonicHeatPump {
 
 export interface PanasonicStatus {
     heatpump: PanasonicHeatPump;
-    sensor: Sensor;
+    sensor?: Sensor;
 }
 
 export interface ApiEndpoints {
     power: string;
-    fan_speed: string;
+    fan_speed?: string;
     set_temperature: string;
-    operating_mode: string;
-    vane_mode: string;
+    operating_mode?: string;
+    vane_mode?: string;
     wide_vane_mode?: string;
-    remote_temperature: string;
+    remote_temperature?: string;
     silent_mode?: string;
     autodry?: string;
     purifier?: string;
@@ -214,6 +239,7 @@ export interface ApiEndpoints {
     eco?: string;
     econavi?: string;
     preset?: string;
+    restart?: string;
 }
 
 class ApiClient {
@@ -233,14 +259,14 @@ class ApiClient {
             }
             return await response.json() as T;
         } catch (error) {
-            throw new Error(`Failed to get status: ${error instanceof Error ? error.message : 'Unknown error'}`);
+            throw new Error(`failed to get status: ${error instanceof Error ? error.message : 'unknown error'}`);
         }
     }
 
     private async setHeatpumpParam(endpointKey: keyof ApiEndpoints, value: string | number | boolean): Promise<boolean> {
         const endpoint = this.apiEndpoints[endpointKey];
         if (!endpoint) {
-            throw new Error(`Endpoint for ${endpointKey} not defined for this brand`);
+            throw new Error(`endpoint for ${endpointKey} not defined for this brand`);
         }
 
         const valStr = typeof value === 'boolean' ? boolToOnOff(value) : value.toString();
@@ -256,7 +282,7 @@ class ApiClient {
             }
             return true;
         } catch (error) {
-            throw new Error(`Failed to set ${endpointKey}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+            throw new Error(`failed to set ${endpointKey}: ${error instanceof Error ? error.message : 'unknown error'}`);
         }
     }
 
@@ -330,6 +356,21 @@ class ApiClient {
 
     async setPreset(preset: PanasonicPresetEnum): Promise<boolean> {
         return this.setHeatpumpParam('preset', preset);
+    }
+
+    async restart(): Promise<boolean> {
+        try {
+            const url = new URL(this.apiUrl);
+            url.searchParams.append('cmd', 'restart');
+
+            const response = await fetch(url.toString());
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            throw new Error(`failed to restart: ${error instanceof Error ? error.message : 'unknown error'}`);
+        }
     }
 
     getTemperatureFromStatus(status: any): number {

@@ -312,6 +312,11 @@
           "type": "number"
         }
       ]
+    },
+    {
+      "id": "pana_restart",
+      "title": {"en": "Restart ClimateControl"},
+      "titleFormatted": {"en": "Restart ClimateControl"}
     }
   ]
 }

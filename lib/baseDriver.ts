@@ -12,64 +12,150 @@ class ClimateControlDriver extends Homey.Driver {
         const defrostCapabilityName = `${this.brand}_defrost_active`
 
         // Trigger ("When...") flow card listeners
-        this.homey.flow.getTriggerCard(`${operatingModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
-            return args[operatingModeCapabilityName] === args.device.getCapabilityValue(operatingModeCapabilityName);
-        });
-        this.homey.flow.getTriggerCard(`${fanSpeedCapabilityName}_changed`).registerRunListener(async (args, state) => {
-            return args[fanSpeedCapabilityName] === args.device.getCapabilityValue(fanSpeedCapabilityName);
-        });
-        this.homey.flow.getTriggerCard(`${vaneModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
-            return args[vaneModeCapabilityName] === args.device.getCapabilityValue(vaneModeCapabilityName);
-        });
-        if (this.brand != 'lg') {
-            this.homey.flow.getTriggerCard(`${wideVaneModeCapabilityName}_changed`).registerRunListener(async (args, state) => {
+        const operatingModeChangedTrigger = this.getTriggerCardSafe(`${operatingModeCapabilityName}_changed`)
+        if (operatingModeChangedTrigger) {
+            operatingModeChangedTrigger.registerRunListener(async (args, state) => {
+                return args[operatingModeCapabilityName] === args.device.getCapabilityValue(operatingModeCapabilityName);
+            });
+        }
+
+        const fanSpeedChangedTrigger = this.getTriggerCardSafe(`${fanSpeedCapabilityName}_changed`)
+        if (fanSpeedChangedTrigger) {
+            fanSpeedChangedTrigger.registerRunListener(async (args, state) => {
+                return args[fanSpeedCapabilityName] === args.device.getCapabilityValue(fanSpeedCapabilityName);
+            });
+        }
+
+        const vaneModeChangedTrigger = this.getTriggerCardSafe(`${vaneModeCapabilityName}_changed`)
+        if (vaneModeChangedTrigger) {
+            vaneModeChangedTrigger.registerRunListener(async (args, state) => {
+                return args[vaneModeCapabilityName] === args.device.getCapabilityValue(vaneModeCapabilityName);
+            });
+        }
+
+        const wideVaneModeChangedTrigger = this.getTriggerCardSafe(`${wideVaneModeCapabilityName}_changed`)
+        if (wideVaneModeChangedTrigger) {
+            wideVaneModeChangedTrigger.registerRunListener(async (args, state) => {
                 return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
             });
         }
-        this.homey.flow.getTriggerCard(`${defrostCapabilityName}_true`).registerRunListener(async (args, state) => {
-            return args.device.getCapabilityValue(defrostCapabilityName);
-        });
-        this.homey.flow.getTriggerCard(`${defrostCapabilityName}_false`).registerRunListener(async (args, state) => {
-            return !args.device.getCapabilityValue(defrostCapabilityName);
-        });
+
+        const defrostTrueTrigger = this.getTriggerCardSafe(`${defrostCapabilityName}_true`)
+        if (defrostTrueTrigger) {
+            defrostTrueTrigger.registerRunListener(async (args, state) => {
+                return args.device.getCapabilityValue(defrostCapabilityName);
+            });
+        }
+
+        const defrostFalseTrigger = this.getTriggerCardSafe(`${defrostCapabilityName}_false`)
+        if (defrostFalseTrigger) {
+            defrostFalseTrigger.registerRunListener(async (args, state) => {
+                return !args.device.getCapabilityValue(defrostCapabilityName);
+            });
+        }
 
         // Condition ("And...") flow card listeners
-        this.homey.flow.getConditionCard(`${operatingModeCapabilityName}_is`).registerRunListener(async (args, state) => {
-            return args[operatingModeCapabilityName] === args.device.getCapabilityValue(operatingModeCapabilityName);
-        });
-        this.homey.flow.getConditionCard(`${fanSpeedCapabilityName}_is`).registerRunListener(async (args, state) => {
-            return args[fanSpeedCapabilityName] === args.device.getCapabilityValue(fanSpeedCapabilityName);
-        });
-        this.homey.flow.getConditionCard(`${vaneModeCapabilityName}_is`).registerRunListener(async (args, state) => {
-            return args[vaneModeCapabilityName] === args.device.getCapabilityValue(vaneModeCapabilityName);
-        });
-        if (this.brand != 'lg') {
-            this.homey.flow.getConditionCard(`${wideVaneModeCapabilityName}_is`).registerRunListener(async (args, state) => {
+        const operatingModeIsCondition = this.getConditionCardSafe(`${operatingModeCapabilityName}_is`)
+        if (operatingModeIsCondition) {
+            operatingModeIsCondition.registerRunListener(async (args, state) => {
+                return args[operatingModeCapabilityName] === args.device.getCapabilityValue(operatingModeCapabilityName);
+            });
+        }
+
+        const fanSpeedIsCondition = this.getConditionCardSafe(`${fanSpeedCapabilityName}_is`)
+        if (fanSpeedIsCondition) {
+            fanSpeedIsCondition.registerRunListener(async (args, state) => {
+                return args[fanSpeedCapabilityName] === args.device.getCapabilityValue(fanSpeedCapabilityName);
+            });
+        }
+
+        const vaneModeIsCondition = this.getConditionCardSafe(`${vaneModeCapabilityName}_is`)
+        if (vaneModeIsCondition) {
+            vaneModeIsCondition.registerRunListener(async (args, state) => {
+                return args[vaneModeCapabilityName] === args.device.getCapabilityValue(vaneModeCapabilityName);
+            });
+        }
+
+        const wideVaneModeIsCondition = this.getConditionCardSafe(`${wideVaneModeCapabilityName}_is`)
+        if (wideVaneModeIsCondition) {
+            wideVaneModeIsCondition.registerRunListener(async (args, state) => {
                 return args[wideVaneModeCapabilityName] === args.device.getCapabilityValue(wideVaneModeCapabilityName);
             });
         }
-        this.homey.flow.getConditionCard(`${defrostCapabilityName}_is`).registerRunListener(async (args, state) => {
-            return args.device.getCapabilityValue(defrostCapabilityName);
-        });
+
+        const defrostIsCondition = this.getConditionCardSafe(`${defrostCapabilityName}_is`)
+        if (defrostIsCondition) {
+            defrostIsCondition.registerRunListener(async (args, state) => {
+                return args.device.getCapabilityValue(defrostCapabilityName);
+            });
+        }
 
         // Action ("Then...") flow card listeners
-        this.homey.flow.getActionCard(`${operatingModeCapabilityName}_set`).registerRunListener(async (args, state) => {
-            await args.device.triggerCapabilityListener(operatingModeCapabilityName, args[operatingModeCapabilityName]);
-        });
-        this.homey.flow.getActionCard(`${fanSpeedCapabilityName}_set`).registerRunListener(async (args, state) => {
-            await args.device.triggerCapabilityListener(fanSpeedCapabilityName, args[fanSpeedCapabilityName]);
-        });
-        this.homey.flow.getActionCard(`${vaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
-            await args.device.triggerCapabilityListener(vaneModeCapabilityName, args[vaneModeCapabilityName]);
-        });
-        if (this.brand != 'lg') {
-            this.homey.flow.getActionCard(`${wideVaneModeCapabilityName}_set`).registerRunListener(async (args, state) => {
+        const operatingModeSetAction = this.getActionCardSafe(`${operatingModeCapabilityName}_set`)
+        if (operatingModeSetAction) {
+            operatingModeSetAction.registerRunListener(async (args, state) => {
+                await args.device.triggerCapabilityListener(operatingModeCapabilityName, args[operatingModeCapabilityName]);
+            });
+        }
+
+        const fanSpeedSetAction = this.getActionCardSafe(`${fanSpeedCapabilityName}_set`)
+        if (fanSpeedSetAction) {
+            fanSpeedSetAction.registerRunListener(async (args, state) => {
+                await args.device.triggerCapabilityListener(fanSpeedCapabilityName, args[fanSpeedCapabilityName]);
+            });
+        }
+
+        const vaneModeSetAction = this.getActionCardSafe(`${vaneModeCapabilityName}_set`)
+        if (vaneModeSetAction) {
+            vaneModeSetAction.registerRunListener(async (args, state) => {
+                await args.device.triggerCapabilityListener(vaneModeCapabilityName, args[vaneModeCapabilityName]);
+            });
+        }
+
+        const wideVaneModeSetAction = this.getActionCardSafe(`${wideVaneModeCapabilityName}_set`)
+        if (wideVaneModeSetAction) {
+            wideVaneModeSetAction.registerRunListener(async (args, state) => {
                 await args.device.triggerCapabilityListener(wideVaneModeCapabilityName, args[wideVaneModeCapabilityName]);
             });
         }
-        this.homey.flow.getActionCard(`${this.brand}_remote_temperature_set`).registerRunListener(async (args, state) => {
-            await args.device.apiClient.setRemoteTemperature(args['remote_temperature']);
-        });
+
+        const remoteTemperatureSetAction = this.getActionCardSafe(`${this.brand}_remote_temperature_set`)
+        if (remoteTemperatureSetAction) {
+            remoteTemperatureSetAction.registerRunListener(async (args, state) => {
+                await args.device.apiClient.setRemoteTemperature(args['remote_temperature']);
+            });
+        }
+
+        const restartAction = this.getActionCardSafe(`${this.brand}_restart`)
+        if (restartAction) {
+            restartAction.registerRunListener(async (args, state) => {
+                await args.device.apiClient.restart();
+            });
+        }
+    }
+
+    private getTriggerCardSafe(id: string) {
+        try {
+            return this.homey.flow.getTriggerCard(id);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    private getConditionCardSafe(id: string) {
+        try {
+            return this.homey.flow.getConditionCard(id);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    private getActionCardSafe(id: string) {
+        try {
+            return this.homey.flow.getActionCard(id);
+        } catch (e) {
+            return null;
+        }
     }
 
     async onPairListDevices() {
@@ -96,9 +182,21 @@ class ClimateControlDriver extends Homey.Driver {
         });
 
         // return only air-to-air devices matching the brand
-        const pattern = new RegExp(`^${this.brand.toUpperCase()}_.*_ATA_.*`);
+        const brandPrefix = this.brand.toUpperCase();
+        const primaryPattern = new RegExp(`^${brandPrefix}_ATA_.*`);
+        const fallbackPattern = new RegExp(`^${brandPrefix}_[^_]+_ATA_.*`);
+
         return devices.filter(device => {
-            return device.data.model && pattern.test(device.data.model);
+            const model = device.data.model;
+
+            if (!model) {
+                return false;
+            }
+
+            const matchesPrimaryPattern = primaryPattern.test(model);
+            const matchesFallbackPattern = fallbackPattern.test(model);
+
+            return matchesPrimaryPattern || matchesFallbackPattern;
         });
     }
 }

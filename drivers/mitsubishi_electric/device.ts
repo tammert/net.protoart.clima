@@ -11,7 +11,7 @@ module.exports = class MitsubishiElectricDevice extends ClimateControlDevice {
             fan_speed: 'fan',
             vane_mode: 'vane',
             wide_vane_mode: 'widevane',
-            remote_temperature: 'remote_temperature'
+            remote_temperature: 'remote_temperature',
         };
 
         this.brand = "me"

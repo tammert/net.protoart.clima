@@ -15,7 +15,7 @@ module.exports = class LGDevice extends ClimateControlDevice {
             purifier: 'purifier',
             energy_saving: 'energy_saving',
             hswing: 'hswing',
-            vswing: 'vswing'
+            vswing: 'vswing',
         };
 
         this.brand = "lg"
