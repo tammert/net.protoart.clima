@@ -76,5 +76,8 @@
   },
   "0.10.5": {
     "en": "even more LG fixes"
+  },
+  "0.11.0": {
+    "en": "added MHI_XY as separate Driver, added `restart` command to all brands"
   }
 }
