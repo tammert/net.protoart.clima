@@ -79,5 +79,8 @@
   },
   "0.11.0": {
     "en": "added MHI_XY as separate Driver, added `restart` command to all brands"
+  },
+  "0.11.1": {
+    "en": "fix for some beta ClimateControl units"
   }
 }
