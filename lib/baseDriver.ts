@@ -183,8 +183,8 @@ class ClimateControlDriver extends Homey.Driver {
 
         // return only air-to-air devices matching the brand
         const brandPrefix = this.brand.toUpperCase();
-        const primaryPattern = new RegExp(`^${brandPrefix}_ATA_.*`);
-        const fallbackPattern = new RegExp(`^${brandPrefix}_[^_]+_ATA_.*`);
+        const primaryPattern = new RegExp(`^(?:HW_)?${brandPrefix}_ATA_.*`);
+        const fallbackPattern = new RegExp(`^(?:HW_)?${brandPrefix}_[^_]+_ATA_.*`);
 
         return devices.filter(device => {
             const model = device.data.model;
