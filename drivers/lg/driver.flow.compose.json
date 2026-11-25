@@ -7,6 +7,7 @@
       "args": [
         {
           "name": "lg_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -26,6 +27,7 @@
       "args": [
         {
           "name": "lg_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -45,6 +47,7 @@
       "args": [
         {
           "name": "lg_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "default", "title": {"en": "default"}},
@@ -127,6 +130,7 @@
       "args": [
         {
           "name": "lg_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -145,6 +149,7 @@
       "args": [
         {
           "name": "lg_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -163,6 +168,7 @@
       "args": [
         {
           "name": "lg_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "default", "title": {"en": "default"}},
@@ -215,6 +221,7 @@
       "args": [
         {
           "name": "lg_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -234,6 +241,7 @@
       "args": [
         {
           "name": "lg_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -253,6 +261,7 @@
       "args": [
         {
           "name": "lg_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "default", "title": {"en": "default"}},
@@ -273,6 +282,7 @@
       "args": [
         {
           "name": "remote_temperature",
+          "title": {"en": "Remote temperature"},
           "type": "number"
         }
       ]
@@ -284,6 +294,7 @@
       "args": [
         {
           "name": "boolean",
+          "title": {"en": "Boolean"},
           "type": "checkbox"
         }
       ],
@@ -296,6 +307,7 @@
       "args": [
         {
           "name": "boolean",
+          "title": {"en": "Boolean"},
           "type": "checkbox"
         }
       ],
@@ -308,6 +320,7 @@
       "args": [
         {
           "name": "boolean",
+          "title": {"en": "Boolean"},
           "type": "checkbox"
         }
       ],
@@ -320,6 +333,7 @@
       "args": [
         {
           "name": "boolean",
+          "title": {"en": "Boolean"},
           "type": "checkbox"
         }
       ],
@@ -332,6 +346,7 @@
       "args": [
         {
           "name": "boolean",
+          "title": {"en": "Boolean"},
           "type": "checkbox"
         }
       ],

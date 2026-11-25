@@ -7,6 +7,7 @@
       "args": [
         {
           "name": "pana_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -26,6 +27,7 @@
       "args": [
         {
           "name": "pana_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -46,6 +48,7 @@
       "args": [
         {
           "name": "pana_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -66,6 +69,7 @@
       "args": [
         {
           "name": "pana_wide_vane_mode",
+          "title": {"en": "Wide vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -86,6 +90,7 @@
       "args": [
         {
           "name": "pana_preset",
+          "title": {"en": "Preset"},
           "type": "dropdown",
           "values": [
             {"id": "normal", "title": {"en": "Normal"}},
@@ -114,6 +119,7 @@
       "args": [
         {
           "name": "pana_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -132,6 +138,7 @@
       "args": [
         {
           "name": "pana_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -151,6 +158,7 @@
       "args": [
         {
           "name": "pana_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -171,6 +179,7 @@
       "args": [
         {
           "name": "pana_wide_vane_mode",
+          "title": {"en": "Wide vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -191,6 +200,7 @@
       "args": [
         {
           "name": "pana_preset",
+          "title": {"en": "Preset"},
           "type": "dropdown",
           "values": [
             {"id": "normal", "title": {"en": "Normal"}},
@@ -214,6 +224,7 @@
       "args": [
         {
           "name": "pana_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -233,6 +244,7 @@
       "args": [
         {
           "name": "pana_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -253,6 +265,7 @@
       "args": [
         {
           "name": "pana_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -273,6 +286,7 @@
       "args": [
         {
           "name": "pana_wide_vane_mode",
+          "title": {"en": "Wide vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -293,6 +307,7 @@
       "args": [
         {
           "name": "pana_preset",
+          "title": {"en": "Preset"},
           "type": "dropdown",
           "values": [
             {"id": "normal", "title": {"en": "Normal"}},
@@ -309,6 +324,7 @@
       "args": [
         {
           "name": "remote_temperature",
+          "title": {"en": "Remote temperature"},
           "type": "number"
         }
       ]
