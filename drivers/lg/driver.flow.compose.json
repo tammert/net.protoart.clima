@@ -62,6 +62,18 @@
       ]
     },
     {
+      "id": "measure_temperature.pipe_mid_changed",
+      "title": {"en": "Pipe middle temperature changed"},
+      "highlight": true,
+      "tokens": [
+        {
+          "name": "measure_temperature.pipe_mid",
+          "title": {"en": "Pipe middle temperature"},
+          "type": "number"
+        }
+      ]
+    },
+    {
       "id": "lg_defrost_active_true",
       "title": {"en": "Defrost turned on"},
       "titleFormatted": {"en": "Defrost turned on"}

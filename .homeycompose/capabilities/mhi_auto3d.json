@@ -1,0 +1,11 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "3D Auto"
+  },
+  "uiComponent": "button",
+  "icon": "/assets/auto3d.svg",
+  "getable": true,
+  "setable": true,
+  "insights": true
+}

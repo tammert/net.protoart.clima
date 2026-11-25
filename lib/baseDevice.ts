@@ -235,14 +235,22 @@ abstract class ClimateControlDevice extends Homey.Device {
         for (const capability of removed) {
             if (capabilities.includes(capability)) {
                 this.log(`removing capability ${capability}`);
-                await this.removeCapability(capability);
+                try {
+                    await this.removeCapability(capability);
+                } catch (err) {
+                    this.error(`failed to remove capability ${capability}:`, err);
+                }
             }
         }
 
         for (const capability of added) {
             if (!capabilities.includes(capability)) {
                 this.log(`adding capability ${capability}`);
-                await this.addCapability(capability);
+                try {
+                    await this.addCapability(capability);
+                } catch (err) {
+                    this.error(`failed to add capability ${capability}:`, err);
+                }
             }
         }
     }
