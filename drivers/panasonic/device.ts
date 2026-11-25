@@ -21,10 +21,6 @@ module.exports = class PanasonicDevice extends ClimateControlDevice {
 
         this.brand = "pana"
         await super.onInit();
-        await super.migrateCapabilities(
-            [],
-            []
-        )
 
         // Register brand-specific capability listeners
         this.registerApiCapabilityListener(`${this.brand}_milddry`, 'setMildDry', 'mild dry');
