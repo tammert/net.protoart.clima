@@ -93,6 +93,16 @@
       "titleFormatted": {"en": "Defrost turned off"}
     },
     {
+      "id": "mhi_auto3d_true",
+      "title": { "en": "3D Auto turned on" },
+      "titleFormatted": { "en": "3D Auto turned on" }
+    },
+    {
+      "id": "mhi_auto3d_false",
+      "title": { "en": "3D Auto turned off" },
+      "titleFormatted": { "en": "3D Auto turned off" }
+    },
+    {
       "id": "mhi_silent_mode_true",
       "title": { "en": "Silent mode turned on" },
       "titleFormatted": { "en": "Silent mode turned on" }
@@ -188,6 +198,11 @@
       "id": "mhi_defrost_active_is",
       "title": {"en": "Defrost is active"},
       "titleFormatted": {"en": "Defrost !{{is|is not}} active"}
+    },
+    {
+      "id": "mhi_auto3d_is",
+      "title": { "en": "3D Auto is" },
+      "titleFormatted": { "en": "3D Auto !{{is|is not}} on" }
     },
     {
       "id": "mhi_silent_mode_is",
@@ -289,6 +304,19 @@
           "type": "number"
         }
       ]
+    },
+    {
+      "id": "mhi_auto3d_set",
+      "title": { "en": "Set 3D Auto" },
+      "titleFormatted": { "en": "Set 3D Auto to [[boolean]]" },
+      "args": [
+        {
+          "name": "boolean",
+          "title": {"en": "Boolean"},
+          "type": "checkbox"
+        }
+      ],
+      "highlight": true
     },
     {
       "id": "mhi_silent_mode_set",
