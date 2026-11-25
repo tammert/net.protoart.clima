@@ -9,10 +9,11 @@
   "devDependencies": {
     "@tsconfig/node16": "^16.1.8",
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
-     "@types/node": "^24.12.2",
+    "@types/node": "^24.12.2",
     "@types/node-fetch": "^2.6.13",
     "eslint": "^9.39.4",
     "eslint-config-athom": "^3.1.5",
+    "homey": "^4.6.3",
     "typescript": "^5.9.3"
   },
   "dependencies": {
