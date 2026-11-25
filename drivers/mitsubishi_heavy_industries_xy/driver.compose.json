@@ -1,5 +1,5 @@
 {
-  "name": "driver.mitsubishi_heavy_industries_xy.name",
+  "name": {"en": "Mitsubishi Heavy Industries XY air-to-air module"},
   "discovery": "climatecontrol",
   "class": "airconditioning",
   "capabilities": [
