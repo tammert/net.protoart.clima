@@ -22,4 +22,4 @@ jobs:
       - name: Homey App Validate
         uses: athombv/github-action-homey-app-validate@0f3b42c15d26aab79d7c48cde4d2805524da910e  # pin 2026-11-25 (was @master)
         with:
-          level: publish
+          level: verified
