@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "net.protoart.clima",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
@@ -1555,6 +1555,134 @@
             "filter": "driver_id=panasonic"
           }
         ]
+      },
+      {
+        "id": "pana_milddry_true",
+        "title": {
+          "en": "Mild Dry turned on"
+        },
+        "titleFormatted": {
+          "en": "Mild Dry turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_milddry_false",
+        "title": {
+          "en": "Mild Dry turned off"
+        },
+        "titleFormatted": {
+          "en": "Mild Dry turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_nanoex_true",
+        "title": {
+          "en": "NanoeX turned on"
+        },
+        "titleFormatted": {
+          "en": "NanoeX turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_nanoex_false",
+        "title": {
+          "en": "NanoeX turned off"
+        },
+        "titleFormatted": {
+          "en": "NanoeX turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_eco_true",
+        "title": {
+          "en": "Eco mode turned on"
+        },
+        "titleFormatted": {
+          "en": "Eco mode turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_eco_false",
+        "title": {
+          "en": "Eco mode turned off"
+        },
+        "titleFormatted": {
+          "en": "Eco mode turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_econavi_true",
+        "title": {
+          "en": "Econavi turned on"
+        },
+        "titleFormatted": {
+          "en": "Econavi turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_econavi_false",
+        "title": {
+          "en": "Econavi turned off"
+        },
+        "titleFormatted": {
+          "en": "Econavi turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
       }
     ],
     "conditions": [
@@ -2860,6 +2988,70 @@
         },
         "titleFormatted": {
           "en": "Defrost !{{is|is not}} active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_milddry_is",
+        "title": {
+          "en": "Mild Dry is"
+        },
+        "titleFormatted": {
+          "en": "Mild Dry !{{is|is not}} on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_nanoex_is",
+        "title": {
+          "en": "NanoeX is"
+        },
+        "titleFormatted": {
+          "en": "NanoeX !{{is|is not}} on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_eco_is",
+        "title": {
+          "en": "Eco mode is"
+        },
+        "titleFormatted": {
+          "en": "Eco mode !{{is|is not}} on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          }
+        ]
+      },
+      {
+        "id": "pana_econavi_is",
+        "title": {
+          "en": "Econavi is"
+        },
+        "titleFormatted": {
+          "en": "Econavi !{{is|is not}} on"
         },
         "args": [
           {
@@ -4376,6 +4568,102 @@
             "filter": "driver_id=panasonic"
           }
         ]
+      },
+      {
+        "id": "pana_milddry_set",
+        "title": {
+          "en": "Set Mild Dry"
+        },
+        "titleFormatted": {
+          "en": "Set Mild Dry to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "pana_nanoex_set",
+        "title": {
+          "en": "Set NanoeX"
+        },
+        "titleFormatted": {
+          "en": "Set NanoeX to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "pana_eco_set",
+        "title": {
+          "en": "Set Eco mode"
+        },
+        "titleFormatted": {
+          "en": "Set Eco mode to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
+      },
+      {
+        "id": "pana_econavi_set",
+        "title": {
+          "en": "Set Econavi"
+        },
+        "titleFormatted": {
+          "en": "Set Econavi to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panasonic"
+          },
+          {
+            "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
       }
     ]
   },

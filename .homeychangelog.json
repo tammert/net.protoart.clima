@@ -85,5 +85,8 @@
   },
   "0.12.0": {
     "en": "3D Auto for Mitsubishi Heavy, pipe temperature sensor + flow trigger for LG"
+  },
+  "0.12.1": {
+    "en": "Added Panasonic flow cards for the mode toggles"
   }
 }
