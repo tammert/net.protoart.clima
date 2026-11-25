@@ -23,3 +23,21 @@ export function toBoolean(value: unknown): boolean {
 export function boolToOnOff(value: boolean): string {
     return value ? "on" : "off";
 }
+
+// A driver claims a discovered model like `HW_MHI_XY_ATA_WIFI` by its word prefix;
+// MHI must exclude MHI_XY models - they belong to their own driver. Air-to-air (ATA) only.
+const MODEL_CLAIMS: { [brand: string]: { prefix: string; not?: string[] } } = {
+    lg:     { prefix: 'LG_' },
+    me:     { prefix: 'ME_' },
+    mhi:    { prefix: 'MHI_', not: ['MHI_XY_'] },
+    mhi_xy: { prefix: 'MHI_XY_' },
+    pana:   { prefix: 'PANA_' },
+};
+
+export function modelMatchesBrand(brand: string, model: string): boolean {
+    const claim = MODEL_CLAIMS[brand] ?? { prefix: brand.toUpperCase() + '_' };
+    const id = model.replace(/^HW_/, '');
+    return id.startsWith(claim.prefix)
+        && !(claim.not ?? []).some(p => id.startsWith(p))
+        && id.split('_').includes('ATA');
+}
