@@ -1,4 +1,5 @@
 import Homey from 'homey';
+import { modelMatchesBrand } from './utils';
 
 class ClimateControlDriver extends Homey.Driver {
     protected brand!: string
@@ -182,22 +183,7 @@ class ClimateControlDriver extends Homey.Driver {
         });
 
         // return only air-to-air devices matching the brand
-        const brandPrefix = this.brand.toUpperCase();
-        const primaryPattern = new RegExp(`^(?:HW_)?${brandPrefix}_ATA_.*`);
-        const fallbackPattern = new RegExp(`^(?:HW_)?${brandPrefix}_[^_]+_ATA_.*`);
-
-        return devices.filter(device => {
-            const model = device.data.model;
-
-            if (!model) {
-                return false;
-            }
-
-            const matchesPrimaryPattern = primaryPattern.test(model);
-            const matchesFallbackPattern = fallbackPattern.test(model);
-
-            return matchesPrimaryPattern || matchesFallbackPattern;
-        });
+        return devices.filter(device => modelMatchesBrand(this.brand, device.data.model));
     }
 }
 
