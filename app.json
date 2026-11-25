@@ -52,6 +52,9 @@
           },
           {
             "name": "lg_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -105,6 +108,9 @@
           },
           {
             "name": "lg_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -158,6 +164,9 @@
           },
           {
             "name": "lg_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -203,6 +212,29 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature.pipe_mid_changed",
+        "title": {
+          "en": "Pipe middle temperature changed"
+        },
+        "highlight": true,
+        "tokens": [
+          {
+            "name": "measure_temperature.pipe_mid",
+            "title": {
+              "en": "Pipe middle temperature"
+            },
+            "type": "number"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=lg"
           }
         ]
       },
@@ -414,6 +446,9 @@
           },
           {
             "name": "me_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -467,6 +502,9 @@
           },
           {
             "name": "me_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -526,6 +564,9 @@
           },
           {
             "name": "me_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -590,6 +631,9 @@
           },
           {
             "name": "me_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -686,6 +730,9 @@
           },
           {
             "name": "mhi_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -745,6 +792,9 @@
           },
           {
             "name": "mhi_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -798,6 +848,9 @@
           },
           {
             "name": "mhi_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -850,6 +903,9 @@
           },
           {
             "name": "mhi_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -937,6 +993,38 @@
         ]
       },
       {
+        "id": "mhi_auto3d_true",
+        "title": {
+          "en": "3D Auto turned on"
+        },
+        "titleFormatted": {
+          "en": "3D Auto turned on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      },
+      {
+        "id": "mhi_auto3d_false",
+        "title": {
+          "en": "3D Auto turned off"
+        },
+        "titleFormatted": {
+          "en": "3D Auto turned off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      },
+      {
         "id": "mhi_silent_mode_true",
         "title": {
           "en": "Silent mode turned on"
@@ -984,6 +1072,9 @@
           },
           {
             "name": "mhi_xy_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1043,6 +1134,9 @@
           },
           {
             "name": "mhi_xy_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1096,6 +1190,9 @@
           },
           {
             "name": "mhi_xy_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1148,6 +1245,9 @@
           },
           {
             "name": "pana_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1201,6 +1301,9 @@
           },
           {
             "name": "pana_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1260,6 +1363,9 @@
           },
           {
             "name": "pana_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1324,6 +1430,9 @@
           },
           {
             "name": "pana_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1388,6 +1497,9 @@
           },
           {
             "name": "pana_preset",
+            "title": {
+              "en": "Preset"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1462,6 +1574,9 @@
           },
           {
             "name": "lg_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1514,6 +1629,9 @@
           },
           {
             "name": "lg_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1566,6 +1684,9 @@
           },
           {
             "name": "lg_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1726,6 +1847,9 @@
           },
           {
             "name": "me_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1778,6 +1902,9 @@
           },
           {
             "name": "me_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1836,6 +1963,9 @@
           },
           {
             "name": "me_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1900,6 +2030,9 @@
           },
           {
             "name": "me_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -1980,6 +2113,9 @@
           },
           {
             "name": "mhi_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2038,6 +2174,9 @@
           },
           {
             "name": "mhi_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2090,6 +2229,9 @@
           },
           {
             "name": "mhi_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2142,6 +2284,9 @@
           },
           {
             "name": "mhi_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2213,6 +2358,22 @@
         ]
       },
       {
+        "id": "mhi_auto3d_is",
+        "title": {
+          "en": "3D Auto is"
+        },
+        "titleFormatted": {
+          "en": "3D Auto !{{is|is not}} on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          }
+        ]
+      },
+      {
         "id": "mhi_silent_mode_is",
         "title": {
           "en": "Silent mode is"
@@ -2244,6 +2405,9 @@
           },
           {
             "name": "mhi_xy_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2302,6 +2466,9 @@
           },
           {
             "name": "mhi_xy_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2354,6 +2521,9 @@
           },
           {
             "name": "mhi_xy_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2406,6 +2576,9 @@
           },
           {
             "name": "pana_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2458,6 +2631,9 @@
           },
           {
             "name": "pana_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2516,6 +2692,9 @@
           },
           {
             "name": "pana_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2580,6 +2759,9 @@
           },
           {
             "name": "pana_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2644,6 +2826,9 @@
           },
           {
             "name": "pana_preset",
+            "title": {
+              "en": "Preset"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2702,6 +2887,9 @@
           },
           {
             "name": "lg_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2755,6 +2943,9 @@
           },
           {
             "name": "lg_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2808,6 +2999,9 @@
           },
           {
             "name": "lg_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -2872,6 +3066,9 @@
           },
           {
             "name": "remote_temperature",
+            "title": {
+              "en": "Remote temperature"
+            },
             "type": "number"
           }
         ]
@@ -2892,6 +3089,9 @@
           },
           {
             "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
             "type": "checkbox"
           }
         ],
@@ -2913,6 +3113,9 @@
           },
           {
             "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
             "type": "checkbox"
           }
         ],
@@ -2934,6 +3137,9 @@
           },
           {
             "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
             "type": "checkbox"
           }
         ],
@@ -2955,6 +3161,9 @@
           },
           {
             "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
             "type": "checkbox"
           }
         ],
@@ -2976,6 +3185,9 @@
           },
           {
             "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
             "type": "checkbox"
           }
         ],
@@ -3013,6 +3225,9 @@
           },
           {
             "name": "me_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3066,6 +3281,9 @@
           },
           {
             "name": "me_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3125,6 +3343,9 @@
           },
           {
             "name": "me_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3189,6 +3410,9 @@
           },
           {
             "name": "me_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3253,6 +3477,9 @@
           },
           {
             "name": "remote_temperature",
+            "title": {
+              "en": "Remote temperature"
+            },
             "type": "number"
           }
         ]
@@ -3289,6 +3516,9 @@
           },
           {
             "name": "mhi_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3348,6 +3578,9 @@
           },
           {
             "name": "mhi_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3401,6 +3634,9 @@
           },
           {
             "name": "mhi_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3453,6 +3689,9 @@
           },
           {
             "name": "mhi_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3523,9 +3762,36 @@
           },
           {
             "name": "remote_temperature",
+            "title": {
+              "en": "Remote temperature"
+            },
             "type": "number"
           }
         ]
+      },
+      {
+        "id": "mhi_auto3d_set",
+        "title": {
+          "en": "Set 3D Auto"
+        },
+        "titleFormatted": {
+          "en": "Set 3D Auto to [[boolean]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mitsubishi_heavy_industries"
+          },
+          {
+            "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
+            "type": "checkbox"
+          }
+        ],
+        "highlight": true
       },
       {
         "id": "mhi_silent_mode_set",
@@ -3543,6 +3809,9 @@
           },
           {
             "name": "boolean",
+            "title": {
+              "en": "Boolean"
+            },
             "type": "checkbox"
           }
         ],
@@ -3580,6 +3849,9 @@
           },
           {
             "name": "mhi_xy_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3638,6 +3910,9 @@
           },
           {
             "name": "mhi_xy_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3690,6 +3965,9 @@
           },
           {
             "name": "mhi_xy_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3742,6 +4020,9 @@
           },
           {
             "name": "remote_temperature",
+            "title": {
+              "en": "Remote temperature"
+            },
             "type": "number"
           }
         ]
@@ -3778,6 +4059,9 @@
           },
           {
             "name": "pana_operating_mode",
+            "title": {
+              "en": "Operating mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3831,6 +4115,9 @@
           },
           {
             "name": "pana_fan_speed",
+            "title": {
+              "en": "Fan speed"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3890,6 +4177,9 @@
           },
           {
             "name": "pana_vane_mode",
+            "title": {
+              "en": "Vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -3954,6 +4244,9 @@
           },
           {
             "name": "pana_wide_vane_mode",
+            "title": {
+              "en": "Wide vane mode"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -4018,6 +4311,9 @@
           },
           {
             "name": "pana_preset",
+            "title": {
+              "en": "Preset"
+            },
             "type": "dropdown",
             "values": [
               {
@@ -4058,6 +4354,9 @@
           },
           {
             "name": "remote_temperature",
+            "title": {
+              "en": "Remote temperature"
+            },
             "type": "number"
           }
         ]
@@ -4100,6 +4399,7 @@
         "lg_vswing",
         "target_temperature",
         "measure_temperature",
+        "measure_temperature.pipe_mid",
         "measure_battery",
         "measure_humidity"
       ],
@@ -4137,6 +4437,12 @@
           "title": {
             "en": "Temperature inside"
           }
+        },
+        "measure_temperature.pipe_mid": {
+          "title": {
+            "en": "Pipe middle temperature"
+          },
+          "step": 0.1
         }
       },
       "energy": {
@@ -4292,6 +4598,7 @@
         "mhi_wide_vane_mode",
         "mhi_defrost_active",
         "mhi_silent_mode",
+        "mhi_auto3d",
         "mhi_compressor_frequency",
         "mhi_outdoor_fan_speed",
         "target_temperature",
@@ -4383,7 +4690,9 @@
       ]
     },
     {
-      "name": "driver.mitsubishi_heavy_industries_xy.name",
+      "name": {
+        "en": "Mitsubishi Heavy Industries XY air-to-air module"
+      },
       "discovery": "climatecontrol",
       "class": "airconditioning",
       "capabilities": [
@@ -4437,7 +4746,38 @@
           "CR2032"
         ]
       },
-      "id": "mitsubishi_heavy_industries_xy"
+      "id": "mitsubishi_heavy_industries_xy",
+      "settings": [
+        {
+          "id": "polling_interval",
+          "type": "number",
+          "label": {
+            "en": "Polling interval"
+          },
+          "hint": {
+            "en": "Time between data refreshes from ClimateControl module"
+          },
+          "value": 1,
+          "min": 1,
+          "max": 60,
+          "units": {
+            "en": "minutes"
+          }
+        },
+        {
+          "id": "temperature_step_size",
+          "type": "number",
+          "label": {
+            "en": "Temperature step size"
+          },
+          "hint": {
+            "en": "Step size when setting temperature"
+          },
+          "value": 0.5,
+          "min": 0.1,
+          "max": 1
+        }
+      ]
     },
     {
       "name": {
@@ -4949,6 +5289,17 @@
           }
         }
       ]
+    },
+    "mhi_auto3d": {
+      "type": "boolean",
+      "title": {
+        "en": "3D Auto"
+      },
+      "uiComponent": "button",
+      "icon": "/assets/auto3d.svg",
+      "getable": true,
+      "setable": true,
+      "insights": true
     },
     "mhi_compressor_frequency": {
       "type": "number",
