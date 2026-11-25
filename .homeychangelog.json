@@ -88,5 +88,8 @@
   },
   "0.12.1": {
     "en": "Added Panasonic flow cards for the mode toggles"
+  },
+  "0.12.2": {
+    "en": "Fixed: LG pipe middle temperature sensor now works on live firmware"
   }
 }
