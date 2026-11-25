@@ -374,10 +374,11 @@ class ApiClient {
     }
 
     getTemperatureFromStatus(status: any): number {
-        if (status.sensor && status.sensor.thermometer && status.sensor.thermometer.tact) {
+        // != null, not truthiness: a reading of exactly 0 (°C) is valid and must not be skipped
+        if (status.sensor && status.sensor.thermometer && status.sensor.thermometer.tact != null) {
             return status.sensor.thermometer.tact
         }
-        if (status.sensor && status.sensor.external && status.sensor.external.temperature) {
+        if (status.sensor && status.sensor.external && status.sensor.external.temperature != null) {
             return status.sensor.external.temperature
         }
         return status.heatpump.actual_temperature;
