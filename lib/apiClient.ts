@@ -242,6 +242,9 @@ export interface ApiEndpoints {
     restart?: string;
 }
 
+// node-fetch waits forever by default; a dead module at a stale IP must not hang the poll loop
+const REQUEST_TIMEOUT_MS = 5000;
+
 class ApiClient {
     private readonly apiUrl: string;
     private readonly apiEndpoints: ApiEndpoints;
@@ -253,7 +256,7 @@ class ApiClient {
 
     async getStatus<T>(): Promise<T> {
         try {
-            const response = await fetch(this.apiUrl);
+            const response = await fetch(this.apiUrl, { timeout: REQUEST_TIMEOUT_MS });
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -276,7 +279,7 @@ class ApiClient {
             url.searchParams.append('cmd', 'heatpump');
             url.searchParams.append(endpoint, valStr);
 
-            const response = await fetch(url.toString());
+            const response = await fetch(url.toString(), { timeout: REQUEST_TIMEOUT_MS });
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -363,7 +366,7 @@ class ApiClient {
             const url = new URL(this.apiUrl);
             url.searchParams.append('cmd', 'restart');
 
-            const response = await fetch(url.toString());
+            const response = await fetch(url.toString(), { timeout: REQUEST_TIMEOUT_MS });
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
