@@ -246,6 +246,7 @@ export interface ApiEndpoints {
     wide_vane_mode?: string;
     remote_temperature?: string;
     silent_mode?: string;
+    auto3d?: string;
     autodry?: string;
     purifier?: string;
     energy_saving?: string;
@@ -336,6 +337,10 @@ class ApiClient {
 
     async setSilentMode(enabled: boolean): Promise<boolean> {
         return this.setHeatpumpParam('silent_mode', enabled);
+    }
+
+    async setAuto3d(enabled: boolean): Promise<boolean> {
+        return this.setHeatpumpParam('auto3d', enabled);
     }
 
     async setAutodry(enabled: boolean): Promise<boolean> {
