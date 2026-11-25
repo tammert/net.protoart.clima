@@ -82,5 +82,8 @@
   },
   "0.11.1": {
     "en": "fix for some beta ClimateControl units"
+  },
+  "0.12.0": {
+    "en": "3D Auto for Mitsubishi Heavy, pipe temperature sensor + flow trigger for LG"
   }
 }
