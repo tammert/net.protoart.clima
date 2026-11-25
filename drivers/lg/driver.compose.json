@@ -17,6 +17,7 @@
     "lg_vswing",
     "target_temperature",
     "measure_temperature",
+    "measure_temperature.pipe_mid",
     "measure_battery",
     "measure_humidity"
   ],
@@ -52,6 +53,10 @@
     },
     "measure_temperature": {
       "title": {"en": "Temperature inside"}
+    },
+    "measure_temperature.pipe_mid": {
+      "title": {"en": "Pipe middle temperature"},
+      "step": 0.1
     }
   },
   "energy": {

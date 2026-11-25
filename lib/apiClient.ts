@@ -38,6 +38,23 @@ export interface LGHeatPump {
     vane2: string;
     vane3: string;
     dred: number; // days run?
+    // telemetry per json/lg.json (followed for the new pipe_mid sensor until the vendor
+    // answers the op-vs-opdata question; optional so op-era firmware units cannot crash
+    // updateStatus; defrost below still reads `op`)
+    opdata?: {
+        modelou: number; // model outdoor unit
+        modeliu: number; // model indoor unit
+        capacity: number;
+        Tpipein: number; // temperature pipe in
+        Tpipeout: number; // temperature pipe out
+        Tpipemid: number; // temperature pipe middle
+        oilchgw: boolean; // oil change warning
+        defrost: boolean;
+        preheat: boolean;
+        error_code: number;
+        iufanhrsrun: number; // indoor unit fan hours run
+        iuhrsrun: number; // indoor unit hours run
+    },
     op: {
         modelou: number; // model outdoor unit
         modeliu: number; // model indoor unit

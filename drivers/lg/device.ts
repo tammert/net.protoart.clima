@@ -21,7 +21,7 @@ module.exports = class LGDevice extends ClimateControlDevice {
         this.brand = "lg"
         await super.onInit();
         await super.migrateCapabilities(
-            ['lg_autodry', 'lg_purifier', 'lg_energy_saving', 'lg_hswing', 'lg_vswing'],
+            ['lg_autodry', 'lg_purifier', 'lg_energy_saving', 'lg_hswing', 'lg_vswing', 'measure_temperature.pipe_mid'],
             ['lg_wide_vane_mode']
         )
 
@@ -46,6 +46,9 @@ module.exports = class LGDevice extends ClimateControlDevice {
             // brand-specific capabilities
             await this.setCapabilityValue(`${this.brand}_vane_mode`, status.heatpump.vane1);
             await this.setCapabilityValue(`${this.brand}_defrost_active`, toBoolean(status.heatpump.op.defrost));
+            if (status.heatpump.opdata) {
+                await this.setCapabilityValue('measure_temperature.pipe_mid', status.heatpump.opdata.Tpipemid);
+            }
             await this.setCapabilityValue(`${this.brand}_autodry`, toBoolean(status.heatpump.autodry));
             await this.setCapabilityValue(`${this.brand}_purifier`, toBoolean(status.heatpump.purifier));
             await this.setCapabilityValue(`${this.brand}_energy_saving`, toBoolean(status.heatpump.energy_saving));
