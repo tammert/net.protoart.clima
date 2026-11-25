@@ -84,8 +84,8 @@ abstract class ClimateControlDevice extends Homey.Device {
             }
         });
 
-        // wide_vane_mode, not available for LG
-        if (this.brand != 'lg') {
+        // wide_vane_mode only for brands that expose the endpoint (not LG, which has hswing/vswing instead, and not MHI_XY)
+        if (this.apiEndpoints["wide_vane_mode"]) {
             this.registerCapabilityListener(wideVaneModeCapabilityName, async (value: string) => {
                 this.log('wide_vane_mode capability changed to:', value);
 

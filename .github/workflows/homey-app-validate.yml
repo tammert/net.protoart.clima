@@ -13,9 +13,13 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Install dependencies
-        run: npm ci
+        # musl/x64 so the Alpine validate container can use the shared tree (sharp)
+        run: npm ci --os=linux --libc=musl --cpu=x64
+
+      - name: Run tests
+        run: npm test
 
       - name: Homey App Validate
-        uses: athombv/github-action-homey-app-validate@master
+        uses: athombv/github-action-homey-app-validate@0f3b42c15d26aab79d7c48cde4d2805524da910e  # pin 2026-11-25 (was @master)
         with:
-          level: publish
+          level: verified

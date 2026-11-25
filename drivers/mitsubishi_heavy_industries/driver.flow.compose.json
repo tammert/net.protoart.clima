@@ -7,6 +7,7 @@
       "args": [
         {
           "name": "mhi_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -27,6 +28,7 @@
       "args": [
         {
           "name": "mhi_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -46,6 +48,7 @@
       "args": [
         {
           "name": "mhi_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -64,6 +67,7 @@
       "args": [
         {
           "name": "mhi_wide_vane_mode",
+          "title": {"en": "Wide vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -107,6 +111,7 @@
       "args": [
         {
           "name": "mhi_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -126,6 +131,7 @@
       "args": [
         {
           "name": "mhi_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -144,6 +150,7 @@
       "args": [
         {
           "name": "mhi_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -162,6 +169,7 @@
       "args": [
         {
           "name": "mhi_wide_vane_mode",
+          "title": {"en": "Wide vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -195,6 +203,7 @@
       "args": [
         {
           "name": "mhi_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -215,6 +224,7 @@
       "args": [
         {
           "name": "mhi_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -234,6 +244,7 @@
       "args": [
         {
           "name": "mhi_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -252,6 +263,7 @@
       "args": [
         {
           "name": "mhi_wide_vane_mode",
+          "title": {"en": "Wide vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -273,6 +285,7 @@
       "args": [
         {
           "name": "remote_temperature",
+          "title": {"en": "Remote temperature"},
           "type": "number"
         }
       ]
@@ -284,6 +297,7 @@
       "args": [
         {
           "name": "boolean",
+          "title": {"en": "Boolean"},
           "type": "checkbox"
         }
       ],

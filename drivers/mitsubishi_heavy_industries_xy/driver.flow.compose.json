@@ -7,6 +7,7 @@
       "args": [
         {
           "name": "mhi_xy_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -27,6 +28,7 @@
       "args": [
         {
           "name": "mhi_xy_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -46,6 +48,7 @@
       "args": [
         {
           "name": "mhi_xy_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -66,6 +69,7 @@
       "args": [
         {
           "name": "mhi_xy_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -85,6 +89,7 @@
       "args": [
         {
           "name": "mhi_xy_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -103,6 +108,7 @@
       "args": [
         {
           "name": "mhi_xy_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -123,6 +129,7 @@
       "args": [
         {
           "name": "mhi_xy_operating_mode",
+          "title": {"en": "Operating mode"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -142,6 +149,7 @@
       "args": [
         {
           "name": "mhi_xy_fan_speed",
+          "title": {"en": "Fan speed"},
           "type": "dropdown",
           "values": [
             {"id": "auto", "title": {"en": "Auto"}},
@@ -160,6 +168,7 @@
       "args": [
         {
           "name": "mhi_xy_vane_mode",
+          "title": {"en": "Vane mode"},
           "type": "dropdown",
           "values": [
             {"id": "swing", "title": {"en": "Swing"}},
@@ -178,6 +187,7 @@
       "args": [
         {
           "name": "remote_temperature",
+          "title": {"en": "Remote temperature"},
           "type": "number"
         }
       ]
